@@ -291,12 +291,6 @@
 .vcard:hover .vthumb img, .vcard:focus-visible .vthumb img { transform: scale(1.04); }
 .vcard:hover .vthumb::after { background: rgba(4, 12, 24, 0.18); }
 .vcard:hover .play, .vcard:focus-visible .play { transform: translate(-50%, -50%) scale(1); background: var(--accent); }
-.duration {
-  position: absolute; right: 0.5rem; bottom: 0.5rem; z-index: 1;
-  padding: 0.1rem 0.45rem; border-radius: 6px;
-  background: rgba(4, 12, 24, 0.78); color: #fff;
-  font-size: 0.78rem; font-weight: 600; font-variant-numeric: tabular-nums;
-}
 .vtitle { font-weight: 600; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .vmeta { display: flex; gap: 0.8rem; color: var(--text-faint); font-size: 0.86rem; }
 .shorts-grid .vtitle { font-size: 0.9rem; }
