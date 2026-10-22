@@ -1,0 +1,65 @@
+/* ============================================================================
+   pers-ui - templates/site/brutalist.css
+   The 'brutalist' family as a SITE template = its skin (imported) + the family's
+   site-page signature treatments. Load AFTER core/base.css + kits/site.css.
+   ============================================================================ */
+
+@import "../../skins/brutalist.css";
+
+/* chunky type; uppercase section eyebrows */
+h1, h2, h3 { font-weight: 800; letter-spacing: -0.02em; }
+
+.hero-title { font-weight: 800; text-transform: uppercase; letter-spacing: -0.03em; line-height: 0.98; }
+
+.eyebrow { color: var(--text); font-weight: 700; }
+
+.eyebrow::before { content: "▍ "; color: var(--accent); }
+
+/* everything is bordered + hard-shadowed */
+.card { border: 2px solid var(--border-strong); box-shadow: var(--shadow); }
+
+.card:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow-lg); }
+
+.btn { border: 2px solid var(--border-strong); box-shadow: var(--shadow); font-weight: 700; }
+
+.btn:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow-lg); }
+
+.btn:active { transform: translate(0, 0); box-shadow: 2px 2px 0 var(--border-strong); }
+
+.btn-ghost { background: var(--surface); color: var(--text); }
+
+/* squared, bordered tags + accent-filled badge */
+.tag { border: 1.5px solid var(--border-strong); background: var(--surface); font-family: var(--font-mono); font-weight: 600; }
+
+.badge { background: var(--accent); color: var(--accent-contrast); border: 2px solid var(--border-strong); font-weight: 700; }
+
+/* avatar as a bordered square block */
+.avatar {
+  border: 2px solid var(--border-strong); border-radius: 0;
+  background: var(--accent); color: var(--accent-contrast);
+  box-shadow: var(--shadow-lg); aspect-ratio: 1;
+}
+
+/* hard-edged inputs, code, quote, alert, table */
+.field input, .field textarea { border: 2px solid var(--border-strong); background: var(--surface); }
+
+.field input:focus, .field textarea:focus { box-shadow: var(--shadow); }
+
+pre { border: 2px solid var(--border-strong); background: var(--surface); }
+
+blockquote { border: 2px solid var(--border-strong); border-left-width: 6px; padding: 1rem 1.2rem; background: var(--surface); font-style: normal; }
+
+.alert { border: 2px solid var(--border-strong); border-left-width: 6px; background: var(--accent-soft); }
+
+table { border: 2px solid var(--border-strong); }
+
+th, td { border-bottom: 2px solid var(--border-strong); }
+
+thead th { background: var(--accent); color: var(--accent-contrast); }
+
+/* sticky header gets a hard bottom rule */
+.site-header { border-bottom: 2px solid var(--border-strong); backdrop-filter: none; background: var(--bg); }
+
+.control, .template-switch select { border: 2px solid var(--border-strong); border-radius: 0; }
+
+.control button.active { background: var(--accent); color: var(--accent-contrast); }

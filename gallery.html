@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="cs" data-theme="auto"
+      data-title-en="Gallery - Electric Van Fam"
+      data-title-cs="Galerie - Electric Van Fam">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="canonical" href="https://electricvanfam.com/gallery.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Galerie - Electric Van Fam</title>
+    <meta name="description" content="Photos from the road and from the Kia PV5 camper build: campsites, campervan events and electric road trips across Europe, from the Electric Van Fam Instagram." />
+    <meta property="og:title" content="Gallery - Electric Van Fam" />
+    <meta property="og:description" content="Moments from the road and from the Kia PV5 camper build, from our Instagram." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon-180.png" />
+
+    <!-- Resolve the theme BEFORE first paint; `preload` stops the first paint from animating.
+         ?theme=light|dark|auto, ?lang=en|cs and ?template=<family> deep-link a state. -->
+    <script>
+      (function () {
+        var d = document.documentElement;
+        d.classList.add("js", "preload");
+        var q = new URLSearchParams(location.search);
+        var ls = function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } };
+        d.setAttribute("data-theme", q.get("theme") || ls("pers-ui-theme") || "light");
+        // Czech is the default language; ?lang=en or a stored choice gives English.
+        var lang = q.get("lang") || ls("pers-ui-lang") || "cs";
+        lang = lang === "en" ? "en" : "cs";
+        d.setAttribute("data-lang", lang);
+        d.lang = lang;
+        var tpl = q.get("template");
+        if (tpl && /^(jdsign|aurora|bento|brutalist|devdark|scholarly)$/.test(tpl)) d.setAttribute("data-template", tpl);
+      })();
+    </script>
+    <link rel="stylesheet" href="fonts/fonts.css" />
+    <link rel="stylesheet" href="core/base.css" />
+    <link rel="stylesheet" href="kits/site.css" />
+    <!-- The design family, jdsign (its accent matches the channel's brand blue): one template stylesheet, which imports its skin. -->
+    <link id="template-css" rel="stylesheet" href="templates/site/jdsign.css" />
+    <script>
+      (function () {
+        var t = document.documentElement.getAttribute("data-template");
+        if (t) document.getElementById("template-css").href = "templates/site/" + t + ".css";
+      })();
+    </script>
+    <link rel="stylesheet" href="assets/site.css" />
+  </head>
+  <body>
+    <!-- ===== chrome:icons (identical on every page) ===== -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <symbol id="i-youtube" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M23.1 7.2a3 3 0 0 0-2.1-2.1C19.1 4.6 12 4.6 12 4.6s-7.1 0-9 .5A3 3 0 0 0 .9 7.2 31 31 0 0 0 .4 12c0 1.6.2 3.2.5 4.8A3 3 0 0 0 3 18.9c1.9.5 9 .5 9 .5s7.1 0 9-.5a3 3 0 0 0 2.1-2.1c.3-1.6.5-3.2.5-4.8s-.2-3.2-.5-4.8zM9.7 15.1V8.9l5.9 3.1-5.9 3.1z"/></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4"/><circle cx="12" cy="12" r="4.4"/></g><circle cx="17.6" cy="6.4" r="1.25" fill="currentColor"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4.5v15l13-7.5z"/></symbol>
+      <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 1.5 3.8 13.6h6.6l-1.6 8.9 10-12.6h-6.7z"/></symbol>
+      <symbol id="i-zoom" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6"/></g></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></g></symbol>
+    </svg>
+    <!-- ===== /chrome:icons ===== -->
+
+    <!-- ===== chrome:header (identical on every page except aria-current) ===== -->
+    <a class="skip-link" href="#main"><span class="lang-en">Skip to content</span><span class="lang-cs">Přejít na obsah</span></a>
+    <header class="site-header">
+      <div class="container header-top">
+        <a class="brand" href="index.html">
+          <img class="brand-badge" src="assets/img/logo-256.webp" width="64" height="64" alt="" />
+          <span class="brand-word"><span class="brand-top">Electric</span> <span class="brand-bottom">Van Fam</span></span>
+        </a>
+        <div class="header-controls">
+          <div id="lang-mount"></div>
+          <div id="theme-mount"></div>
+        </div>
+      </div>
+      <div class="container header-nav-row">
+        <span class="social-slot left">
+          <a class="icon-link" href="https://youtube.com/@electricvanfam?si=Grp4nOMV1Lf5DhQu" target="_blank" rel="noopener"
+             aria-label="Electric Van Fam on YouTube" data-aria-label-en="Electric Van Fam on YouTube" data-aria-label-cs="Electric Van Fam na YouTube"
+             title="YouTube"><svg aria-hidden="true"><use href="#i-youtube"/></svg></a>
+        </span>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+          <svg class="i-open" aria-hidden="true"><use href="#i-menu"/></svg>
+          <svg class="i-close" aria-hidden="true"><use href="#i-x"/></svg>
+        </button>
+        <nav class="site-nav" id="site-menu" aria-label="Main" data-aria-label-en="Main" data-aria-label-cs="Hlavní">
+          <ul>
+            <li class="has-sub"><a href="videos.html"><span class="lang-en">Videos</span><span class="lang-cs">Videa</span></a>
+              <ul class="sub">
+                <li><a href="videos.html#episodes"><span class="lang-en">Episodes</span><span class="lang-cs">Díly</span></a></li>
+                <li><a href="videos.html#shorts"><span class="lang-en">Shorts</span><span class="lang-cs">Shorts</span></a></li>
+                <li><a href="videos.html#playlists"><span class="lang-en">Playlists</span><span class="lang-cs">Playlisty</span></a></li>
+              </ul>
+            </li>
+            <li class="has-sub"><a href="van.html"><span class="lang-en">Our van</span><span class="lang-cs">Naše dodávka</span></a>
+              <ul class="sub">
+                <li><a href="van.html#build"><span class="lang-en">The build</span><span class="lang-cs">Přestavba</span></a></li>
+                <li><a href="van.html#gear"><span class="lang-en">Gear &amp; partners</span><span class="lang-cs">Vybavení a partneři</span></a></li>
+                <li><a href="van.html#faq"><span class="lang-en">Questions</span><span class="lang-cs">Otázky</span></a></li>
+              </ul>
+            </li>
+            <li><a href="gallery.html" aria-current="page"><span class="lang-en">Gallery</span><span class="lang-cs">Galerie</span></a></li>
+            <li><a href="about.html"><span class="lang-en">About us</span><span class="lang-cs">O nás</span></a></li>
+            <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-cs">Kontakt</span></a></li>
+          </ul>
+        </nav>
+        <span class="social-slot right">
+          <a class="icon-link" href="https://instagram.com/electric.van.fam?xtok=amt4czhjMHRxbmlt" target="_blank" rel="noopener"
+             aria-label="Electric Van Fam on Instagram" data-aria-label-en="Electric Van Fam on Instagram" data-aria-label-cs="Electric Van Fam na Instagramu"
+             title="Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
+        </span>
+      </div>
+    </header>
+    <!-- ===== /chrome:header ===== -->
+
+    <main id="main">
+      <!-- ================= TITLE BAND ================= -->
+      <section class="title-band center" aria-labelledby="page-title">
+        <div class="container">
+          <h1 id="page-title"><span class="lang-en">Gallery</span><span class="lang-cs">Galerie</span></h1>
+          <p class="lang-en">Moments from the road, from our Instagram.</p>
+          <p class="lang-cs">Chvíle z cest, z našeho Instagramu.</p>
+        </div>
+      </section>
+
+      <!-- ================= PHOTO GRID ================= -->
+      <section class="section gallery-section" aria-label="Photos" data-aria-label-en="Photos" data-aria-label-cs="Fotky">
+        <div class="container">
+          <p class="gallery-hint lang-en">Press a photo to see it larger. Use the arrow keys or swipe to move between photos.</p>
+          <p class="gallery-hint lang-cs">Kliknutím fotku zvětšíte. Mezi fotkami se posunete šipkami nebo přejetím prstu.</p>
+          <div class="photo-grid" data-lb-group="gallery" data-paginate="8">
+            <!-- content:gallery:begin -->
+            <a href="assets/img/ig/DeR2GZbIcfv-1600.webp" data-lb="photo" data-source="https://www.instagram.com/p/DeR2GZbIcfv/"
+               data-caption-en="POV: You let your husband pack the campervan… BIG MISTAKE! 😂🚐">
+              <img src="assets/img/ig/DeR2GZbIcfv-800.webp" width="451" height="800" loading="lazy" alt="Video cover: a woman holding a baby and a man at the van’s open tailgate, text “WARNING! Don’t let your husband pack for camping”."
+                   data-alt-en="Video cover: a woman holding a baby and a man at the van’s open tailgate, text “WARNING! Don’t let your husband pack for camping”." data-alt-cs="Obálka videa: žena s miminkem a muž u otevřených zadních dveří dodávky, text „WARNING! Don’t let your husband pack for camping“." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="assets/img/ig/DeRQ5UZCHlh-1600.webp" data-lb="photo" data-source="https://www.instagram.com/p/DeRQ5UZCHlh/"
+               data-caption-en="A weekend full of campervans and great people. We took our Kia PV5 to Vanmeet 1.5 and had an amazing time. 🙌">
+              <img src="assets/img/ig/DeRQ5UZCHlh-800.webp" width="800" height="600" loading="lazy" alt="The grey camper van parked on a sunny lawn behind large rust-coloured letters spelling “vanmeet”."
+                   data-alt-en="The grey camper van parked on a sunny lawn behind large rust-coloured letters spelling “vanmeet”." data-alt-cs="Šedá obytná dodávka zaparkovaná na slunném trávníku za velkými rezavými písmeny „vanmeet“." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="assets/img/ig/DeJIttWCNnB-1600.webp" data-lb="photo" data-source="https://www.instagram.com/p/DeJIttWCNnB/"
+               data-caption-en="Looking back at the great week we spent in @marinadivenezia 🇮🇹">
+              <img src="assets/img/ig/DeJIttWCNnB-800.webp" width="800" height="600" loading="lazy" alt="The camper van at dusk on a campsite pitch, with a pram, a camping table and chairs on a mat beside it."
+                   data-alt-en="The camper van at dusk on a campsite pitch, with a pram, a camping table and chairs on a mat beside it." data-alt-cs="Obytná dodávka za soumraku v kempu, vedle ní kočárek, kempinkový stolek a židle na koberci." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="assets/img/ig/Dd1WbixhQ8x-1600.webp" data-lb="photo" data-source="https://www.instagram.com/p/Dd1WbixhQ8x/"
+               data-caption-en="CAMPERS ON AN OFF-ROAD TRACK?! 😳🔥">
+              <img src="assets/img/ig/Dd1WbixhQ8x-800.webp" width="450" height="800" loading="lazy" alt="Drone view of a black camper van driving down a dusty off-road track past green bushes."
+                   data-alt-en="Drone view of a black camper van driving down a dusty off-road track past green bushes." data-alt-cs="Pohled z dronu na černou obytnou dodávku, která sjíždí prašnou terénní dráhu kolem zelených keřů." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="assets/img/ig/DdwH0g2IzU_-1600.webp" data-lb="photo" data-source="https://www.instagram.com/p/DdwH0g2IzU_/"
+               data-caption-en="🔥 40+ MOTORHOMES ON A RACE TRACK?! 🏁🚐">
+              <img src="assets/img/ig/DdwH0g2IzU_-800.webp" width="450" height="800" loading="lazy" alt="Video cover: drone view of motorhomes and caravans driving on a race track, text “40 + MOTORHOMES ON A RACE TRACK ?!?”."
+                   data-alt-en="Video cover: drone view of motorhomes and caravans driving on a race track, text “40 + MOTORHOMES ON A RACE TRACK ?!?”." data-alt-cs="Obálka videa: pohled z dronu na obytné vozy a karavany na závodním okruhu, text „40 + MOTORHOMES ON A RACE TRACK ?!?“." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="assets/img/ig/DdrrLQiCNfX-1600.webp" data-lb="photo" data-source="https://www.instagram.com/p/DdrrLQiCNfX/"
+               data-caption-en="🏁 Kia PV5 Camper at Slovakia Ring! 🚐⚡">
+              <img src="assets/img/ig/DdrrLQiCNfX-800.webp" width="800" height="779" loading="lazy" alt="Drone view of the grey camper van driving ahead of a large white motorhome on a race track."
+                   data-alt-en="Drone view of the grey camper van driving ahead of a large white motorhome on a race track." data-alt-cs="Pohled z dronu na šedou obytnou dodávku, která jede na závodním okruhu před velkým bílým obytným vozem." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="assets/img/ig/DdQt1WuoeAk-1600.webp" data-lb="photo" data-source="https://www.instagram.com/p/DdQt1WuoeAk/"
+               data-caption-en="🚐⚡ Our Kia PV5 Camper at Elektro Sraz / EV Meet-Up! 2026">
+              <img src="assets/img/ig/DdQt1WuoeAk-800.webp" width="451" height="800" loading="lazy" alt="The grey camper van with its pop-top roof raised and side door open, parked among pine trees at a meet-up."
+                   data-alt-en="The grey camper van with its pop-top roof raised and side door open, parked among pine trees at a meet-up." data-alt-cs="Šedá obytná dodávka se zvednutou výklopnou střechou a otevřenými bočními dveřmi, zaparkovaná mezi borovicemi na srazu." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="assets/img/ig/DdPMs1oCEB_-1600.webp" data-lb="photo" data-source="https://www.instagram.com/p/DdPMs1oCEB_/"
+               data-caption-en="New look for our PV5 Camper 🤩 It was already turning heads, but now it’s on another level! 😅">
+              <img src="assets/img/ig/DdPMs1oCEB_-800.webp" width="800" height="606" loading="lazy" alt="The grey van with its new black bonnet wrap, Electric Van Fam logo and “Follow us on YouTube” decal, charging on a driveway."
+                   data-alt-en="The grey van with its new black bonnet wrap, Electric Van Fam logo and “Follow us on YouTube” decal, charging on a driveway." data-alt-cs="Šedá dodávka s novým černým polepem kapoty, logem Electric Van Fam a nápisem „Follow us on YouTube“ se nabíjí na příjezdové cestě." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="assets/img/ig/DdI79ecoVhF-1600.webp" data-lb="photo" data-source="https://www.instagram.com/p/DdI79ecoVhF/"
+               data-caption-en="🚐 NEW GEAR + NEW LOOK FOR KIA PV5! ⚡️">
+              <img src="assets/img/ig/DdI79ecoVhF-800.webp" width="451" height="800" loading="lazy" alt="Inside the van: patterned seat-back organizer bags with the Electric Van Fam logo on both front seats, a fridge between them."
+                   data-alt-en="Inside the van: patterned seat-back organizer bags with the Electric Van Fam logo on both front seats, a fridge between them." data-alt-cs="Interiér dodávky: vzorované organizéry s logem Electric Van Fam na opěradlech obou předních sedadel, mezi nimi chladnička." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="assets/img/ig/DdBim1QMpGI-1600.webp" data-lb="photo" data-source="https://www.instagram.com/p/DdBim1QMpGI/"
+               data-caption-en="🔥 We’ve got the All-in-Van seat-back organizers for our Kia PV5 camper!">
+              <img src="assets/img/ig/DdBim1QMpGI-800.webp" width="451" height="800" loading="lazy" alt="Video cover: a smiling man holding a blue crutch gives a thumbs-up at the open van door, text “WE LOVE IT!”."
+                   data-alt-en="Video cover: a smiling man holding a blue crutch gives a thumbs-up at the open van door, text “WE LOVE IT!”." data-alt-cs="Obálka videa: usměvavý muž s modrou berlí ukazuje palec nahoru u otevřených dveří dodávky, text „WE LOVE IT!“." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="assets/img/ig/Dc3Jwx6IkRu-1600.webp" data-lb="photo" data-source="https://www.instagram.com/p/Dc3Jwx6IkRu/"
+               data-caption-en="💰 Let’s talk money! How much does it REALLY cost to turn a Kia PV5 electric van into a camper? 🚐⚡">
+              <img src="assets/img/ig/Dc3Jwx6IkRu-800.webp" width="450" height="800" loading="lazy" alt="Video cover: photos of the camper and its interior, text “LET’S TALK MONEY! HOW MUCH DOES IT REALLY COST TO TURN A KIA PV5 ELECTRIC VAN INTO A CAMPER?”"
+                   data-alt-en="Video cover: photos of the camper and its interior, text “LET’S TALK MONEY! HOW MUCH DOES IT REALLY COST TO TURN A KIA PV5 ELECTRIC VAN INTO A CAMPER?”" data-alt-cs="Obálka videa: fotky obytné dodávky a jejího interiéru, text „LET’S TALK MONEY! HOW MUCH DOES IT REALLY COST TO TURN A KIA PV5 ELECTRIC VAN INTO A CAMPER?“" />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="assets/img/ig/DcqqMuDIX1k-1600.webp" data-lb="photo" data-source="https://www.instagram.com/p/DcqqMuDIX1k/"
+               data-caption-en="I Ended Up in Hospital… 😱🩼">
+              <img src="assets/img/ig/DcqqMuDIX1k-800.webp" width="451" height="800" loading="lazy" alt="Video cover: a hospital emergency entrance seen through a car windscreen, text “WE HAD SO MANY PLANS FOR THE NEXT WEEKS…”."
+                   data-alt-en="Video cover: a hospital emergency entrance seen through a car windscreen, text “WE HAD SO MANY PLANS FOR THE NEXT WEEKS…”." data-alt-cs="Obálka videa: vchod na urgentní příjem nemocnice viděný přes čelní sklo auta, text „WE HAD SO MANY PLANS FOR THE NEXT WEEKS…“." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="assets/img/ig/DclP0nTtieL-1600.webp" data-lb="photo" data-source="https://www.instagram.com/p/DclP0nTtieL/"
+               data-caption-en="🇬🇧 KIA PV5 MEET-UP IN THE UK?! 🇬🇧🚐⚡">
+              <img src="assets/img/ig/DclP0nTtieL-800.webp" width="450" height="800" loading="lazy" alt="A bearded man in a cap and sunglasses points across the grey van in a car park under a cloudy sky."
+                   data-alt-en="A bearded man in a cap and sunglasses points across the grey van in a car park under a cloudy sky." data-alt-cs="Vousatý muž v kšiltovce se slunečními brýlemi ukazuje přes šedou dodávku na parkovišti pod zataženou oblohou." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="assets/img/ig/DcWqdxhiGaR-1600.webp" data-lb="photo" data-source="https://www.instagram.com/p/DcWqdxhiGaR/"
+               data-caption-en="Short meetup with Leigh from @combe_valley_campers in 🇨🇿 🙌">
+              <img src="assets/img/ig/DcWqdxhiGaR-800.webp" width="800" height="600" loading="lazy" alt="Two smiling men take a selfie in a car park in front of the grey camper van and a dark camper with a roof rack."
+                   data-alt-en="Two smiling men take a selfie in a car park in front of the grey camper van and a dark camper with a roof rack." data-alt-cs="Dva usměvaví muži si dělají selfie na parkovišti před šedou obytnou dodávkou a tmavým obytňákem se střešním nosičem." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="assets/img/ig/DcMJhTcoElv-1600.webp" data-lb="photo" data-source="https://www.instagram.com/p/DcMJhTcoElv/"
+               data-caption-en="How far can you go with 0% battery? 😳">
+              <img src="assets/img/ig/DcMJhTcoElv-800.webp" width="451" height="800" loading="lazy" alt="Video cover: close-up of the dashboard display showing an empty battery, text “0%”."
+                   data-alt-en="Video cover: close-up of the dashboard display showing an empty battery, text “0%”." data-alt-cs="Obálka videa: detail displeje na palubní desce s prázdnou baterií, text „0%“." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="assets/img/ig/DbA-YftIXgI-1600.webp" data-lb="photo" data-source="https://www.instagram.com/p/DbA-YftIXgI/"
+               data-caption-en="🚐⚡😱 They actually cut a HUGE hole in the roof of our brand-new Kia PV5! ✂️🇬🇧">
+              <img src="assets/img/ig/DbA-YftIXgI-800.webp" width="451" height="800" loading="lazy" alt="In a workshop, a man stands with raised arms in a large hole cut in the van’s roof, the interior covered in orange sheeting."
+                   data-alt-en="In a workshop, a man stands with raised arms in a large hole cut in the van’s roof, the interior covered in orange sheeting." data-alt-cs="V dílně stojí muž se zdviženýma rukama ve velkém otvoru vyříznutém ve střeše dodávky, interiér je zakrytý oranžovou fólií." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="assets/img/ig/DbA2BIWIH_c-1600.webp" data-lb="photo" data-source="https://www.instagram.com/p/DbA2BIWIH_c/"
+               data-caption-en="🚐⚡😱 They actually cut a HUGE hole in the roof of our brand-new Kia PV5! ✂️🇬🇧">
+              <img src="assets/img/ig/DbA2BIWIH_c-800.webp" width="800" height="600" loading="lazy" alt="Wide view of a workshop: a man with raised arms stands in the hole cut in the van’s roof, other campers outside the open door."
+                   data-alt-en="Wide view of a workshop: a man with raised arms stands in the hole cut in the van’s roof, other campers outside the open door." data-alt-cs="Celkový pohled do dílny: muž se zdviženýma rukama stojí v otvoru ve střeše dodávky, venku za otevřenými vraty další obytňáky." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="assets/img/ig/Da3INHXxLCt-1600.webp" data-lb="photo" data-source="https://www.instagram.com/p/Da3INHXxLCt/"
+               data-caption-en="The size looks intimidating… until you drive one. 😉🚐">
+              <img src="assets/img/ig/Da3INHXxLCt-800.webp" width="451" height="800" loading="lazy" alt="Video cover: a woman talks to the camera from the driver’s seat, text “Hi guys, Electric Van Fam” and “POV: Girls can park vans too”."
+                   data-alt-en="Video cover: a woman talks to the camera from the driver’s seat, text “Hi guys, Electric Van Fam” and “POV: Girls can park vans too”." data-alt-cs="Obálka videa: žena mluví do kamery ze sedadla řidiče, text „Hi guys, Electric Van Fam“ a „POV: Girls can park vans too“." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="assets/img/ig/Da2BRIKNQSg-1600.webp" data-lb="photo" data-source="https://www.instagram.com/p/Da2BRIKNQSg/"
+               data-caption-en="Charging test at our local @ionity 🇨🇿 before roadtrip to @skyline_roofs and @campal_campervan_conversion 🇬🇧 💪">
+              <img src="assets/img/ig/Da2BRIKNQSg-800.webp" width="800" height="498" loading="lazy" alt="The grey van plugged in at a fast-charging station on a sunny day."
+                   data-alt-en="The grey van plugged in at a fast-charging station on a sunny day." data-alt-cs="Šedá dodávka připojená k rychlonabíjecí stanici za slunečného dne." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="assets/img/ig/Da0eL6kN-yy-1600.webp" data-lb="photo" data-source="https://www.instagram.com/p/Da0eL6kN-yy/"
+               data-caption-en="Looking for more storage in your Kia PV5? 👀">
+              <img src="assets/img/ig/Da0eL6kN-yy-800.webp" width="450" height="800" loading="lazy" alt="Patterned organizer bags with mesh pockets fitted over a rear side window inside the van."
+                   data-alt-en="Patterned organizer bags with mesh pockets fitted over a rear side window inside the van." data-alt-cs="Vzorované organizéry se síťovými kapsami upevněné na zadním bočním okně uvnitř dodávky." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="assets/img/ig/DadIzxBqq5b-1600.webp" data-lb="photo" data-source="https://www.instagram.com/p/DadIzxBqq5b/"
+               data-caption-en="⚡ PV5 is in the shop… Time for the EV2!">
+              <img src="assets/img/ig/DadIzxBqq5b-800.webp" width="450" height="800" loading="lazy" alt="Top-down drone view of a small beige car with black roof rails parked on grey asphalt."
+                   data-alt-en="Top-down drone view of a small beige car with black roof rails parked on grey asphalt." data-alt-cs="Pohled z dronu shora na malé béžové auto s černými střešními lištami zaparkované na šedém asfaltu." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="assets/img/ig/DaQmrmQo1KY-1600.webp" data-lb="photo" data-source="https://www.instagram.com/p/DaQmrmQo1KY/"
+               data-caption-en="We found the perfect fridge for our Kia PV5 Passenger Elite… but not before scratching our brand-new van! 😭">
+              <img src="assets/img/ig/DaQmrmQo1KY-800.webp" width="450" height="800" loading="lazy" alt="A man lifts a grey portable fridge into the van through the side door, past a child-seat base on the rear seat."
+                   data-alt-en="A man lifts a grey portable fridge into the van through the side door, past a child-seat base on the rear seat." data-alt-cs="Muž zvedá šedou přenosnou chladničku do dodávky bočními dveřmi, na zadním sedadle je základna dětské autosedačky." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="assets/img/ig/DaIxzboxQuj-1600.webp" data-lb="photo" data-source="https://www.instagram.com/p/DaIxzboxQuj/"
+               data-caption-en="🚐⚡️Stock? Not for us. Day 1️⃣ mods.">
+              <img src="assets/img/ig/DaIxzboxQuj-800.webp" width="750" height="750" loading="lazy" alt="Close-up from above of the van’s front end and glossy dark bonnet, parked in a car park."
+                   data-alt-en="Close-up from above of the van’s front end and glossy dark bonnet, parked in a car park." data-alt-cs="Detail přídě dodávky a lesklé tmavé kapoty shora, zaparkované na parkovišti." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="assets/img/ig/DaFQ-XdI2Lt-1600.webp" data-lb="photo" data-source="https://www.instagram.com/p/DaFQ-XdI2Lt/"
+               data-caption-en="🚐😅 Sorry Kia… we changed it already.">
+              <img src="assets/img/ig/DaFQ-XdI2Lt-800.webp" width="800" height="600" loading="lazy" alt="The grey van with a black bonnet parked in an empty car park in front of a glass-fronted building."
+                   data-alt-en="The grey van with a black bonnet parked in an empty car park in front of a glass-fronted building." data-alt-cs="Šedá dodávka s černou kapotou zaparkovaná na prázdném parkovišti před budovou s proskleným průčelím." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <!-- content:gallery:end -->
+          </div>
+          <div class="section-actions">
+            <a class="btn btn-ghost" href="https://instagram.com/electric.van.fam?xtok=amt4czhjMHRxbmlt" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-instagram"/></svg><span class="lang-en">More on Instagram</span><span class="lang-cs">Další na Instagramu</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= GIANT TAGLINE ================= -->
+      <div class="tagline-giant" aria-hidden="true"><p>Electric • Family • Adventures</p></div>
+    </main>
+
+    <!-- ===== chrome:footer (identical on every page) ===== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-cols">
+          <ul class="footer-nav">
+            <li><a href="videos.html"><span class="lang-en">Videos</span><span class="lang-cs">Videa</span></a></li>
+            <li><a href="van.html"><span class="lang-en">Our van</span><span class="lang-cs">Naše dodávka</span></a></li>
+            <li><a href="gallery.html"><span class="lang-en">Gallery</span><span class="lang-cs">Galerie</span></a></li>
+            <li><a href="about.html"><span class="lang-en">About us</span><span class="lang-cs">O nás</span></a></li>
+            <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-cs">Kontakt</span></a></li>
+          </ul>
+          <div class="footer-logo"><img src="assets/img/logo-256.webp" width="104" height="104" loading="lazy" alt="Electric Van Fam" /></div>
+          <div class="footer-contact">
+            <div class="socials">
+              <a class="icon-link" href="https://youtube.com/@electricvanfam?si=Grp4nOMV1Lf5DhQu" target="_blank" rel="noopener" aria-label="YouTube"><svg aria-hidden="true"><use href="#i-youtube"/></svg></a>
+              <a class="icon-link" href="https://instagram.com/electric.van.fam?xtok=amt4czhjMHRxbmlt" target="_blank" rel="noopener" aria-label="Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
+            </div>
+            <!-- TODO(owner): the family's public e-mail address -->
+            <span class="todo"><span class="lang-en">e-mail address</span><span class="lang-cs">e-mailová adresa</span></span>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 Electric Van Fam</p>
+          <p class="lang-en">This site sets no cookies. Videos load from YouTube only when you press play.</p>
+          <p class="lang-cs">Tento web nepoužívá cookies. Videa se z YouTube načtou až po kliknutí na přehrát.</p>
+        </div>
+      </div>
+    </footer>
+    <!-- ===== /chrome:footer ===== -->
+
+    <script src="core/theme.js"></script>
+    <script src="core/lang.js"></script>
+    <script src="assets/site.js"></script>
+  </body>
+</html>

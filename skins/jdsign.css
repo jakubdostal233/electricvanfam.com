@@ -1,0 +1,354 @@
+/* ==========================================================================
+   jdsign - pers-ui skin (colour, surface, text, accent, type, shape, depth, motion, state)
+
+   GENERATED FILE - DO NOT HAND-EDIT. Your changes will be overwritten.
+
+   Source repo:   jakubdostal233/design-system
+   Source path:   jdsign/tokens/jdsign.json
+   Source commit: 215a347c809894b3710b8883a5851dff6e66aaed
+   Generator:     jdsign/tools/generate.py
+   Spec:          jdsign/SPEC.md
+   Version:       0.1.0   Generated: 2026-10-02
+
+   To change a value: edit the token source in the repo above, then re-run the
+   generator. Editing this file directly puts it out of sync with every other
+   artefact built from the same source.
+   pers-ui-skin: personal | jdsign | Jakub's own design language - layered elevation, one blue accent at hue 255, Inter.
+   ========================================================================== */
+
+:root {
+  /* Surface ramp - this carries depth; there is no extrusion anywhere */
+  --bg: #e1e7ee;
+  --surface: #ecf2f9;
+  --surface-2: #f5f9ff;
+  --surface-3: #ffffff;
+  --surface-4: #d3d9e0;
+
+  /* Line - --rule is the one a kit may DEPEND on being visible */
+  --border: #cdd9e8;
+  --border-strong: #677c97;
+  --rule: #677c97;
+
+  /* Text */
+  --text: #000000;
+  --text-muted: #3f536d;
+  --text-faint: #49607e;
+
+  /* Accent - two tokens because the light and dark legible ranges are disjoint */
+  --accent: #005db7;
+  --accent-bg: #005db7;
+  --accent-fg: #ffffff;
+  --accent-2: #00888e;
+  --accent-contrast: #ffffff;
+  --accent-soft: #d9eaff;
+  --ring: #005db7;
+
+  /* State roles - new to the contract; states never signalled by softening */
+  --focus: #005db7;
+  --hover: #f5f9ff;
+  --selected: #d9eaff;
+  --disabled: #49607e;
+  --error: #bf001e;
+  --warning: #865400;
+  --success: #006e30;
+
+  /* Categorical - Okabe-Ito, colour-vision-safe, blue deferred to third series. */
+  /* --cat-N is the LINE colour, held to 3:1 on every ramp step by
+     varying lightness only - hue and chroma are kept, so the
+     hue relationships carrying the palette's CVD validation survive.
+     --cat-N-fill is the exact Okabe-Ito value, for filled areas. */
+  --cat-1: #a37000;
+  --cat-1-fill: #e69f00;
+  --cat-1-text: #0a0e12;
+  --cat-2: #006548;
+  --cat-2-fill: #009e73;
+  --cat-2-text: #0a0e12;
+  --cat-3: #944774;
+  --cat-3-fill: #cc79a7;
+  --cat-3-text: #0a0e12;
+  --cat-4: #8a3a00;
+  --cat-4-fill: #d55e00;
+  --cat-4-text: #0a0e12;
+
+  /* Shape */
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  /* Depth - one soft shadow per level, and a surface must read as raised without it */
+  --shadow: 0 1px 2px rgba(8,12,20,0.06), 0 2px 8px rgba(8,12,20,0.05);
+  --shadow-lg: 0 4px 12px rgba(8,12,20,0.10), 0 12px 32px rgba(8,12,20,0.09);
+  --hairline: 1px;
+
+  /* Type */
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --text-2xs: 0.7rem;
+  --text-xs: 0.8rem;
+  --text-sm: 0.9rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.563rem;
+  --text-2xl: 1.953rem;
+  --text-3xl: 2.441rem;
+  --leading-tight: 1.25;
+  --leading-body: 1.6;
+  --leading-loose: 1.8;
+
+  /* Space - every adjacent pair in 2:3 relation (4:6, 8:12, 16:24, 32:48) */
+  --space-3xs: 2px;
+  --space-2xs: 4px;
+  --space-xs: 6px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+  --space-3xl: 48px;
+
+  /* Motion - new to the contract; prefers-reduced-motion is honoured in the kit */
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 320ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-decelerate: cubic-bezier(0, 0, 0, 1);
+  --ease-accelerate: cubic-bezier(0.3, 0, 1, 1);
+
+  /* Metrics */
+  --maxw: 1120px;
+  --section-pad: clamp(2.8rem, 7vw, 5rem);
+
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  /* Surface ramp - this carries depth; there is no extrusion anywhere */
+  --bg: #0f1318;
+  --surface: #1a1e23;
+  --surface-2: #24292e;
+  --surface-3: #2f343a;
+  --surface-4: #080b10;
+
+  /* Line - --rule is the one a kit may DEPEND on being visible */
+  --border: #303944;
+  --border-strong: #697e99;
+  --rule: #697e99;
+
+  /* Text */
+  --text: #e7ecf2;
+  --text-muted: #98aeca;
+  --text-faint: #839ebf;
+
+  /* Accent - two tokens because the light and dark legible ranges are disjoint */
+  --accent: #4e9eff;
+  --accent-bg: #4e9eff;
+  --accent-fg: #0a0e12;
+  --accent-2: #008a90;
+  --accent-contrast: #0a0e12;
+  --accent-soft: #102743;
+  --ring: #4e9eff;
+
+  /* State roles - new to the contract; states never signalled by softening */
+  --focus: #4e9eff;
+  --hover: #24292e;
+  --selected: #102743;
+  --disabled: #839ebf;
+  --error: #ff6b65;
+  --warning: #d88a00;
+  --success: #00b352;
+
+  /* Categorical - Okabe-Ito, colour-vision-safe, blue deferred to third series. */
+  /* --cat-N is the LINE colour, held to 3:1 on every ramp step by
+     varying lightness only - hue and chroma are kept, so the
+     hue relationships carrying the palette's CVD validation survive.
+     --cat-N-fill is the exact Okabe-Ito value, for filled areas. */
+  --cat-1: #e69f00;
+  --cat-1-fill: #e69f00;
+  --cat-1-text: #0a0e12;
+  --cat-2: #009e73;
+  --cat-2-fill: #009e73;
+  --cat-2-text: #0a0e12;
+  --cat-3: #cc79a7;
+  --cat-3-fill: #cc79a7;
+  --cat-3-text: #0a0e12;
+  --cat-4: #d55e00;
+  --cat-4-fill: #d55e00;
+  --cat-4-text: #0a0e12;
+
+  /* Shape */
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  /* Depth - one soft shadow per level, and a surface must read as raised without it */
+  --shadow: 0 1px 2px rgba(0,0,0,0.40), 0 2px 8px rgba(0,0,0,0.30);
+  --shadow-lg: 0 4px 12px rgba(0,0,0,0.50), 0 12px 32px rgba(0,0,0,0.45);
+  --hairline: 1px;
+
+  /* Type */
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --text-2xs: 0.7rem;
+  --text-xs: 0.8rem;
+  --text-sm: 0.9rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.563rem;
+  --text-2xl: 1.953rem;
+  --text-3xl: 2.441rem;
+  --leading-tight: 1.25;
+  --leading-body: 1.6;
+  --leading-loose: 1.8;
+
+  /* Space - every adjacent pair in 2:3 relation (4:6, 8:12, 16:24, 32:48) */
+  --space-3xs: 2px;
+  --space-2xs: 4px;
+  --space-xs: 6px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+  --space-3xl: 48px;
+
+  /* Motion - new to the contract; prefers-reduced-motion is honoured in the kit */
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 320ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-decelerate: cubic-bezier(0, 0, 0, 1);
+  --ease-accelerate: cubic-bezier(0.3, 0, 1, 1);
+
+  /* Metrics */
+  --maxw: 1120px;
+  --section-pad: clamp(2.8rem, 7vw, 5rem);
+
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    /* Surface ramp - this carries depth; there is no extrusion anywhere */
+    --bg: #0f1318;
+    --surface: #1a1e23;
+    --surface-2: #24292e;
+    --surface-3: #2f343a;
+    --surface-4: #080b10;
+
+    /* Line - --rule is the one a kit may DEPEND on being visible */
+    --border: #303944;
+    --border-strong: #697e99;
+    --rule: #697e99;
+
+    /* Text */
+    --text: #e7ecf2;
+    --text-muted: #98aeca;
+    --text-faint: #839ebf;
+
+    /* Accent - two tokens because the light and dark legible ranges are disjoint */
+    --accent: #4e9eff;
+    --accent-bg: #4e9eff;
+    --accent-fg: #0a0e12;
+    --accent-2: #008a90;
+    --accent-contrast: #0a0e12;
+    --accent-soft: #102743;
+    --ring: #4e9eff;
+
+    /* State roles - new to the contract; states never signalled by softening */
+    --focus: #4e9eff;
+    --hover: #24292e;
+    --selected: #102743;
+    --disabled: #839ebf;
+    --error: #ff6b65;
+    --warning: #d88a00;
+    --success: #00b352;
+
+    /* Categorical - Okabe-Ito, colour-vision-safe, blue deferred to third series. */
+    /* --cat-N is the LINE colour, held to 3:1 on every ramp step by
+       varying lightness only - hue and chroma are kept, so the
+       hue relationships carrying the palette's CVD validation survive.
+       --cat-N-fill is the exact Okabe-Ito value, for filled areas. */
+    --cat-1: #e69f00;
+    --cat-1-fill: #e69f00;
+    --cat-1-text: #0a0e12;
+    --cat-2: #009e73;
+    --cat-2-fill: #009e73;
+    --cat-2-text: #0a0e12;
+    --cat-3: #cc79a7;
+    --cat-3-fill: #cc79a7;
+    --cat-3-text: #0a0e12;
+    --cat-4: #d55e00;
+    --cat-4-fill: #d55e00;
+    --cat-4-text: #0a0e12;
+
+    /* Shape */
+    --radius-sm: 6px;
+    --radius: 10px;
+    --radius-lg: 16px;
+    --radius-pill: 999px;
+
+    /* Depth - one soft shadow per level, and a surface must read as raised without it */
+    --shadow: 0 1px 2px rgba(0,0,0,0.40), 0 2px 8px rgba(0,0,0,0.30);
+    --shadow-lg: 0 4px 12px rgba(0,0,0,0.50), 0 12px 32px rgba(0,0,0,0.45);
+    --hairline: 1px;
+
+    /* Type */
+    --font-body: "Inter", system-ui, -apple-system, sans-serif;
+    --font-display: "Inter", system-ui, -apple-system, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    --text-2xs: 0.7rem;
+    --text-xs: 0.8rem;
+    --text-sm: 0.9rem;
+    --text-base: 1rem;
+    --text-lg: 1.25rem;
+    --text-xl: 1.563rem;
+    --text-2xl: 1.953rem;
+    --text-3xl: 2.441rem;
+    --leading-tight: 1.25;
+    --leading-body: 1.6;
+    --leading-loose: 1.8;
+
+    /* Space - every adjacent pair in 2:3 relation (4:6, 8:12, 16:24, 32:48) */
+    --space-3xs: 2px;
+    --space-2xs: 4px;
+    --space-xs: 6px;
+    --space-sm: 8px;
+    --space-md: 12px;
+    --space-lg: 16px;
+    --space-xl: 24px;
+    --space-2xl: 32px;
+    --space-3xl: 48px;
+
+    /* Motion - new to the contract; prefers-reduced-motion is honoured in the kit */
+    --duration-fast: 120ms;
+    --duration-base: 200ms;
+    --duration-slow: 320ms;
+    --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+    --ease-decelerate: cubic-bezier(0, 0, 0, 1);
+    --ease-accelerate: cubic-bezier(0.3, 0, 1, 1);
+
+    /* Metrics */
+    --maxw: 1120px;
+    --section-pad: clamp(2.8rem, 7vw, 5rem);
+
+    color-scheme: dark;
+  }
+}
+
+/* Adwaita's prefers-contrast pattern: keep the soft layers, promote the hairline to a real
+   border, raise the faint text tier. Two overrides, no second design. Both GNOME and KDE
+   ship focus rings that fail 3:1 (2.28:1 and 2.49:1); this system's is 4.52:1 light / 4.56:1 dark, so the
+   defect is not inherited - this block hardens what is already passing. */
+@media (prefers-contrast: more) {
+  :root,
+  [data-theme="dark"],
+  [data-theme="light"] {
+    --border: var(--border-strong);
+    --text-faint: var(--text-muted);
+    --focus-width: 3px;
+  }
+}

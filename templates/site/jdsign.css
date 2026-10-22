@@ -1,0 +1,88 @@
+/* ==========================================================================
+   jdsign - site template (signature flourishes; imports the skin)
+
+   GENERATED FILE - DO NOT HAND-EDIT. Your changes will be overwritten.
+
+   Source repo:   jakubdostal233/design-system
+   Source path:   jdsign/tokens/jdsign.json
+   Source commit: c0ff06263c77a24b326d179d95e51ed77385d94f
+   Generator:     jdsign/tools/generate.py
+   Spec:          jdsign/SPEC.md
+   Version:       0.1.0   Generated: 2026-09-20
+
+   To change a value: edit the token source in the repo above, then re-run the
+   generator. Editing this file directly puts it out of sync with every other
+   artefact built from the same source.
+   ========================================================================== */
+
+@import "../../skins/jdsign.css";
+
+/* ---- Signature ----------------------------------------------------------------
+   Deliberately quiet. No glass, no mesh gradient, no extrusion: depth is a ramp
+   step plus a hairline plus at most one soft shadow, and a surface must still read
+   as raised with the shadow removed. The 23-degree signature angle is absent by
+   design - it belongs to the mark and appears where the mark appears, because a
+   page that repeats the mark's own angle turns a signature into wallpaper.
+   ------------------------------------------------------------------------------- */
+
+.card,
+.panel,
+figure {
+  background: var(--surface);
+  border: var(--hairline) solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* The eyebrow: a mono, letterspaced section label. Carries hierarchy without
+   needing a size jump, which keeps the type ladder short. */
+.eyebrow,
+.section-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  font-weight: var(--weight-semibold, 600);
+}
+
+code,
+pre {
+  background: var(--surface-4);
+  border-radius: var(--radius-sm);
+}
+
+/* Focus is never softened, and never signalled by motion alone. Both GNOME and KDE
+   ship focus rings that fail 3:1; this one is 4.5:1 in both modes. */
+:focus-visible {
+  outline: var(--focus-width, 2px) solid var(--ring);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Site: low density - generous section rhythm, content-first, chrome minimal. */
+.container { max-width: var(--maxw); }
+section { padding-block: var(--section-pad); }
+
+/* A 24px accent tick riding the heading hairline - the 2:3 partner of the 16px
+   space step. Structure doing the work decoration usually does, and quiet enough
+   not to compete with the mark. Drawn as ::after because the kits set h2's own
+   border-bottom and a border shorthand here would simply be overridden. */
+section :is(h1, h2):not(.title) { position: relative; }
+section :is(h1, h2):not(.title)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: var(--space-xl);
+  height: 2px;
+  background: var(--accent);
+}

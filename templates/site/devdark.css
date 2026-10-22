@@ -1,0 +1,82 @@
+/* ============================================================================
+   pers-ui - templates/site/devdark.css
+   The 'devdark' family as a SITE template = its skin (imported) + the family's
+   site-page signature treatments. Load AFTER core/base.css + kits/site.css.
+   ============================================================================ */
+
+@import "../../skins/devdark.css";
+
+/* ---- signature: tight sans display, mono accents ------------------------- */
+h1, h2, h3 { letter-spacing: -0.025em; font-weight: 700; }
+
+.eyebrow { color: var(--accent); }
+
+.eyebrow::before { content: "// "; opacity: 0.6; }
+
+/* radial hero glow - the Linear/Vercel calling card */
+.hero { position: relative; overflow: hidden; }
+
+.hero::before {
+  content: ""; position: absolute; z-index: 0;
+  inset: -30% -10% auto -10%; height: 130%;
+  background:
+    radial-gradient(50% 55% at 25% 15%, var(--accent-soft), transparent 70%),
+    radial-gradient(40% 50% at 80% 10%, color-mix(in srgb, var(--accent-2) 14%, transparent), transparent 70%);
+  pointer-events: none;
+}
+
+.hero > .container { position: relative; z-index: 1; }
+
+/* gradient display text on the name */
+.hero-title {
+  background: linear-gradient(115deg, var(--text) 40%, var(--accent) 75%, var(--accent-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  font-size: clamp(2.6rem, 6.5vw, 4.6rem);
+}
+
+/* crisp, glowing-on-hover cards */
+.card {
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+  border-color: var(--border);
+}
+
+.card:hover { border-color: var(--border-strong); box-shadow: 0 0 0 1px var(--accent-soft), var(--shadow-lg); }
+
+/* mono everywhere it signals "developer" */
+.tag { font-family: var(--font-mono); background: var(--surface-2); border-color: var(--border); color: var(--text-muted); }
+
+.badge { background: var(--accent-soft); color: var(--accent); border-color: transparent; }
+
+.meta-value { font-family: var(--font-display); }
+
+.brand::before { content: "~/"; color: var(--accent); font-family: var(--font-mono); }
+
+/* gradient primary button with a soft glow */
+.btn-primary {
+  background: linear-gradient(120deg, var(--accent), color-mix(in srgb, var(--accent) 70%, var(--accent-2)));
+  color: #fff;
+}
+
+.btn-primary:hover { box-shadow: 0 6px 22px var(--accent-soft), 0 0 0 1px var(--accent-soft); }
+
+.btn-ghost { border-color: var(--border-strong); }
+
+/* terminal-flavoured code + inputs */
+pre { background: color-mix(in srgb, var(--surface) 80%, #000 6%); }
+
+.code-key { color: var(--accent-2); }
+
+.field input, .field textarea { background: var(--surface); }
+
+/* avatar as a gradient-ring badge */
+.avatar {
+  border: 0; border-radius: var(--radius-lg);
+  background:
+    linear-gradient(var(--surface), var(--surface)) padding-box,
+    linear-gradient(135deg, var(--accent), var(--accent-2)) border-box;
+  border: 2px solid transparent;
+  color: var(--text); box-shadow: 0 0 40px var(--accent-soft);
+}
+
+/* header: crisper divider on the dark canvas */
+.site-header { border-bottom-color: var(--border); }

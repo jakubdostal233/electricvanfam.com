@@ -1,0 +1,56 @@
+/* ============================================================================
+   pers-ui - templates/site/scholarly.css
+   The 'scholarly' family as a SITE template = its skin (imported) + a light
+   site derivation of the classic document language: serif prose, sans display,
+   one blue accent, squared corners, hairline cards. Load AFTER core/base.css +
+   kits/site.css.
+   ============================================================================ */
+
+@import "../../skins/scholarly.css";
+
+/* sans display over serif body; calm weights */
+h1, h2, h3, .brand { letter-spacing: -0.015em; }
+
+.hero-title { font-weight: 700; font-size: clamp(2.5rem, 6vw, 4.2rem); }
+
+.hero-lead { font-family: var(--font-body); font-size: clamp(1.08rem, 2vw, 1.3rem); }
+
+.eyebrow { color: var(--accent); }
+
+.prose p { font-size: 1.05rem; }
+
+/* quiet links: colour only, underline on hover (the document manner) */
+.prose a { text-decoration: none; }
+
+.prose a:hover { text-decoration: underline; }
+
+/* hairline, squared cards - print-like restraint */
+.card { border-radius: var(--radius); box-shadow: none; }
+
+.card:hover { box-shadow: var(--shadow); border-color: var(--border-strong); }
+
+/* squared buttons; solid blue primary */
+.btn { border-radius: var(--radius-sm); font-family: var(--font-display); }
+
+/* outline tags in the display face */
+.tag { background: transparent; border-color: var(--border-strong); color: var(--text-muted); font-family: var(--font-display); }
+
+.badge { background: var(--accent-soft); color: var(--accent); border-color: transparent; }
+
+/* plain roman quote with the light-blue rule */
+blockquote {
+  font-style: normal;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  border-left: 3px solid var(--accent-2);
+}
+
+/* bold sentence-case table headers on the grey band */
+thead th { text-transform: none; letter-spacing: 0; font-size: 0.88rem; font-family: var(--font-display); font-weight: 600; color: var(--text); }
+
+/* meta numbers in the sans display */
+.meta-value { font-family: var(--font-display); }
+
+.avatar { border: 1px solid var(--border-strong); box-shadow: var(--shadow); }
+
+.brand { font-size: 1.12rem; }

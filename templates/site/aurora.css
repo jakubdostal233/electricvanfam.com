@@ -1,0 +1,72 @@
+/* ============================================================================
+   pers-ui - templates/site/aurora.css
+   The 'aurora' family as a SITE template = its skin (imported) + the family's
+   site-page signature treatments. Load AFTER core/base.css + kits/site.css.
+   ============================================================================ */
+
+@import "../../skins/aurora.css";
+
+/* the aurora mesh, fixed behind everything */
+body { background: var(--mesh), var(--bg); background-attachment: fixed; }
+
+/* frosted-glass surfaces */
+.card {
+  background: var(--surface);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--border-strong); }
+
+.site-header {
+  background: color-mix(in srgb, var(--bg) 55%, transparent);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+}
+
+/* gradient display text + gradient buttons */
+h1, h2, h3 { letter-spacing: -0.025em; font-weight: 700; }
+
+.hero-title {
+  background: linear-gradient(115deg, var(--text) 35%, var(--accent) 70%, var(--accent-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  font-weight: 800;
+}
+
+.eyebrow { color: var(--accent); }
+
+.btn { border-radius: 999px; }
+
+.btn-primary {
+  background: linear-gradient(120deg, var(--accent), color-mix(in srgb, var(--accent) 55%, var(--accent-2)));
+  color: #fff; border: none;
+}
+
+.btn-primary:hover { box-shadow: 0 10px 30px var(--accent-soft), var(--shadow-lg); }
+
+.btn-ghost { background: var(--surface); backdrop-filter: blur(8px); border-color: var(--border-strong); }
+
+/* glassy tags, inputs, badge */
+.tag { background: var(--surface-2); border-color: var(--border); }
+
+.badge { background: var(--accent-soft); color: var(--accent); border-color: transparent; }
+
+.field input, .field textarea { background: var(--surface); border-color: var(--border-strong); }
+
+.avatar {
+  border: 1px solid var(--border);
+  background: linear-gradient(150deg, var(--accent-soft), color-mix(in srgb, var(--accent-2) 16%, transparent));
+  color: var(--accent); box-shadow: var(--shadow-lg); backdrop-filter: blur(8px);
+}
+
+.hero-meta li { background: var(--surface-2); border-radius: var(--radius); padding: 0.85rem 1rem; }
+
+/* the native <select> popup can't render the glass --surface, so its options would be
+   near-invisible (esp. in dark mode). Give the template switcher an opaque background. */
+.template-switch select,
+.template-switch select option {
+  background: var(--select-bg);
+  color: var(--text);
+}

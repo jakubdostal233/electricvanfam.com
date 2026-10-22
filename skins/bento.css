@@ -1,0 +1,93 @@
+/* ============================================================================
+   pers-ui - skins/bento.css
+   Design language for the 'bento' family: tokens (colour/surface/text/accent),
+   fonts, radii, shadows, and the dark/light/auto theme. Consumer-agnostic - the
+   single source of truth reused by every kit (site, docs). See README.md.
+   pers-ui-skin: neutral | Bento | Soft-card bento grid in indigo with the softest corners in the set - friendly and contemporary.
+   ============================================================================ */
+
+:root {
+  --bg: #f3f4f7;
+  --surface: #ffffff;
+  --surface-2: #eef0f5;
+  --border: #e6e8ef;
+  --border-strong: #d6d9e3;
+  --rule: #757fa1;
+  --text: #1a1d24;
+  --text-muted: #59616f;
+  --text-faint: #68707e;
+  --accent: #5b5bd6;
+  --accent-2: #f472b6;
+  --accent-contrast: #ffffff;
+  --accent-soft: rgba(91, 91, 214, 0.1);
+  --ring: rgba(91, 91, 214, 0.45);
+  /* per-category accents - darkened so headings clear WCAG AA on white cards */
+  --cat-1: #4f46e5;
+  --cat-2: #0f766e;
+  --cat-3: #b45309;
+  --cat-4: #db2777;
+
+  --radius-sm: 10px;
+  --radius: 18px;
+  --radius-lg: 28px;
+  --shadow: 0 2px 8px rgba(20, 25, 45, 0.06);
+  --shadow-lg: 0 22px 50px rgba(20, 25, 45, 0.16);
+
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --maxw: 1140px;
+  --section-pad: clamp(2.8rem, 7vw, 5rem);
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #0f1116;
+  --surface: #181b22;
+  --surface-2: #212530;
+  --border: #272c37;
+  --border-strong: #363c49;
+  --rule: #727e97;
+  --text: #edeff3;
+  --text-muted: #a1a9b6;
+  --text-faint: #7c8593;
+  --accent: #8b8cf9;
+  --accent-2: #f472b6;
+  --accent-contrast: #0f1116;
+  --accent-soft: rgba(139, 140, 249, 0.16);
+  --ring: rgba(139, 140, 249, 0.5);
+  --cat-1: #a5b4fc;
+  --cat-2: #2dd4bf;
+  --cat-3: #fbbf24;
+  --cat-4: #fb7185;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.55);
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1116;
+    --surface: #181b22;
+    --surface-2: #212530;
+    --border: #272c37;
+    --border-strong: #363c49;
+    --rule: #727e97;
+    --text: #edeff3;
+    --text-muted: #a1a9b6;
+    --text-faint: #7c8593;
+    --accent: #8b8cf9;
+    --accent-2: #f472b6;
+    --accent-contrast: #0f1116;
+    --accent-soft: rgba(139, 140, 249, 0.16);
+    --ring: rgba(139, 140, 249, 0.5);
+    --cat-1: #a5b4fc;
+    --cat-2: #2dd4bf;
+    --cat-3: #fbbf24;
+    --cat-4: #fb7185;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.55);
+    color-scheme: dark;
+  }
+}

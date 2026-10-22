@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="cs" data-theme="auto"
+      data-title-en="Our van - Electric Van Fam"
+      data-title-cs="Naše dodávka - Electric Van Fam">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="canonical" href="https://electricvanfam.com/van.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Naše dodávka - Electric Van Fam</title>
+    <meta name="description" content="Our Kia PV5 Passenger Elite camper: the build step by step, from day-one changes to the Skyline pop-top roof and the Campal Camp Box, the gear we use and answers to common questions." />
+    <meta property="og:title" content="Our Kia PV5 camper - Electric Van Fam" />
+    <meta property="og:description" content="The Kia PV5 camper build step by step: Skyline pop-top roof, Campal Camp Box, fridge, storage and gear." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon-180.png" />
+
+    <!-- Resolve the theme BEFORE first paint; `preload` stops the first paint from animating.
+         ?theme=light|dark|auto, ?lang=en|cs and ?template=<family> deep-link a state. -->
+    <script>
+      (function () {
+        var d = document.documentElement;
+        d.classList.add("js", "preload");
+        var q = new URLSearchParams(location.search);
+        var ls = function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } };
+        d.setAttribute("data-theme", q.get("theme") || ls("pers-ui-theme") || "light");
+        // Czech is the default language; ?lang=en or a stored choice gives English.
+        var lang = q.get("lang") || ls("pers-ui-lang") || "cs";
+        lang = lang === "en" ? "en" : "cs";
+        d.setAttribute("data-lang", lang);
+        d.lang = lang;
+        var tpl = q.get("template");
+        if (tpl && /^(jdsign|aurora|bento|brutalist|devdark|scholarly)$/.test(tpl)) d.setAttribute("data-template", tpl);
+      })();
+    </script>
+    <link rel="stylesheet" href="fonts/fonts.css" />
+    <link rel="stylesheet" href="core/base.css" />
+    <link rel="stylesheet" href="kits/site.css" />
+    <!-- The design family, jdsign (its accent matches the channel's brand blue): one template stylesheet, which imports its skin. -->
+    <link id="template-css" rel="stylesheet" href="templates/site/jdsign.css" />
+    <script>
+      (function () {
+        var t = document.documentElement.getAttribute("data-template");
+        if (t) document.getElementById("template-css").href = "templates/site/" + t + ".css";
+      })();
+    </script>
+    <link rel="stylesheet" href="assets/site.css" />
+  </head>
+  <body>
+    <!-- ===== chrome:icons (identical on every page) ===== -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <symbol id="i-youtube" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M23.1 7.2a3 3 0 0 0-2.1-2.1C19.1 4.6 12 4.6 12 4.6s-7.1 0-9 .5A3 3 0 0 0 .9 7.2 31 31 0 0 0 .4 12c0 1.6.2 3.2.5 4.8A3 3 0 0 0 3 18.9c1.9.5 9 .5 9 .5s7.1 0 9-.5a3 3 0 0 0 2.1-2.1c.3-1.6.5-3.2.5-4.8s-.2-3.2-.5-4.8zM9.7 15.1V8.9l5.9 3.1-5.9 3.1z"/></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4"/><circle cx="12" cy="12" r="4.4"/></g><circle cx="17.6" cy="6.4" r="1.25" fill="currentColor"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4.5v15l13-7.5z"/></symbol>
+      <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 1.5 3.8 13.6h6.6l-1.6 8.9 10-12.6h-6.7z"/></symbol>
+      <symbol id="i-zoom" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6"/></g></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></g></symbol>
+    </svg>
+    <!-- ===== /chrome:icons ===== -->
+
+    <!-- ===== chrome:header (identical on every page except aria-current) ===== -->
+    <a class="skip-link" href="#main"><span class="lang-en">Skip to content</span><span class="lang-cs">Přejít na obsah</span></a>
+    <header class="site-header">
+      <div class="container header-top">
+        <a class="brand" href="index.html">
+          <img class="brand-badge" src="assets/img/logo-256.webp" width="64" height="64" alt="" />
+          <span class="brand-word"><span class="brand-top">Electric</span> <span class="brand-bottom">Van Fam</span></span>
+        </a>
+        <div class="header-controls">
+          <div id="lang-mount"></div>
+          <div id="theme-mount"></div>
+        </div>
+      </div>
+      <div class="container header-nav-row">
+        <span class="social-slot left">
+          <a class="icon-link" href="https://youtube.com/@electricvanfam?si=Grp4nOMV1Lf5DhQu" target="_blank" rel="noopener"
+             aria-label="Electric Van Fam on YouTube" data-aria-label-en="Electric Van Fam on YouTube" data-aria-label-cs="Electric Van Fam na YouTube"
+             title="YouTube"><svg aria-hidden="true"><use href="#i-youtube"/></svg></a>
+        </span>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+          <svg class="i-open" aria-hidden="true"><use href="#i-menu"/></svg>
+          <svg class="i-close" aria-hidden="true"><use href="#i-x"/></svg>
+        </button>
+        <nav class="site-nav" id="site-menu" aria-label="Main" data-aria-label-en="Main" data-aria-label-cs="Hlavní">
+          <ul>
+            <li class="has-sub"><a href="videos.html"><span class="lang-en">Videos</span><span class="lang-cs">Videa</span></a>
+              <ul class="sub">
+                <li><a href="videos.html#episodes"><span class="lang-en">Episodes</span><span class="lang-cs">Díly</span></a></li>
+                <li><a href="videos.html#shorts"><span class="lang-en">Shorts</span><span class="lang-cs">Shorts</span></a></li>
+                <li><a href="videos.html#playlists"><span class="lang-en">Playlists</span><span class="lang-cs">Playlisty</span></a></li>
+              </ul>
+            </li>
+            <li class="has-sub"><a href="van.html" aria-current="page"><span class="lang-en">Our van</span><span class="lang-cs">Naše dodávka</span></a>
+              <ul class="sub">
+                <li><a href="van.html#build"><span class="lang-en">The build</span><span class="lang-cs">Přestavba</span></a></li>
+                <li><a href="van.html#gear"><span class="lang-en">Gear &amp; partners</span><span class="lang-cs">Vybavení a partneři</span></a></li>
+                <li><a href="van.html#faq"><span class="lang-en">Questions</span><span class="lang-cs">Otázky</span></a></li>
+              </ul>
+            </li>
+            <li><a href="gallery.html"><span class="lang-en">Gallery</span><span class="lang-cs">Galerie</span></a></li>
+            <li><a href="about.html"><span class="lang-en">About us</span><span class="lang-cs">O nás</span></a></li>
+            <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-cs">Kontakt</span></a></li>
+          </ul>
+        </nav>
+        <span class="social-slot right">
+          <a class="icon-link" href="https://instagram.com/electric.van.fam?xtok=amt4czhjMHRxbmlt" target="_blank" rel="noopener"
+             aria-label="Electric Van Fam on Instagram" data-aria-label-en="Electric Van Fam on Instagram" data-aria-label-cs="Electric Van Fam na Instagramu"
+             title="Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
+        </span>
+      </div>
+    </header>
+    <!-- ===== /chrome:header ===== -->
+
+    <main id="main">
+      <!-- ================= PAGE HERO BAND ================= -->
+      <section class="page-hero" aria-labelledby="page-title">
+        <div class="container page-hero-inner">
+          <div class="page-hero-photo up">
+            <img src="assets/img/ig/DdQt1WuoeAk-1600.webp"
+                 srcset="assets/img/ig/DdQt1WuoeAk-800.webp 451w, assets/img/ig/DdQt1WuoeAk-1600.webp 640w"
+                 sizes="(max-width: 767px) 80vw, 25vw" width="640" height="1136" fetchpriority="high"
+                 alt="Our Kia PV5 camper with its pop-top roof at the Elektro Sraz EV meet-up"
+                 data-alt-en="Our Kia PV5 camper with its pop-top roof at the Elektro Sraz EV meet-up"
+                 data-alt-cs="Naše obytná Kia PV5 s výklopnou střechou na srazu elektromobilů Elektro Sraz" />
+          </div>
+          <div class="page-hero-text center">
+            <h1 id="page-title"><span class="lang-en">Our Kia PV5 camper</span><span class="lang-cs">Naše obytná Kia PV5</span></h1>
+            <p class="page-hero-sub"><span class="lang-en">Kia PV5 Passenger Elite · Skyline pop-top · Campal Camp Box</span><span class="lang-cs">Kia PV5 Passenger Elite · výklopná střecha Skyline · Campal Camp Box</span></p>
+            <p class="lang-en">Our new family car, which we are turning into a fully capable family camper van. Here is the build step by step, the gear we use and answers to common questions.</p>
+            <p class="lang-cs">Naše nové rodinné auto, ze kterého děláme plnohodnotnou rodinnou obytnou dodávku. Tady najdete přestavbu krok za krokem, vybavení, které používáme, a odpovědi na časté otázky.</p>
+          </div>
+          <div class="page-hero-photo down">
+            <img src="assets/img/ig/DbA-YftIXgI-1600.webp"
+                 srcset="assets/img/ig/DbA-YftIXgI-800.webp 451w, assets/img/ig/DbA-YftIXgI-1600.webp 640w"
+                 sizes="(max-width: 767px) 80vw, 25vw" width="640" height="1136"
+                 alt="In the Skyline Roofs workshop in Bristol: a large hole cut in the roof of our van, ready for the pop-top"
+                 data-alt-en="In the Skyline Roofs workshop in Bristol: a large hole cut in the roof of our van, ready for the pop-top"
+                 data-alt-cs="V dílně Skyline Roofs v Bristolu: velký otvor vyříznutý ve střeše naší dodávky pro výklopnou střechu" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= THE BUILD (detail boxes) ================= -->
+      <section class="section" id="build" aria-labelledby="build-title">
+        <div class="container">
+          <div class="section-head center">
+            <h2 id="build-title"><span class="lang-en">The build</span><span class="lang-cs">Přestavba</span></h2>
+            <p class="lang-en">From a stock van to a family camper, in the order it happened. Every step has its episode: press the button to watch it here.</p>
+            <p class="lang-cs">Od sériové dodávky k rodinnému obytňáku, v pořadí, jak to šlo. Každý krok má svůj díl: tlačítkem si ho pustíte přímo tady.</p>
+          </div>
+          <ol class="build-list" data-lb-group="build">
+            <li class="detail-box has-media" id="day-one">
+              <div class="detail-text">
+                <p class="detail-step"><span class="step-no">1</span><span class="lang-en">Day one</span><span class="lang-cs">První den</span></p>
+                <h3><span class="lang-en">Straight to the workshop</span><span class="lang-cs">Rovnou do dílny</span></h3>
+                <p class="lang-en">After weeks of waiting for the delivery day, our brand-new Kia PV5 Passenger Elite came home, and it did not stay stock for long. In late June 2026, straight after we picked it up, it went to a workshop: paint protection film (PPF), window tint, interior protection film, and goodbye Kia badges. Huge thanks to <a href="https://www.instagram.com/kasparfolie/" target="_blank" rel="noopener">@kasparfolie</a>.</p>
+                <p class="lang-cs">Po týdnech čekání na den předání dorazila naše zbrusu nová Kia PV5 Passenger Elite domů a sériová nezůstala dlouho. Koncem června 2026 jela hned po převzetí do dílny: ochranná fólie na lak (PPF), tónovaná okna, ochranná fólie interiéru a sbohem, loga Kia. Velké díky <a href="https://www.instagram.com/kasparfolie/" target="_blank" rel="noopener">@kasparfolie</a>.</p>
+                <div class="detail-actions">
+                  <a class="btn btn-ghost btn-sm" href="https://www.youtube.com/watch?v=sxP3aA7r7qk" data-lb="video" data-video-id="sxP3aA7r7qk"
+                     data-caption-en="4K | SORRY KIA… We Changed It Already! EVF#02"><svg aria-hidden="true"><use href="#i-play"/></svg><span class="lang-en">Watch EVF#02</span><span class="lang-cs">Přehrát EVF#02</span></a>
+                </div>
+              </div>
+              <div class="detail-media">
+                <img src="assets/img/ig/DaFQ-XdI2Lt-800.webp"
+                     srcset="assets/img/ig/DaFQ-XdI2Lt-800.webp 800w, assets/img/ig/DaFQ-XdI2Lt-1600.webp 1600w"
+                     sizes="(max-width: 767px) 92vw, 26rem" width="800" height="600" loading="lazy"
+                     alt="Our brand-new Kia PV5 after its first changes, parked in front of a glass building"
+                     data-alt-en="Our brand-new Kia PV5 after its first changes, parked in front of a glass building"
+                     data-alt-cs="Naše zbrusu nová Kia PV5 po prvních úpravách před proskleným objektem" />
+              </div>
+            </li>
+
+            <li class="detail-box has-media" id="fridge">
+              <div class="detail-text">
+                <p class="detail-step"><span class="step-no">2</span><span class="lang-en">Gear</span><span class="lang-cs">Vybavení</span></p>
+                <h3><span class="lang-en">A fridge, and a scratch</span><span class="lang-cs">Lednice a jeden škrábanec</span></h3>
+                <p class="lang-en">Our fridge is the Outwell Arctic Chill 41 Dual Zone. We found it the hard way: we scratched our brand-new van while trying another one.</p>
+                <p class="lang-cs">Naše lednice je Outwell Arctic Chill 41 Dual Zone. Nebylo to bez škod: při zkoušení jiné lednice jsme poškrábali naši novou dodávku.</p>
+                <div class="detail-actions">
+                  <a class="btn btn-ghost btn-sm" href="https://www.youtube.com/watch?v=e82c-PqQiic" data-lb="video" data-video-id="e82c-PqQiic"
+                     data-caption-en="4K | We SCRATCHED our van buying FRIDGE for it 😓 EVF#03"><svg aria-hidden="true"><use href="#i-play"/></svg><span class="lang-en">Watch EVF#03</span><span class="lang-cs">Přehrát EVF#03</span></a>
+                </div>
+              </div>
+              <div class="detail-media">
+                <img class="pos-high" src="assets/img/ig/DaQmrmQo1KY-800.webp"
+                     srcset="assets/img/ig/DaQmrmQo1KY-800.webp 450w, assets/img/ig/DaQmrmQo1KY-1600.webp 720w"
+                     sizes="(max-width: 767px) 92vw, 26rem" width="720" height="1280" loading="lazy"
+                     alt="Lifting a portable fridge into the van"
+                     data-alt-en="Lifting a portable fridge into the van"
+                     data-alt-cs="Usazování přenosné lednice do dodávky" />
+              </div>
+            </li>
+
+            <li class="detail-box has-media" id="pop-top">
+              <div class="detail-text">
+                <p class="detail-step"><span class="step-no">3</span><span class="lang-en">Roof</span><span class="lang-cs">Střecha</span></p>
+                <h3><span class="lang-en">The Skyline pop-top roof, fitted in England</span><span class="lang-cs">Výklopná střecha Skyline z Anglie</span></h3>
+                <p class="lang-en">In July 2026 we drove over 1&#8239;000 miles from the Czech Republic to England, through the Channel Tunnel, to Skyline Roofs in Bristol. There they cut a huge hole in the roof of our brand-new van and fitted a Skyline pop-top roof. It made ours the first Kia PV5 in continental Europe with a Skyline pop-top.</p>
+                <p class="lang-cs">V červenci 2026 jsme ujeli přes 1&#8239;000 mil z Česka do Anglie, přes Eurotunel až do firmy Skyline Roofs v Bristolu. Tam do střechy naší nové dodávky vyřízli obrovskou díru a namontovali výklopnou střechu Skyline. Naše PV5 se tak stala první Kia PV5 v kontinentální Evropě s výklopnou střechou Skyline.</p>
+                <div class="detail-actions">
+                  <a class="btn btn-ghost btn-sm" href="https://www.youtube.com/watch?v=b1_xxBoZ96U" data-lb="video" data-video-id="b1_xxBoZ96U"
+                     data-caption-en="4K | 🚐 Road Trip to England… for the Biggest Upgrade Yet! 🇬🇧 EVF#08"><svg aria-hidden="true"><use href="#i-play"/></svg><span class="lang-en">Watch EVF#08</span><span class="lang-cs">Přehrát EVF#08</span></a>
+                  <a class="btn btn-ghost btn-sm" href="https://www.youtube.com/watch?v=WaZcorlat7g" data-lb="video" data-video-id="WaZcorlat7g"
+                     data-caption-en="4K | First Kia PV5 Skyline Pop Top in Continental Europe! We Drove 1,000 Miles! EVF#09"><svg aria-hidden="true"><use href="#i-play"/></svg><span class="lang-en">Watch EVF#09</span><span class="lang-cs">Přehrát EVF#09</span></a>
+                </div>
+              </div>
+              <div class="detail-media">
+                <img src="assets/img/ig/Da2BRIKNQSg-800.webp"
+                     srcset="assets/img/ig/Da2BRIKNQSg-800.webp 800w, assets/img/ig/Da2BRIKNQSg-1600.webp 1600w"
+                     sizes="(max-width: 767px) 92vw, 26rem" width="800" height="498" loading="lazy"
+                     alt="Our van at an Ionity charging station before the road trip to England"
+                     data-alt-en="Our van at an Ionity charging station before the road trip to England"
+                     data-alt-cs="Naše dodávka na nabíjecí stanici Ionity před cestou do Anglie" />
+              </div>
+            </li>
+
+            <li class="detail-box" id="camp-box">
+              <div class="detail-text">
+                <p class="detail-step"><span class="step-no">4</span><span class="lang-en">Interior</span><span class="lang-cs">Interiér</span></p>
+                <h3><span class="lang-en">The Campal Camp Box</span><span class="lang-cs">Campal Camp Box</span></h3>
+                <p class="lang-en">After Skyline, our next stop was Campal, where the camper interior conversion began. We install the Campal Camp Box together with window curtains and privacy blinds, and the Camp Box transforms into a bed.</p>
+                <p class="lang-cs">Po Skyline byla další zastávka Campal, kde začala přestavba interiéru. Montujeme Campal Camp Box spolu se závěsy a zatemněním oken. Camp Box se promění v postel.</p>
+                <div class="detail-actions">
+                  <a class="btn btn-ghost btn-sm" href="https://www.youtube.com/watch?v=9U6VB-C1XgQ" data-lb="video" data-video-id="9U6VB-C1XgQ"
+                     data-caption-en="4K | The Best Camp Box for Kia PV5? EVF#10"><svg aria-hidden="true"><use href="#i-play"/></svg><span class="lang-en">Watch EVF#10</span><span class="lang-cs">Přehrát EVF#10</span></a>
+                </div>
+              </div>
+            </li>
+
+            <li class="detail-box" id="tour">
+              <div class="detail-text">
+                <p class="detail-step"><span class="step-no">5</span><span class="lang-en">Result</span><span class="lang-cs">Výsledek</span></p>
+                <h3><span class="lang-en">The van tour</span><span class="lang-cs">Prohlídka dodávky</span></h3>
+                <p class="lang-en">The finished camper from every side: how the pop-top roof opens and closes, how the Camp Box turns into a bed, the sleeping space upstairs and downstairs, the storage, and whether it is practical for a family of four.</p>
+                <p class="lang-cs">Hotový obytňák ze všech stran: jak se otevírá a zavírá výklopná střecha, jak se z Camp Boxu stane postel, spaní nahoře i dole, úložné prostory a jestli je praktický pro čtyřčlennou rodinu.</p>
+                <div class="detail-actions">
+                  <a class="btn btn-ghost btn-sm" href="https://www.youtube.com/watch?v=qDfeF9h9tqk" data-lb="video" data-video-id="qDfeF9h9tqk"
+                     data-caption-en="4K | Kia PV5 Camper Van Tour! Skyline Pop Top &amp; Campal Camp Box. EVF#11"><svg aria-hidden="true"><use href="#i-play"/></svg><span class="lang-en">Watch EVF#11</span><span class="lang-cs">Přehrát EVF#11</span></a>
+                </div>
+              </div>
+            </li>
+
+            <li class="detail-box has-media" id="storage">
+              <div class="detail-text">
+                <p class="detail-step"><span class="step-no">6</span><span class="lang-en">Storage</span><span class="lang-cs">Úložné prostory</span></p>
+                <h3><span class="lang-en">A place for everything</span><span class="lang-cs">Místo pro všechno</span></h3>
+                <p class="lang-en">From All In Van we have rear window organizers that fit perfectly, are easy to install and don't cost a fortune, seat-back organizers and storage bags. The storage episode also shows the van's new look with our brand-new Electric Van Fam stickers.</p>
+                <p class="lang-cs">Od All In Van máme organizéry na zadní okna, které perfektně sedí, snadno se montují a nestojí majlant, dále organizéry na opěradla a úložné tašky. V dílu o úložných prostorech ukazujeme i nový vzhled dodávky s našimi novými polepy Electric Van Fam.</p>
+                <div class="detail-actions">
+                  <a class="btn btn-ghost btn-sm" href="https://www.youtube.com/watch?v=gHAE3rfF_hU" data-lb="video" data-video-id="gHAE3rfF_hU"
+                     data-caption-en="4K | Don’t Buy These for the Kia PV5! EVF#06"><svg aria-hidden="true"><use href="#i-play"/></svg><span class="lang-en">Watch EVF#06</span><span class="lang-cs">Přehrát EVF#06</span></a>
+                  <a class="btn btn-ghost btn-sm" href="https://www.youtube.com/watch?v=lJxYzfox5jg" data-lb="video" data-video-id="lJxYzfox5jg"
+                     data-caption-en="4K | Kia PV5 Camper Storage – Game-Changing! EVF#17"><svg aria-hidden="true"><use href="#i-play"/></svg><span class="lang-en">Watch EVF#17</span><span class="lang-cs">Přehrát EVF#17</span></a>
+                </div>
+              </div>
+              <div class="detail-media">
+                <img class="pos-upper" src="assets/img/ig/DdI79ecoVhF-800.webp"
+                     srcset="assets/img/ig/DdI79ecoVhF-800.webp 451w, assets/img/ig/DdI79ecoVhF-1600.webp 640w"
+                     sizes="(max-width: 767px) 92vw, 26rem" width="640" height="1136" loading="lazy"
+                     alt="All In Van seat-back organizers on the front seats of our van"
+                     data-alt-en="All In Van seat-back organizers on the front seats of our van"
+                     data-alt-cs="Organizéry All In Van na opěradlech předních sedadel naší dodávky" />
+              </div>
+            </li>
+
+            <li class="detail-box has-media" id="cost">
+              <div class="detail-text">
+                <p class="detail-step"><span class="step-no">7</span><span class="lang-en">Costs</span><span class="lang-cs">Náklady</span></p>
+                <h3><span class="lang-en">What it cost</span><span class="lang-cs">Kolik to stálo</span></h3>
+                <p class="lang-en">We went through every major expense, from the Kia PV5 itself to the pop-top roof, the Campal Camp Box, the fridge, PPF, the journey to England and all the smaller upgrades. No guesses, just the real numbers: the final total is revealed at the end of the video.</p>
+                <p class="lang-cs">Prošli jsme všechny hlavní výdaje, od samotné Kia PV5 přes výklopnou střechu, Campal Camp Box, lednici a PPF až po cestu do Anglie a všechna menší vylepšení. Žádné odhady, jen skutečná čísla: celkovou částku prozradíme na konci videa.</p>
+                <p class="detail-total">
+                  <!-- TODO(owner): the total cost of the camper build from EVF#16, only if the family wants the figure on the site -->
+                  <span class="todo"><span class="lang-en">total cost, if you want it shown here</span><span class="lang-cs">celková cena, pokud ji tu chcete uvést</span></span>
+                </p>
+                <div class="detail-actions">
+                  <a class="btn btn-ghost btn-sm" href="https://www.youtube.com/watch?v=mjxyHxWrOe8" data-lb="video" data-video-id="mjxyHxWrOe8"
+                     data-caption-en="4K | Kia PV5 Camper: HOW MUCH? EVF#16"><svg aria-hidden="true"><use href="#i-play"/></svg><span class="lang-en">Watch EVF#16</span><span class="lang-cs">Přehrát EVF#16</span></a>
+                </div>
+              </div>
+              <div class="detail-media">
+                <img class="pos-top" src="assets/img/ig/Dc3Jwx6IkRu-800.webp"
+                     srcset="assets/img/ig/Dc3Jwx6IkRu-800.webp 450w, assets/img/ig/Dc3Jwx6IkRu-1600.webp 720w"
+                     sizes="(max-width: 767px) 92vw, 26rem" width="720" height="1280" loading="lazy"
+                     alt="Cover of our cost video: how much does it really cost to turn a Kia PV5 electric van into a camper?"
+                     data-alt-en="Cover of our cost video: how much does it really cost to turn a Kia PV5 electric van into a camper?"
+                     data-alt-cs="Titulní obrázek videa o nákladech: kolik doopravdy stojí přestavba elektrické Kia PV5 na obytňák?" />
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ================= GEAR & PARTNERS ================= -->
+      <section class="section" id="gear" aria-labelledby="gear-title">
+        <div class="container">
+          <div class="section-head center">
+            <h2 id="gear-title"><span class="lang-en">Gear &amp; partners</span><span class="lang-cs">Vybavení a partneři</span></h2>
+            <p class="lang-en">The brands and shops behind our build.</p>
+            <p class="lang-cs">Značky a obchody, které stojí za naší přestavbou.</p>
+          </div>
+          <ul class="gear-grid">
+            <li class="gear-card">
+              <h3>Skyline Roofs</h3>
+              <p class="lang-en">Our pop-top roof, fitted in their workshop in Bristol, England.</p>
+              <p class="lang-cs">Naše výklopná střecha, namontovaná v jejich dílně v Bristolu v Anglii.</p>
+              <a class="gear-link" href="https://www.instagram.com/skyline_roofs/" target="_blank" rel="noopener">@skyline_roofs</a>
+            </li>
+            <li class="gear-card">
+              <h3>Campal</h3>
+              <p class="lang-en">The camper interior conversion and the Campal Camp Box that turns into a bed.</p>
+              <p class="lang-cs">Přestavba interiéru a Campal Camp Box, který se promění v postel.</p>
+              <a class="gear-link" href="https://www.instagram.com/campal_campervan_conversion/" target="_blank" rel="noopener">@campal_campervan_conversion</a>
+            </li>
+            <li class="gear-card">
+              <h3>All In Van</h3>
+              <p class="lang-en">Seat-back organizers, window organizers and storage bags.</p>
+              <p class="lang-cs">Organizéry na opěradla, organizéry na okna a úložné tašky.</p>
+              <a class="gear-link" href="https://www.instagram.com/all_in_van_gear/" target="_blank" rel="noopener">@all_in_van_gear</a>
+            </li>
+            <li class="gear-card">
+              <h3>Outwell</h3>
+              <p class="lang-en">Our fridge: the Outwell Arctic Chill 41 Dual Zone.</p>
+              <p class="lang-cs">Naše lednice: Outwell Arctic Chill 41 Dual Zone.</p>
+            </li>
+            <li class="gear-card">
+              <h3><a href="https://www.instagram.com/kasparfolie/" target="_blank" rel="noopener">@kasparfolie</a></h3>
+              <p class="lang-en">Paint protection film, window tint and interior protection film on day one.</p>
+              <p class="lang-cs">Ochranná fólie na lak, tónování oken a ochranná fólie interiéru hned první den.</p>
+            </li>
+            <li class="gear-card">
+              <h3>Decathlon &amp; 4camping.cz</h3>
+              <p class="lang-en">The first camping gear we bought for our camper project.</p>
+              <p class="lang-cs">První kempingové vybavení, které jsme pro náš obytňák koupili.</p>
+            </li>
+          </ul>
+
+          <div class="gear-code">
+            <div class="gear-code-badge" aria-hidden="true">EVF5</div>
+            <div class="gear-code-text">
+              <h3><span class="lang-en">Discount code for procampery.cz</span><span class="lang-cs">Slevový kód na procampery.cz</span></h3>
+              <p class="lang-en">Get your campervan gear at <a href="https://www.procampery.cz/action/Affiliate/setAccess/?partnerId=2&amp;linkId=2" target="_blank" rel="sponsored noopener">procampery.cz</a> and use code <strong>EVF5</strong> for 5% off your order.</p>
+              <p class="lang-cs">Vybavení do obytňáku najdete na <a href="https://www.procampery.cz/action/Affiliate/setAccess/?partnerId=2&amp;linkId=2" target="_blank" rel="sponsored noopener">procampery.cz</a>. S kódem <strong>EVF5</strong> máte na objednávku slevu 5&nbsp;%.</p>
+              <p class="gear-disclosure">
+                <!-- TODO(owner): affiliate disclosure - whether the family earns from the procampery.cz link and code EVF5, and whether any partner on this page gave goods, discounts or payment -->
+                <span class="todo"><span class="lang-en">affiliate disclosure</span><span class="lang-cs">informace o provizní spolupráci</span></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= FAQ (independent toggles) ================= -->
+      <section class="section" id="faq" aria-labelledby="faq-title">
+        <div class="container">
+          <div class="section-head center">
+            <h2 id="faq-title"><span class="lang-en">Questions</span><span class="lang-cs">Otázky</span></h2>
+          </div>
+          <div class="faq-grid">
+            <div class="faq-col">
+              <details class="faq-item">
+                <summary><span class="faq-q"><span class="lang-en">Which van do you drive?</span><span class="lang-cs">Jakou dodávku máte?</span></span></summary>
+                <div class="faq-a">
+                  <p class="lang-en">A brand-new Kia PV5 Passenger Elite. It is our family car and our camper.</p>
+                  <p class="lang-cs">Zbrusu novou Kia PV5 Passenger Elite. Je to naše rodinné auto i obytňák.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary><span class="faq-q"><span class="lang-en">Who fitted the pop-top roof, and where?</span><span class="lang-cs">Kdo vám montoval výklopnou střechu a kde?</span></span></summary>
+                <div class="faq-a">
+                  <p class="lang-en">Skyline Roofs in Bristol, England. In July 2026 ours became the first Kia PV5 in continental Europe to receive a Skyline pop-top roof.</p>
+                  <p class="lang-cs">Skyline Roofs v Bristolu v Anglii. V červenci 2026 se naše dodávka stala první Kia PV5 v kontinentální Evropě s výklopnou střechou Skyline.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary><span class="faq-q"><span class="lang-en">How far did you drive for it?</span><span class="lang-cs">Jak daleko jste pro ni jeli?</span></span></summary>
+                <div class="faq-a">
+                  <p class="lang-en">Over 1&#8239;000 miles from the Czech Republic to the UK, through the Channel Tunnel.</p>
+                  <p class="lang-cs">Přes 1&#8239;000 mil z Česka do Velké Británie, přes Eurotunel.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary><span class="faq-q"><span class="lang-en">What is the sleeping and storage setup?</span><span class="lang-cs">Jak máte vyřešené spaní a úložné prostory?</span></span></summary>
+                <div class="faq-a">
+                  <p class="lang-en">A Skyline pop-top roof, the Campal Camp Box, which transforms into a bed, All In Van storage bags and an Outwell fridge. The van tour (EVF#11) shows it all.</p>
+                  <p class="lang-cs">Výklopná střecha Skyline, Campal Camp Box, který se promění v postel, úložné tašky All In Van a lednice Outwell. Všechno ukazujeme v prohlídce dodávky (EVF#11).</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary><span class="faq-q"><span class="lang-en">How many people travel in it?</span><span class="lang-cs">Kolik vás v ní cestuje?</span></span></summary>
+                <div class="faq-a">
+                  <p class="lang-en">Four of us: 4 people, 1 van.</p>
+                  <p class="lang-cs">Čtyři: čtyřčlenná rodina v jedné dodávce.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary><span class="faq-q"><span class="lang-en">How far can the PV5 go at 0% battery?</span><span class="lang-cs">Kolik ujede PV5 na 0&nbsp;% baterie?</span></span></summary>
+                <div class="faq-a">
+                  <p class="lang-en">In our test on the motorway we drove another 4 km on 0% before we finally stopped, and the car still showed 3 km of range.</p>
+                  <p class="lang-cs">V našem testu na dálnici jsme na 0&nbsp;% ujeli ještě 4 km, než jsme zastavili, a auto pořád ukazovalo dojezd 3 km.</p>
+                </div>
+              </details>
+            </div>
+            <div class="faq-col">
+              <details class="faq-item">
+                <summary><span class="faq-q"><span class="lang-en">Which fridge do you use?</span><span class="lang-cs">Jakou lednici používáte?</span></span></summary>
+                <div class="faq-a">
+                  <p class="lang-en">The Outwell Arctic Chill 41 Dual Zone.</p>
+                  <p class="lang-cs">Outwell Arctic Chill 41 Dual Zone.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary><span class="faq-q"><span class="lang-en">Is there a discount code?</span><span class="lang-cs">Máte slevový kód?</span></span></summary>
+                <div class="faq-a">
+                  <p class="lang-en">Yes: use code EVF5 for 5% off at procampery.cz.</p>
+                  <p class="lang-cs">Ano: s kódem EVF5 máte na procampery.cz slevu 5&nbsp;%.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary><span class="faq-q"><span class="lang-en">When do new videos come out?</span><span class="lang-cs">Kdy vychází nová videa?</span></span></summary>
+                <div class="faq-a">
+                  <p class="lang-en">Every Thursday at 8 pm Czech time, 7 pm in the UK.</p>
+                  <p class="lang-cs">Každý čtvrtek ve 20:00 našeho času, v Británii v 19:00.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary><span class="faq-q"><span class="lang-en">Where else can I follow you?</span><span class="lang-cs">Kde vás můžu ještě sledovat?</span></span></summary>
+                <div class="faq-a">
+                  <p class="lang-en">On Instagram, <a href="https://instagram.com/electric.van.fam?xtok=amt4czhjMHRxbmlt" target="_blank" rel="noopener">@electric.van.fam</a>, for behind-the-scenes content and daily updates. The full videos are on YouTube.</p>
+                  <p class="lang-cs">Na Instagramu <a href="https://instagram.com/electric.van.fam?xtok=amt4czhjMHRxbmlt" target="_blank" rel="noopener">@electric.van.fam</a> najdete zákulisí a denní novinky. Celá videa jsou na YouTube.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary><span class="faq-q"><span class="lang-en">Do you plan a PV5 meet-up?</span><span class="lang-cs">Chystáte sraz majitelů PV5?</span></span></summary>
+                <div class="faq-a">
+                  <p class="lang-en">We have an idea for a Kia PV5 camper meet-up in the UK, and we talk about it in EVF#15. Would you join?</p>
+                  <p class="lang-cs">Máme nápad na sraz obytných Kia PV5 ve Velké Británii a mluvíme o něm v dílu EVF#15. Přidali byste se?</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary><span class="faq-q"><span class="lang-en">What music do you use?</span><span class="lang-cs">Jakou hudbu používáte?</span></span></summary>
+                <div class="faq-a">
+                  <p class="lang-en">Our music is licensed through Epidemic Sound.</p>
+                  <p class="lang-cs">Hudbu máme licencovanou přes Epidemic Sound.</p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CTA STRIP ================= -->
+      <section class="cta-strip">
+        <div class="container">
+          <p class="cta-line lang-en">Questions about the PV5 camper?</p>
+          <p class="cta-line lang-cs">Máte otázky k obytné PV5?</p>
+          <a class="btn btn-ghost" href="contact.html"><span class="lang-en">Get in touch</span><span class="lang-cs">Napište nám</span></a>
+        </div>
+      </section>
+
+      <!-- ================= GIANT TAGLINE ================= -->
+      <div class="tagline-giant" aria-hidden="true"><p>Electric • Family • Adventures</p></div>
+    </main>
+
+    <!-- ===== chrome:footer (identical on every page) ===== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-cols">
+          <ul class="footer-nav">
+            <li><a href="videos.html"><span class="lang-en">Videos</span><span class="lang-cs">Videa</span></a></li>
+            <li><a href="van.html"><span class="lang-en">Our van</span><span class="lang-cs">Naše dodávka</span></a></li>
+            <li><a href="gallery.html"><span class="lang-en">Gallery</span><span class="lang-cs">Galerie</span></a></li>
+            <li><a href="about.html"><span class="lang-en">About us</span><span class="lang-cs">O nás</span></a></li>
+            <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-cs">Kontakt</span></a></li>
+          </ul>
+          <div class="footer-logo"><img src="assets/img/logo-256.webp" width="104" height="104" loading="lazy" alt="Electric Van Fam" /></div>
+          <div class="footer-contact">
+            <div class="socials">
+              <a class="icon-link" href="https://youtube.com/@electricvanfam?si=Grp4nOMV1Lf5DhQu" target="_blank" rel="noopener" aria-label="YouTube"><svg aria-hidden="true"><use href="#i-youtube"/></svg></a>
+              <a class="icon-link" href="https://instagram.com/electric.van.fam?xtok=amt4czhjMHRxbmlt" target="_blank" rel="noopener" aria-label="Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
+            </div>
+            <!-- TODO(owner): the family's public e-mail address -->
+            <span class="todo"><span class="lang-en">e-mail address</span><span class="lang-cs">e-mailová adresa</span></span>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 Electric Van Fam</p>
+          <p class="lang-en">This site sets no cookies. Videos load from YouTube only when you press play.</p>
+          <p class="lang-cs">Tento web nepoužívá cookies. Videa se z YouTube načtou až po kliknutí na přehrát.</p>
+        </div>
+      </div>
+    </footer>
+    <!-- ===== /chrome:footer ===== -->
+
+    <script src="core/theme.js"></script>
+    <script src="core/lang.js"></script>
+    <script src="assets/site.js"></script>
+  </body>
+</html>

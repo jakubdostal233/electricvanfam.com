@@ -1,0 +1,80 @@
+/* ============================================================================
+   pers-ui - skins/devdark.css
+   Design language for the 'devdark' family: tokens (colour/surface/text/accent),
+   fonts, radii, shadows, and the dark/light/auto theme. Consumer-agnostic - the
+   single source of truth reused by every kit (site, docs). See README.md.
+   pers-ui-skin: neutral | Dev / Dark | Dark-first developer palette - near-black ground, soft indigo accent, tight 8px radii - where dark is the primary mode, not the alternative.
+   ============================================================================ */
+
+:root {
+  --bg: #0a0b0f;
+  --surface: #12141a;
+  --surface-2: #1a1d26;
+  --border: #23262f;
+  --border-strong: #333846;
+  --rule: #747d99;
+  --text: #e7e9ef;
+  --text-muted: #9aa1af;
+  --text-faint: #7e8493;
+  --accent: #818cf8;
+  --accent-2: #22d3ee;
+  --accent-contrast: #0a0b0f;
+  --accent-soft: rgba(129, 140, 248, 0.14);
+  --ring: rgba(129, 140, 248, 0.55);
+
+  --radius-sm: 5px;
+  --radius: 8px;
+  --radius-lg: 14px;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 10px 34px rgba(0, 0, 0, 0.55);
+
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --maxw: 1100px;
+  --section-pad: clamp(3rem, 8vw, 6rem);
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg: #ffffff;
+  --surface: #f6f7f9;
+  --surface-2: #ecedf1;
+  --border: #e4e6eb;
+  --border-strong: #cfd2da;
+  --rule: #798197;
+  --text: #0d0f14;
+  --text-muted: #4a5160;
+  --text-faint: #6b7180;
+  --accent: #4f52d8;
+  --accent-2: #0e7490;
+  --accent-contrast: #ffffff;
+  --accent-soft: rgba(79, 82, 216, 0.09);
+  --ring: rgba(79, 82, 216, 0.45);
+  --shadow: 0 1px 2px rgba(15, 20, 30, 0.06);
+  --shadow-lg: 0 12px 32px rgba(15, 20, 30, 0.14);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #ffffff;
+    --surface: #f6f7f9;
+    --surface-2: #ecedf1;
+    --border: #e4e6eb;
+    --border-strong: #cfd2da;
+    --rule: #798197;
+    --text: #0d0f14;
+    --text-muted: #4a5160;
+    --text-faint: #6b7180;
+    --accent: #4f52d8;
+    --accent-2: #0e7490;
+    --accent-contrast: #ffffff;
+    --accent-soft: rgba(79, 82, 216, 0.09);
+    --ring: rgba(79, 82, 216, 0.45);
+    --shadow: 0 1px 2px rgba(15, 20, 30, 0.06);
+    --shadow-lg: 0 12px 32px rgba(15, 20, 30, 0.14);
+    color-scheme: light;
+  }
+}

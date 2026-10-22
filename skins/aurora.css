@@ -1,0 +1,92 @@
+/* ============================================================================
+   pers-ui - skins/aurora.css
+   Design language for the 'aurora' family: tokens (colour/surface/text/accent),
+   fonts, radii, shadows, and the dark/light/auto theme. Consumer-agnostic - the
+   single source of truth reused by every kit (site, docs). See README.md.
+   pers-ui-skin: neutral | Aurora | Glassmorphism and gradient mesh, violet on pale blue-grey, 16px radii - a striking landing page; the frosted-glass effects are screen-only.
+   ============================================================================ */
+
+:root {
+  --bg: #eef0f8;
+  --surface: rgba(255, 255, 255, 0.58);
+  --surface-2: rgba(255, 255, 255, 0.42);
+  --border: rgba(70, 70, 120, 0.16);
+  --border-strong: rgba(70, 70, 120, 0.3);
+  --rule: #7c7ea6;
+  --text: #191b2e;
+  --text-muted: #474d66;
+  --text-faint: #5a607a;
+  --accent: #5b3fe0;
+  --accent-2: #0e8fb0;
+  --accent-contrast: #ffffff;
+  --accent-soft: rgba(91, 63, 224, 0.1);
+  --ring: rgba(91, 63, 224, 0.45);
+  --select-bg: #ffffff;
+
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 26px;
+  --shadow: 0 4px 20px rgba(70, 60, 160, 0.12);
+  --shadow-lg: 0 26px 60px rgba(70, 60, 160, 0.22);
+
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --maxw: 1120px;
+  --section-pad: clamp(2.8rem, 7vw, 5rem);
+  --mesh: radial-gradient(42% 45% at 12% 8%, rgba(109, 94, 252, 0.22), transparent 70%),
+    radial-gradient(40% 42% at 88% 10%, rgba(14, 190, 210, 0.2), transparent 70%),
+    radial-gradient(48% 50% at 62% 100%, rgba(236, 72, 153, 0.14), transparent 70%);
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #0a0e1c;
+  --surface: rgba(255, 255, 255, 0.055);
+  --surface-2: rgba(255, 255, 255, 0.09);
+  --border: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.22);
+  --rule: #787d90;
+  --text: #eef1fb;
+  --text-muted: #a6afca;
+  --text-faint: #828cab;
+  --accent: #8b7bff;
+  --accent-2: #22d3ee;
+  --accent-contrast: #0a0e1c;
+  --accent-soft: rgba(139, 123, 255, 0.16);
+  --ring: rgba(139, 123, 255, 0.5);
+  --select-bg: #141833;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 26px 60px rgba(0, 0, 0, 0.6);
+  --mesh: radial-gradient(45% 48% at 12% 8%, rgba(124, 92, 255, 0.32), transparent 70%),
+    radial-gradient(42% 45% at 88% 10%, rgba(34, 211, 238, 0.24), transparent 70%),
+    radial-gradient(52% 52% at 62% 100%, rgba(236, 72, 153, 0.2), transparent 70%);
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0a0e1c;
+    --surface: rgba(255, 255, 255, 0.055);
+    --surface-2: rgba(255, 255, 255, 0.09);
+    --border: rgba(255, 255, 255, 0.12);
+    --border-strong: rgba(255, 255, 255, 0.22);
+    --rule: #787d90;
+    --text: #eef1fb;
+    --text-muted: #a6afca;
+    --text-faint: #828cab;
+    --accent: #8b7bff;
+    --accent-2: #22d3ee;
+    --accent-contrast: #0a0e1c;
+    --accent-soft: rgba(139, 123, 255, 0.16);
+    --ring: rgba(139, 123, 255, 0.5);
+    --select-bg: #141833;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+    --shadow-lg: 0 26px 60px rgba(0, 0, 0, 0.6);
+    --mesh: radial-gradient(45% 48% at 12% 8%, rgba(124, 92, 255, 0.32), transparent 70%),
+      radial-gradient(42% 45% at 88% 10%, rgba(34, 211, 238, 0.24), transparent 70%),
+      radial-gradient(52% 52% at 62% 100%, rgba(236, 72, 153, 0.2), transparent 70%);
+    color-scheme: dark;
+  }
+}

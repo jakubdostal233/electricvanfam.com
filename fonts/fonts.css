@@ -1,0 +1,17 @@
+/* pers-ui - self-hosted @font-face declarations (SIL OFL 1.1, see LICENSE.md).
+   woff2 files are fetched by fetch-fonts.sh. If they are absent, every template
+   falls back to a system stack (defined per template), so the gallery still works. */
+
+/* Inter - body sans, all templates */
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 400; font-display: swap; src: url("./inter/inter-400.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 500; font-display: swap; src: url("./inter/inter-500.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 600; font-display: swap; src: url("./inter/inter-600.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 700; font-display: swap; src: url("./inter/inter-700.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: italic; font-weight: 400; font-display: swap; src: url("./inter/inter-400i.woff2") format("woff2"); }
+
+
+/* JetBrains Mono - monospace accents, devdark template */
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("./jetbrains-mono/jetbrains-mono-400.woff2") format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("./jetbrains-mono/jetbrains-mono-500.woff2") format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 700; font-display: swap; src: url("./jetbrains-mono/jetbrains-mono-700.woff2") format("woff2"); }
+
