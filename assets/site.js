@@ -8,6 +8,8 @@
    - language: Czech by default, EN/CZ toggle, ?lang= deep link
    - theme: light by default; light / auto / dark control, labels follow the language
    - phone menu: dropdown panel under the header row (slide down / up)
+   - sticky menu row: the title strip scrolls away, the menu row stays at the top
+     (the inspiration site's header scrolls away whole)
    - lightbox: photos and YouTube videos, arrows, keys, swipe, wrap-around
    - pagination: client-side pages of a photo grid
    - parallax: photo bands move slower than the page
@@ -139,6 +141,21 @@
     window.matchMedia("(min-width: 981px)").addEventListener("change", function (m) { if (m.matches) setMenu(false); });
     updateMenuLabel();
   }
+
+  /* ---- sticky menu row ----------------------------------------------------- */
+  // The header is sticky with top = minus the top strip's height (site.css), so
+  // the strip scrolls away and the menu row stays. The strip's height changes
+  // with the width and when the title image loads, so it is kept current.
+  (function () {
+    var strip = document.querySelector(".header-top");
+    if (!strip) return;
+    function measure() {
+      html.style.setProperty("--header-top-h", strip.getBoundingClientRect().height + "px");
+    }
+    measure();
+    if ("ResizeObserver" in window) new ResizeObserver(measure).observe(strip, { box: "border-box" });
+    else window.addEventListener("resize", measure);
+  })();
 
   /* ---- reveal -------------------------------------------------------------- */
   (function () {

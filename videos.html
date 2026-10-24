@@ -56,6 +56,8 @@
       <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
       <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
       <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></g></symbol>
+      <symbol id="i-flag-cz" viewBox="0 0 30 20"><path fill="#fff" d="M0 0h30v10H0z"/><path fill="#d7141a" d="M0 10h30v10H0z"/><path fill="#11457e" d="M0 0l15 10L0 20z"/></symbol>
+      <symbol id="i-flag-gb" viewBox="0 0 60 30"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0 0 30"/><path stroke="#c8102e" stroke-width="2" d="M0 0l60 30M60 0 0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></symbol>
     </svg>
     <!-- ===== /chrome:icons ===== -->
 
@@ -64,8 +66,7 @@
     <header class="site-header">
       <div class="container header-top">
         <a class="brand" href="index.html">
-          <img class="brand-badge" src="assets/img/logo-256.webp" width="64" height="64" alt="" />
-          <span class="brand-word"><span class="brand-top">Electric</span> <span class="brand-bottom">Van Fam</span></span>
+          <img class="brand-title" src="assets/img/title-1280.webp" srcset="assets/img/title-640.webp 640w, assets/img/title-1280.webp 1280w, assets/img/title-1920.webp 1920w" sizes="(max-width: 767px) 100vw, 285px" width="1920" height="1080" alt="Electric Van Fam" decoding="async" />
         </a>
         <div class="header-controls">
           <div id="lang-mount"></div>
@@ -84,13 +85,7 @@
         </button>
         <nav class="site-nav" id="site-menu" aria-label="Main" data-aria-label-en="Main" data-aria-label-cs="Hlavní">
           <ul>
-            <li class="has-sub"><a href="videos.html" aria-current="page"><span class="lang-en">Videos</span><span class="lang-cs">Videa</span></a>
-              <ul class="sub">
-                <li><a href="videos.html#episodes"><span class="lang-en">Episodes</span><span class="lang-cs">Díly</span></a></li>
-                <li><a href="videos.html#shorts"><span class="lang-en">Shorts</span><span class="lang-cs">Shorts</span></a></li>
-                <li><a href="videos.html#playlists"><span class="lang-en">Playlists</span><span class="lang-cs">Playlisty</span></a></li>
-              </ul>
-            </li>
+            <li><a href="about.html"><span class="lang-en">About us</span><span class="lang-cs">O nás</span></a></li>
             <li class="has-sub"><a href="van.html"><span class="lang-en">Our van</span><span class="lang-cs">Naše dodávka</span></a>
               <ul class="sub">
                 <li><a href="van.html#build"><span class="lang-en">The build</span><span class="lang-cs">Přestavba</span></a></li>
@@ -98,8 +93,15 @@
                 <li><a href="van.html#faq"><span class="lang-en">Questions</span><span class="lang-cs">Otázky</span></a></li>
               </ul>
             </li>
+            <li class="has-sub"><a href="videos.html" aria-current="page"><span class="lang-en">Videos</span><span class="lang-cs">Videa</span></a>
+              <ul class="sub">
+                <li><a href="videos.html#episodes"><span class="lang-en">Episodes</span><span class="lang-cs">Díly</span></a></li>
+                <li><a href="videos.html#shorts"><span class="lang-en">Shorts</span><span class="lang-cs">Shorts</span></a></li>
+                <li><a href="videos.html#playlists"><span class="lang-en">Playlists</span><span class="lang-cs">Playlisty</span></a></li>
+              </ul>
+            </li>
             <li><a href="gallery.html"><span class="lang-en">Gallery</span><span class="lang-cs">Galerie</span></a></li>
-            <li><a href="about.html"><span class="lang-en">About us</span><span class="lang-cs">O nás</span></a></li>
+            <li><a href="fest.html">Electric Van Fest</a></li>
             <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-cs">Kontakt</span></a></li>
           </ul>
         </nav>
@@ -605,10 +607,11 @@
       <div class="container">
         <div class="footer-cols">
           <ul class="footer-nav">
-            <li><a href="videos.html"><span class="lang-en">Videos</span><span class="lang-cs">Videa</span></a></li>
-            <li><a href="van.html"><span class="lang-en">Our van</span><span class="lang-cs">Naše dodávka</span></a></li>
-            <li><a href="gallery.html"><span class="lang-en">Gallery</span><span class="lang-cs">Galerie</span></a></li>
             <li><a href="about.html"><span class="lang-en">About us</span><span class="lang-cs">O nás</span></a></li>
+            <li><a href="van.html"><span class="lang-en">Our van</span><span class="lang-cs">Naše dodávka</span></a></li>
+            <li><a href="videos.html"><span class="lang-en">Videos</span><span class="lang-cs">Videa</span></a></li>
+            <li><a href="gallery.html"><span class="lang-en">Gallery</span><span class="lang-cs">Galerie</span></a></li>
+            <li><a href="fest.html">Electric Van Fest</a></li>
             <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-cs">Kontakt</span></a></li>
           </ul>
           <div class="footer-logo"><img src="assets/img/logo-256.webp" width="104" height="104" loading="lazy" alt="Electric Van Fam" /></div>
@@ -617,8 +620,7 @@
               <a class="icon-link" href="https://youtube.com/@electricvanfam?si=Grp4nOMV1Lf5DhQu" target="_blank" rel="noopener" aria-label="YouTube"><svg aria-hidden="true"><use href="#i-youtube"/></svg></a>
               <a class="icon-link" href="https://instagram.com/electric.van.fam?xtok=amt4czhjMHRxbmlt" target="_blank" rel="noopener" aria-label="Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
             </div>
-            <!-- TODO(owner): the family's public e-mail address -->
-            <span class="todo"><span class="lang-en">e-mail address</span><span class="lang-cs">e-mailová adresa</span></span>
+            <a href="mailto:electric.van.fam@gmail.com">electric.van.fam@gmail.com</a>
           </div>
         </div>
         <div class="footer-bottom">

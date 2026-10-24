@@ -56,6 +56,8 @@
       <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
       <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
       <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></g></symbol>
+      <symbol id="i-flag-cz" viewBox="0 0 30 20"><path fill="#fff" d="M0 0h30v10H0z"/><path fill="#d7141a" d="M0 10h30v10H0z"/><path fill="#11457e" d="M0 0l15 10L0 20z"/></symbol>
+      <symbol id="i-flag-gb" viewBox="0 0 60 30"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0 0 30"/><path stroke="#c8102e" stroke-width="2" d="M0 0l60 30M60 0 0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></symbol>
     </svg>
     <!-- ===== /chrome:icons ===== -->
 
@@ -64,8 +66,7 @@
     <header class="site-header">
       <div class="container header-top">
         <a class="brand" href="index.html">
-          <img class="brand-badge" src="assets/img/logo-256.webp" width="64" height="64" alt="" />
-          <span class="brand-word"><span class="brand-top">Electric</span> <span class="brand-bottom">Van Fam</span></span>
+          <img class="brand-title" src="assets/img/title-1280.webp" srcset="assets/img/title-640.webp 640w, assets/img/title-1280.webp 1280w, assets/img/title-1920.webp 1920w" sizes="(max-width: 767px) 100vw, 285px" width="1920" height="1080" alt="Electric Van Fam" decoding="async" />
         </a>
         <div class="header-controls">
           <div id="lang-mount"></div>
@@ -84,13 +85,7 @@
         </button>
         <nav class="site-nav" id="site-menu" aria-label="Main" data-aria-label-en="Main" data-aria-label-cs="Hlavní">
           <ul>
-            <li class="has-sub"><a href="videos.html"><span class="lang-en">Videos</span><span class="lang-cs">Videa</span></a>
-              <ul class="sub">
-                <li><a href="videos.html#episodes"><span class="lang-en">Episodes</span><span class="lang-cs">Díly</span></a></li>
-                <li><a href="videos.html#shorts"><span class="lang-en">Shorts</span><span class="lang-cs">Shorts</span></a></li>
-                <li><a href="videos.html#playlists"><span class="lang-en">Playlists</span><span class="lang-cs">Playlisty</span></a></li>
-              </ul>
-            </li>
+            <li><a href="about.html"><span class="lang-en">About us</span><span class="lang-cs">O nás</span></a></li>
             <li class="has-sub"><a href="van.html"><span class="lang-en">Our van</span><span class="lang-cs">Naše dodávka</span></a>
               <ul class="sub">
                 <li><a href="van.html#build"><span class="lang-en">The build</span><span class="lang-cs">Přestavba</span></a></li>
@@ -98,8 +93,15 @@
                 <li><a href="van.html#faq"><span class="lang-en">Questions</span><span class="lang-cs">Otázky</span></a></li>
               </ul>
             </li>
+            <li class="has-sub"><a href="videos.html"><span class="lang-en">Videos</span><span class="lang-cs">Videa</span></a>
+              <ul class="sub">
+                <li><a href="videos.html#episodes"><span class="lang-en">Episodes</span><span class="lang-cs">Díly</span></a></li>
+                <li><a href="videos.html#shorts"><span class="lang-en">Shorts</span><span class="lang-cs">Shorts</span></a></li>
+                <li><a href="videos.html#playlists"><span class="lang-en">Playlists</span><span class="lang-cs">Playlisty</span></a></li>
+              </ul>
+            </li>
             <li><a href="gallery.html"><span class="lang-en">Gallery</span><span class="lang-cs">Galerie</span></a></li>
-            <li><a href="about.html"><span class="lang-en">About us</span><span class="lang-cs">O nás</span></a></li>
+            <li><a href="fest.html">Electric Van Fest</a></li>
             <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-cs">Kontakt</span></a></li>
           </ul>
         </nav>
@@ -122,7 +124,14 @@
           <h1 class="title" id="hero-title"><span class="lang-en">Family adventures in an electric camper van</span><span class="lang-cs">Rodinná dobrodružství v elektrické obytné dodávce</span></h1>
           <p class="lang-en">A brand-new Kia PV5, its camper conversion, and life on the road with young children.</p>
           <p class="lang-cs">Zbrusu nová Kia PV5, její přestavba na obytnou dodávku a život na cestách s malými dětmi.</p>
-          <p class="schedule"><svg aria-hidden="true"><use href="#i-bolt"/></svg><span class="lang-en">New video every Thursday, 8 pm Czech time</span><span class="lang-cs">Nové video každý čtvrtek ve 20:00</span></p>
+          <!-- Schedule note as on the channel banner: capitals by CSS, the times with flags. -->
+          <p class="schedule">
+            <span class="schedule-line"><span class="lang-en">New video every Thursday</span><span class="lang-cs">Nové video každý čtvrtek</span></span>
+            <span class="schedule-line schedule-times">
+              <span class="schedule-time"><span class="lang-en">8 PM</span><span class="lang-cs">20:00</span><svg class="flag flag-cz" aria-hidden="true"><use href="#i-flag-cz"/></svg><span class="visually-hidden"><span class="lang-en">Czech time</span><span class="lang-cs">český čas</span></span></span>
+              <span class="schedule-time"><span class="lang-en">7 PM</span><span class="lang-cs">19:00</span><svg class="flag flag-gb" aria-hidden="true"><use href="#i-flag-gb"/></svg><span class="visually-hidden"><span class="lang-en">UK time</span><span class="lang-cs">britský čas</span></span></span>
+            </span>
+          </p>
         </div>
       </section>
 
@@ -130,7 +139,7 @@
       <section class="section" aria-labelledby="topics-title">
         <div class="container">
           <div class="section-head center">
-            <h2 id="topics-title"><span class="lang-en">What we share</span><span class="lang-cs">O čem točíme</span></h2>
+            <h2 id="topics-title"><span class="lang-en">What are our videos about?</span><span class="lang-cs">O čem jsou naše videa?</span></h2>
           </div>
           <div class="offer-grid">
             <article class="offer reveal">
@@ -140,21 +149,9 @@
                    data-alt-cs="Dodávka v dílně při montáži výklopné střechy" />
               <div class="offer-body">
                 <h3><span class="lang-en">The build</span><span class="lang-cs">Přestavba</span></h3>
-                <p class="lang-en">From a stock Kia PV5 Passenger to a family camper: a Skyline pop-top roof, a camp box, a fridge and clever storage.</p>
-                <p class="lang-cs">Ze sériové Kia PV5 Passenger rodinný obytňák: výklopná střecha Skyline, kempingový box, lednice a chytré úložné prostory.</p>
+                <p class="lang-en">How we turned a stock Kia PV5 into a family campervan for four. Everything about the pop-top roof, the interior build and the gear we have in the van.</p>
+                <p class="lang-cs">Jak jsme ze sériové Kia PV5 udělali rodinný campervan pro 4. Vše o výklopné střeše, vestavbě a vybavení, které v autě máme.</p>
                 <a class="more" href="van.html#build"><span class="lang-en">See the build</span><span class="lang-cs">Prohlédnout přestavbu</span></a>
-              </div>
-            </article>
-            <article class="offer reveal">
-              <img src="assets/img/ig/DdrrLQiCNfX-800.webp" width="800" height="779" loading="lazy"
-                   alt="Campervans driving on the Slovakia Ring race track, seen from above"
-                   data-alt-en="Campervans driving on the Slovakia Ring race track, seen from above"
-                   data-alt-cs="Obytná auta na okruhu Slovakia Ring z ptačí perspektivy" />
-              <div class="offer-body">
-                <h3><span class="lang-en">Road trips</span><span class="lang-cs">Výlety</span></h3>
-                <p class="lang-en">Electric road trips across Europe: the Bavarian Alps, a drive to England, the Slovakia Ring and the Italian coast.</p>
-                <p class="lang-cs">Elektrické výlety po Evropě: Bavorské Alpy, cesta do Anglie, Slovakia Ring a italské pobřeží.</p>
-                <a class="more" href="videos.html#playlists"><span class="lang-en">Watch the trips</span><span class="lang-cs">Pustit si výlety</span></a>
               </div>
             </article>
             <article class="offer reveal">
@@ -163,9 +160,21 @@
                    data-alt-en="The van parked at a campsite in the evening, with an awning, chairs and a pram"
                    data-alt-cs="Dodávka večer v kempu s markýzou, židlemi a kočárkem" />
               <div class="offer-body">
-                <h3><span class="lang-en">Camping</span><span class="lang-cs">Kempování</span></h3>
-                <p class="lang-en">Campsites, campervan festivals and EV meet-ups, and how sleeping in a van works with young children.</p>
-                <p class="lang-cs">Kempy, festivaly obytných aut a srazy elektromobilů, a jak se v dodávce spí s malými dětmi.</p>
+                <h3><span class="lang-en">Camping and road trips</span><span class="lang-cs">Kempování a výlety</span></h3>
+                <p class="lang-en">Family road trips across Europe and camping weekends in Czechia and nearby.</p>
+                <p class="lang-cs">Rodinné roadtripy po Evropě a kempovací víkendy po Čechách a blízkém okolí.</p>
+                <a class="more" href="videos.html#playlists"><span class="lang-en">Watch the trips</span><span class="lang-cs">Pustit si výlety</span></a>
+              </div>
+            </article>
+            <article class="offer reveal">
+              <img class="pos-low" src="assets/img/ig/DcMJhTcoElv-800.webp" width="451" height="800" loading="lazy"
+                   alt="Close-up of the dashboard display showing an empty battery, text “0%”."
+                   data-alt-en="Close-up of the dashboard display showing an empty battery, text “0%”."
+                   data-alt-cs="Detail displeje na palubní desce s prázdnou baterií, text „0%“." />
+              <div class="offer-body">
+                <h3><span class="lang-en">EV tests, tips and tricks</span><span class="lang-cs">EV testy, tipy a triky</span></h3>
+                <p class="lang-en">Answers to common questions from our online community, and more: news from the EV world and further tests.</p>
+                <p class="lang-cs">Odpovědi na časté otázky z naší online komunity a nejen to, také novinky ze světa EV a další testy.</p>
                 <a class="more" href="videos.html#episodes"><span class="lang-en">Watch the episodes</span><span class="lang-cs">Pustit si díly</span></a>
               </div>
             </article>
@@ -194,8 +203,8 @@
               <h2 id="about-title"><span class="lang-en">Hi, we're the Electric Van Fam!</span><span class="lang-cs">Ahoj, jsme Electric Van Fam!</span></h2>
               <p class="lang-en">Yes, it's another EV channel... But this one is all about family adventures, electric vanlife, and the conversion of a brand-new Kia PV5 Passenger into a fully capable family camper van.</p>
               <p class="lang-cs">Ano, další kanál o elektromobilech... Tenhle je ale hlavně o rodinných dobrodružstvích, elektrickém vanlife a přestavbě zbrusu nové Kia PV5 Passenger na plnohodnotnou rodinnou obytnou dodávku.</p>
-              <p class="lang-en">As far as we know, we may be the first family in continental Europe taking on a project like this.</p>
-              <p class="lang-cs">Pokud víme, jsme možná první rodina v kontinentální Evropě, která se do takového projektu pustila.</p>
+              <p class="lang-en">We are the first family in continental Europe taking on a project like this.</p>
+              <p class="lang-cs">Jsme první rodina v kontinentální Evropě, která se do takového projektu pustila.</p>
               <a class="btn btn-ghost" href="about.html"><span class="lang-en">More about us</span><span class="lang-cs">Více o nás</span></a>
             </div>
           </div>
@@ -277,10 +286,11 @@
       <div class="container">
         <div class="footer-cols">
           <ul class="footer-nav">
-            <li><a href="videos.html"><span class="lang-en">Videos</span><span class="lang-cs">Videa</span></a></li>
-            <li><a href="van.html"><span class="lang-en">Our van</span><span class="lang-cs">Naše dodávka</span></a></li>
-            <li><a href="gallery.html"><span class="lang-en">Gallery</span><span class="lang-cs">Galerie</span></a></li>
             <li><a href="about.html"><span class="lang-en">About us</span><span class="lang-cs">O nás</span></a></li>
+            <li><a href="van.html"><span class="lang-en">Our van</span><span class="lang-cs">Naše dodávka</span></a></li>
+            <li><a href="videos.html"><span class="lang-en">Videos</span><span class="lang-cs">Videa</span></a></li>
+            <li><a href="gallery.html"><span class="lang-en">Gallery</span><span class="lang-cs">Galerie</span></a></li>
+            <li><a href="fest.html">Electric Van Fest</a></li>
             <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-cs">Kontakt</span></a></li>
           </ul>
           <div class="footer-logo"><img src="assets/img/logo-256.webp" width="104" height="104" loading="lazy" alt="Electric Van Fam" /></div>
@@ -289,8 +299,7 @@
               <a class="icon-link" href="https://youtube.com/@electricvanfam?si=Grp4nOMV1Lf5DhQu" target="_blank" rel="noopener" aria-label="YouTube"><svg aria-hidden="true"><use href="#i-youtube"/></svg></a>
               <a class="icon-link" href="https://instagram.com/electric.van.fam?xtok=amt4czhjMHRxbmlt" target="_blank" rel="noopener" aria-label="Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
             </div>
-            <!-- TODO(owner): the family's public e-mail address -->
-            <span class="todo"><span class="lang-en">e-mail address</span><span class="lang-cs">e-mailová adresa</span></span>
+            <a href="mailto:electric.van.fam@gmail.com">electric.van.fam@gmail.com</a>
           </div>
         </div>
         <div class="footer-bottom">

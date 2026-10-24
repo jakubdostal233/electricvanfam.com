@@ -34,35 +34,48 @@
 }
 
 /* ---- header ----------------------------------------------------------------
-   Not sticky, as on the inspiration site: it scrolls away with the page. */
+   Two rows: the top strip (the title image, the language and theme switches at
+   the right) and the menu row (the social icons and the menu). With JS the
+   header is sticky with `top` = minus the top strip's height, which site.js
+   measures into --header-top-h: the top strip scrolls away and the menu row
+   stays at the top of the viewport, at every width. Without JS the whole header
+   scrolls away with the page. */
+:root {
+  --title-strip-h: 160px; /* the title image's height above phone width; its wordmark stays readable */
+  --nav-row-h: 3.25rem;
+}
 .site-header {
   position: relative; z-index: 60;
   background: var(--bg);
   backdrop-filter: none;
   border-bottom: 1px solid var(--border);
+  overflow-x: clip; /* the phone title image is 100vw wide: a classic scrollbar must not scroll the page sideways */
 }
+.js .site-header { position: sticky; top: calc(-1 * var(--header-top-h, 0px)); }
+/* Anchors (#build, #faq, #gear) land just below the menu row that stays; the
+   kit's own :target margin (sized for its taller sticky header) is set aside so
+   the padding alone decides the offset. */
+html.js { scroll-padding-top: calc(var(--nav-row-h) + 0.75rem); }
+html.js :target { scroll-margin-top: 0; }
 .header-top {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 1rem;
-  padding-block: 1rem 0.4rem;
+  height: var(--title-strip-h);
 }
 .header-top .brand { grid-column: 2; }
 .header-controls { grid-column: 3; justify-self: end; margin-left: 0; display: inline-flex; gap: 0.5rem; align-items: center; }
 
-.brand { display: inline-flex; align-items: center; gap: 0.75rem; color: var(--text); }
+.brand { display: block; color: var(--text); }
 .brand:hover { text-decoration: none; }
-.brand-badge { width: 64px; height: 64px; border-radius: 50%; flex: 0 0 auto; }
-.brand-word { display: flex; flex-direction: column; line-height: 1.02; }
-.brand-top { font-weight: 800; font-size: 1.35rem; letter-spacing: 0.08em; text-transform: uppercase; }
-.brand-bottom { font-weight: 600; font-size: 1.15rem; color: var(--accent); letter-spacing: 0.01em; }
+.brand-title { height: var(--title-strip-h); width: auto; }
 
 .header-nav-row {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  min-height: 3.25rem;
+  min-height: var(--nav-row-h);
 }
 .social-slot { display: inline-flex; }
 .social-slot.left { justify-self: start; }
@@ -70,13 +83,13 @@
 
 .icon-link {
   display: inline-grid; place-items: center;
-  width: 44px; height: 44px;
+  width: 48px; height: 48px;
   border-radius: 50%;
   color: var(--text);
   transition: color var(--duration-base) ease, background-color var(--duration-base) ease;
 }
 .icon-link:hover { color: var(--accent); background: var(--accent-soft); text-decoration: none; }
-.icon-link svg { width: 22px; height: 22px; }
+.icon-link svg { width: 28px; height: 28px; }
 
 /* Primary menu - inline and centred on desktop, a dropdown panel below 981 px. */
 .site-nav { margin: 0; display: block; }
@@ -145,16 +158,18 @@
     box-shadow: none; border: 0; background: transparent; min-width: 0; padding: 0 0 0.5rem 1rem;
   }
   .sub a { padding: 0.5rem 0.4rem; color: var(--text-muted); font-size: 0.95rem; }
+  /* The fold-out menu hangs from the header (top: 100%), which is positioned -
+     relative, or sticky with JS - so it opens below the menu row. */
   .header-nav-row { position: static; }
-  .site-header { position: relative; }
 }
 @media (max-width: 767px) {
-  .header-top { grid-template-columns: 1fr; justify-items: center; gap: 0.6rem; padding-top: 0.6rem; }
-  .header-top .brand { grid-column: 1; grid-row: 2; }
+  /* A thin row of switches at the right, then the title image at the full
+     viewport width: it leaves the container's side padding through margins of
+     50% - 50vw, which needs no copy of the kit's padding value. */
+  .header-top { grid-template-columns: 1fr; height: auto; gap: 0.35rem; padding-top: 0.35rem; }
   .header-controls { grid-column: 1; grid-row: 1; justify-self: end; }
-  .brand-badge { width: 56px; height: 56px; }
-  .brand-top { font-size: 1.2rem; }
-  .brand-bottom { font-size: 1.02rem; }
+  .header-top .brand { grid-column: 1; grid-row: 2; width: 100vw; margin-inline: calc(50% - 50vw); }
+  .brand-title { width: 100%; height: auto; }
 }
 
 /* ---- hero: full-bleed photo with a centred claim ----------------------------- */
@@ -185,14 +200,21 @@
   font-size: clamp(1.02rem, 1.7vw, 1.25rem); color: rgba(255, 255, 255, 0.92);
   text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
 }
+/* The schedule note, as on the channel banner: two lines in capitals, the
+   second with the Czech and the UK time, each followed by its flag (a hidden
+   label names the time zone for screen readers). */
 .hero-photo .schedule {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  margin-top: 1.6rem; padding: 0.45rem 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.45); border-radius: var(--radius-pill);
-  background: rgba(4, 12, 24, 0.35);
-  font-size: 0.95rem; font-weight: 500;
+  display: inline-grid; justify-items: center; gap: 0.35rem;
+  margin-top: 1.6rem; padding: 0.65rem 1.4rem 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.45); border-radius: var(--radius-lg);
+  background: rgba(4, 12, 24, 0.4);
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem); font-weight: 700; line-height: 1.25;
+  letter-spacing: 0.06em; text-transform: uppercase;
 }
-.hero-photo .schedule svg { width: 16px; height: 16px; color: #7cc4ff; }
+.schedule-times { display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 0.2rem 1.4em; }
+.schedule-time { display: inline-flex; align-items: center; gap: 0.5em; white-space: nowrap; }
+.schedule .flag { height: 1em; width: 1.5em; border-radius: 2px; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35); }
+.schedule .flag-gb { width: 2em; }
 
 /* ---- section heads -------------------------------------------------------- */
 .center { text-align: center; }
@@ -212,6 +234,7 @@
   box-shadow: var(--shadow);
 }
 .offer > img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.offer > img.pos-low { object-position: 50% 62%; } /* a portrait photo whose subject sits below its centre */
 .offer-body { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; text-align: center; padding: 1.5rem 1.4rem 1.7rem; flex: 1; }
 .offer-body h3 { font-size: 1.35rem; }
 .offer-body p { color: var(--text-muted); }
@@ -248,7 +271,6 @@
   padding-right: calc(var(--side) + var(--gutter));
   display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.6rem, 5vw, 4rem); align-items: center;
 }
-.offset-inner.text-split { grid-template-columns: 2fr 3fr; align-items: start; }
 .offset-media img { width: 100%; border-radius: var(--radius-lg); aspect-ratio: 4 / 5; object-fit: cover; }
 .offset-media img.badge-art { aspect-ratio: 1; object-fit: contain; background: transparent; border-radius: 50%; max-width: 22rem; margin-inline: auto; box-shadow: var(--shadow-lg); }
 .offset-text h2 { margin-bottom: 1.1rem; padding-bottom: 0.6rem; }
@@ -259,7 +281,7 @@
 .offset-text .btn { margin-top: 1.6rem; }
 @media (max-width: 980px) {
   .offset-box { margin-left: 0; border-radius: 0; border-left: 0; }
-  .offset-inner, .offset-inner.text-split { grid-template-columns: 1fr; max-width: 40rem; margin-inline: auto; padding-inline: var(--gutter); }
+  .offset-inner { grid-template-columns: 1fr; max-width: 40rem; margin-inline: auto; padding-inline: var(--gutter); }
 }
 
 /* ---- video cards ------------------------------------------------------------ */
@@ -320,9 +342,11 @@
   padding-block: clamp(2rem, 6vw, 4.5rem) clamp(2.5rem, 7vw, 5rem);
   text-align: center; overflow: hidden;
 }
+/* One row at every width: the line is about 13.6 em wide, so 6vw fills about
+   82% of the viewport, and the cap keeps it from growing on wide screens. */
 .tagline-giant p {
   font-weight: 800; letter-spacing: -0.03em; line-height: 1.05;
-  font-size: clamp(2.6rem, 8.5vw, 7.2rem);
+  font-size: clamp(1rem, 6vw, 5rem); white-space: nowrap;
   color: color-mix(in srgb, var(--text) 9%, var(--bg));
   user-select: none;
 }
@@ -336,6 +360,8 @@
 .footer-logo img { width: 104px; height: 104px; border-radius: 50%; }
 .footer-contact { justify-self: end; display: grid; justify-items: end; gap: 0.6rem; }
 .footer-contact .socials { display: flex; gap: 0.3rem; }
+.footer-contact > a { color: var(--text-muted); font-size: 0.95rem; }
+.footer-contact > a:hover { color: var(--text); }
 .footer-bottom {
   margin-top: 2.2rem; padding-top: 1.2rem; border-top: 1px solid var(--border);
   display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.6rem 1.5rem;
@@ -464,6 +490,7 @@ html.lb-lock { overflow: hidden; }
 /* ---- print ---------------------------------------------------------------- */
 @media print {
   .site-header .header-controls, .menu-toggle, .band, .lb, .tagline-giant { display: none !important; }
+  .js .site-header { position: static; }
 }
 
 /* ============================================================================
@@ -669,19 +696,33 @@ html.lb-lock { overflow: hidden; }
 .gallery-hint { max-width: 60ch; margin: 0 auto 1.6rem; text-align: center; color: var(--text-muted); font-size: 0.95rem; }
 
 /* ---- about page --------------------------------------------------------------- */
-/* Two-column intro (R15): photo | title, text and a button. */
-.intro-2col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.6rem, 5vw, 4rem); align-items: center; }
-.intro-photo { width: 100%; max-width: 30rem; aspect-ratio: 4 / 5; margin-inline: auto; }
-.intro-text h1 { font-size: clamp(2rem, 4.4vw, 3.2rem); padding-bottom: 0.6rem; margin-bottom: 1.2rem; }
-.intro-text p { color: var(--text-muted); font-size: 1.05rem; }
-.intro-text p + p { margin-top: 1rem; }
-.intro-text .btn { margin-top: 1.6rem; }
+/* Intro: the title band with two paragraphs and a button. */
+.title-band :is(.lang-en, .lang-cs) > p + p { margin-top: 1rem; }
+.title-band .btn { margin-top: 1.8rem; }
 
-/* Two text columns. */
-.text-cols { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.6rem, 5vw, 4rem); align-items: start; }
-.text-col h2 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); padding-bottom: 0.6rem; margin-bottom: 1.1rem; }
-.text-col p { color: var(--text-muted); }
-.text-col p + p { margin-top: 1rem; }
+/* Alternating rows: photo | text, the photo on the left in odd rows and on the
+   right in even rows; on a phone the photo stacks above its text. The photo
+   slot is 5:4, a placeholder (todo-block) keeps the same shape. */
+.alt-rows { display: grid; gap: clamp(3rem, 8vw, 6rem); max-width: 68rem; margin-inline: auto; }
+.alt-row {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.6rem, 5vw, 4rem); align-items: center;
+  padding-block: 0; /* each row is a <section>: the template's section padding is set aside, the list gap spaces the rows */
+}
+.alt-row:nth-child(even) .alt-row-media { order: 2; }
+.alt-row-media img, .alt-row-media .todo-block {
+  width: 100%; aspect-ratio: 5 / 4;
+  border-radius: var(--radius-lg);
+}
+.alt-row-media img { object-fit: cover; box-shadow: var(--shadow-lg); }
+.alt-row-media img.pos-upper { object-position: 50% 35%; }
+.alt-row-text h2 { font-size: clamp(1.5rem, 2.8vw, 2rem); padding-bottom: 0.6rem; margin-bottom: 1.1rem; }
+.alt-row-text p { color: var(--text-muted); }
+.alt-row-text :is(.lang-en, .lang-cs) > p + p { margin-top: 1rem; }
+@media (max-width: 767px) {
+  .alt-row { grid-template-columns: minmax(0, 1fr); }
+  .alt-row:nth-child(even) .alt-row-media { order: 0; }
+}
 .tick-list { list-style: none; padding: 0; margin: 0 0 1.2rem; }
 .tick-list li { position: relative; padding-left: 1.7rem; }
 .tick-list li + li { margin-top: 0.55rem; }
@@ -692,28 +733,6 @@ html.lb-lock { overflow: hidden; }
   transform: rotate(45deg);
 }
 
-/* Who's who: four cards, placeholders until the family sends photos. */
-.people-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(1rem, 2.5vw, 1.6rem); }
-.todo-block.person-card {
-  display: flex; flex-direction: column; align-items: stretch; gap: 0.45rem;
-  padding: 0.8rem 0.8rem 1.2rem;
-}
-.person-photo {
-  display: grid; place-items: center;
-  aspect-ratio: 4 / 5; margin-bottom: 0.4rem;
-  border: 1px dashed var(--accent); border-radius: var(--radius-sm);
-  background: var(--bg);
-}
-.person-name { color: var(--text); font-size: 1.05rem; }
-.person-line { font-size: 0.9rem; }
-@media (max-width: 980px) {
-  .offset-inner.text-split { row-gap: 0.2rem; }
-  .intro-2col, .text-cols { grid-template-columns: 1fr; }
-  .intro-2col { max-width: 40rem; }
-  .intro-photo { max-width: 24rem; }
-  .people-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
 /* ---- contact page ------------------------------------------------------------- */
 /* Photo | how to reach us. */
 .contact-row {
@@ -722,7 +741,7 @@ html.lb-lock { overflow: hidden; }
   max-width: 64rem;
 }
 .contact-photo img {
-  width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 30% 50%;
+  width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 48% 50%;
   border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
 }
 .contact-info h2 { padding-bottom: 0.6rem; margin-bottom: 0.9rem; }
@@ -764,6 +783,14 @@ html.lb-lock { overflow: hidden; }
 .contact-form .botcheck { display: none !important; }
 .form-status { min-height: 1.4em; color: var(--text-muted); }
 .form-status.is-error { color: var(--text); font-weight: 600; }
+
+/* ---- fest page ---------------------------------------------------------------- */
+/* The Fest facts beside the photo: one row per fact; until the family sends a
+   fact, its row is a placeholder (todo) that names it. */
+.fest-facts { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.7rem; }
+.fest-facts .todo { display: block; padding: 0.65rem 1rem; font-size: 1rem; }
+/* One video card, centred, at the width of a two-column card. */
+.video-single { max-width: 36rem; margin-inline: auto; }
 
 /* ---- language before (and without) JS ---------------------------------------
    The head script sets html[data-lang] before the first paint, Czech by default;

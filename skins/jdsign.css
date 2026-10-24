@@ -5,10 +5,10 @@
 
    Source repo:   jakubdostal233/design-system
    Source path:   jdsign/tokens/jdsign.json
-   Source commit: 215a347c809894b3710b8883a5851dff6e66aaed
+   Source commit: 38c78f78648a3856000a563b4c52b3473e12fbbb
    Generator:     jdsign/tools/generate.py
    Spec:          jdsign/SPEC.md
-   Version:       0.1.0   Generated: 2026-10-02
+   Version:       0.1.0   Generated: 2026-10-15
 
    To change a value: edit the token source in the repo above, then re-run the
    generator. Editing this file directly puts it out of sync with every other
@@ -342,9 +342,12 @@
 /* Adwaita's prefers-contrast pattern: keep the soft layers, promote the hairline to a real
    border, raise the faint text tier. Two overrides, no second design. Both GNOME and KDE
    ship focus rings that fail 3:1 (2.28:1 and 2.49:1); this system's is 4.52:1 light / 4.56:1 dark, so the
-   defect is not inherited - this block hardens what is already passing. */
+   defect is not inherited - this block hardens what is already passing.
+   The list repeats the auto-dark selector: that block weighs (0,2,0) and would outweigh
+   `:root` (0,1,0), so without it a dark system scheme would keep the soft values. */
 @media (prefers-contrast: more) {
   :root,
+  :root:not([data-theme="light"]),
   [data-theme="dark"],
   [data-theme="light"] {
     --border: var(--border-strong);
