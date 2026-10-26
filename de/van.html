@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="canonical" href="https://electricvanfam.com/de/van.html" />
+    <link rel="alternate" hreflang="cs" href="https://electricvanfam.com/cs/van.html" />
+    <link rel="alternate" hreflang="de" href="https://electricvanfam.com/de/van.html" />
+    <link rel="alternate" hreflang="en" href="https://electricvanfam.com/en/van.html" />
+    <link rel="alternate" hreflang="x-default" href="https://electricvanfam.com/cs/van.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Unser Van - Electric Van Fam</title>
+    <meta name="description" content="Unser Kia PV5 Passenger Elite als Camper: der Ausbau Schritt für Schritt, von den ersten Änderungen am ersten Tag bis zum Skyline-Aufstelldach und zur Campal Camp Box, die Ausrüstung, die wir nutzen, und Antworten auf häufige Fragen." />
+    <meta property="og:title" content="Unser Kia PV5 Camper - Electric Van Fam" />
+    <meta property="og:description" content="Der Ausbau unseres Kia PV5 zum Camper Schritt für Schritt: Skyline-Aufstelldach, Campal Camp Box, Kühlbox, Stauraum und Ausrüstung." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="../assets/img/icon-192.png" sizes="192x192" type="image/png" />
+    <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon-180.png" />
+
+    <!-- Resolve the theme BEFORE first paint; `preload` stops the first paint from animating.
+         ?theme=light|dark|auto and ?template=<family> deep-link a state. -->
+    <script>
+      (function () {
+        var d = document.documentElement;
+        d.classList.add("js", "preload");
+        var q = new URLSearchParams(location.search);
+        var ls = function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } };
+        d.setAttribute("data-theme", q.get("theme") || ls("pers-ui-theme") || "light");
+        var tpl = q.get("template");
+        if (tpl && /^(jdsign|aurora|bento|brutalist|devdark|scholarly)$/.test(tpl)) d.setAttribute("data-template", tpl);
+      })();
+    </script>
+    <link rel="stylesheet" href="../fonts/fonts.css" />
+    <link rel="stylesheet" href="../core/base.css" />
+    <link rel="stylesheet" href="../kits/site.css" />
+    <!-- The design family, jdsign (its accent matches the channel's brand blue): one template stylesheet, which imports its skin. -->
+    <link id="template-css" rel="stylesheet" href="../templates/site/jdsign.css" />
+    <script>
+      (function () {
+        var t = document.documentElement.getAttribute("data-template");
+        if (t) document.getElementById("template-css").href = "../templates/site/" + t + ".css";
+      })();
+    </script>
+    <link rel="stylesheet" href="../assets/site.css" />
+  </head>
+  <body>
+    <!-- ===== chrome:icons (identical on every page) ===== -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <symbol id="i-youtube" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M23.1 7.2a3 3 0 0 0-2.1-2.1C19.1 4.6 12 4.6 12 4.6s-7.1 0-9 .5A3 3 0 0 0 .9 7.2 31 31 0 0 0 .4 12c0 1.6.2 3.2.5 4.8A3 3 0 0 0 3 18.9c1.9.5 9 .5 9 .5s7.1 0 9-.5a3 3 0 0 0 2.1-2.1c.3-1.6.5-3.2.5-4.8s-.2-3.2-.5-4.8zM9.7 15.1V8.9l5.9 3.1-5.9 3.1z"/></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4"/><circle cx="12" cy="12" r="4.4"/></g><circle cx="17.6" cy="6.4" r="1.25" fill="currentColor"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4.5v15l13-7.5z"/></symbol>
+      <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 1.5 3.8 13.6h6.6l-1.6 8.9 10-12.6h-6.7z"/></symbol>
+      <symbol id="i-zoom" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6"/></g></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></g></symbol>
+      <symbol id="i-flag-cz" viewBox="0 0 30 20"><path fill="#fff" d="M0 0h30v10H0z"/><path fill="#d7141a" d="M0 10h30v10H0z"/><path fill="#11457e" d="M0 0l15 10L0 20z"/></symbol>
+      <symbol id="i-flag-gb" viewBox="0 0 60 30"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0 0 30"/><path stroke="#c8102e" stroke-width="2" d="M0 0l60 30M60 0 0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></symbol>
+      <symbol id="i-flag-de" viewBox="0 0 5 3"><path fill="#000" d="M0 0h5v1H0z"/><path fill="#d00" d="M0 1h5v1H0z"/><path fill="#ffce00" d="M0 2h5v1H0z"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m6.5 9.5 5.5 5.5 5.5-5.5"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.2v2.3M12 19.5v2.3M2.2 12h2.3M19.5 12h2.3M5.1 5.1l1.6 1.6M17.3 17.3l1.6 1.6M5.1 18.9l1.6-1.6M17.3 6.7l1.6-1.6"/></g></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M20.6 14.3A8.8 8.8 0 1 1 9.7 3.4a6.9 6.9 0 0 0 10.9 10.9z"/></symbol>
+      <symbol id="i-auto" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6" fill="none" stroke="currentColor" stroke-width="2"/><path fill="currentColor" d="M12 3.4a8.6 8.6 0 0 0 0 17.2z"/></symbol>
+    </svg>
+    <!-- ===== /chrome:icons ===== -->
+
+    <!-- ===== chrome:header (identical on every page except aria-current) ===== -->
+    <a class="skip-link" href="#main">Zum Inhalt springen</a>
+    <header class="site-header">
+      <div class="container header-top">
+        <a class="brand" href="index.html">
+          <img class="brand-title" src="../assets/img/title-1280.webp" srcset="../assets/img/title-640.webp 640w, ../assets/img/title-1280.webp 1280w, ../assets/img/title-1920.webp 1920w" sizes="(max-width: 767px) 100vw, 285px" width="1920" height="1080" alt="Electric Van Fam" decoding="async" />
+        </a>
+        <div class="header-controls">
+          <nav class="picker lang-picker" aria-label="Sprache">
+            <button class="picker-button" type="button" aria-expanded="false" aria-controls="lang-list">
+              <span class="visually-hidden">Sprache: </span><span class="picker-code">DE</span><svg class="flag" aria-hidden="true"><use href="#i-flag-de"/></svg><svg class="picker-chevron" aria-hidden="true"><use href="#i-chevron"/></svg>
+            </button>
+            <ul class="picker-list" id="lang-list" hidden>
+              <li><a class="picker-item" href="../cs/van.html" hreflang="cs" lang="cs" aria-label="Čeština"><span class="picker-code">CZ</span><svg class="flag" aria-hidden="true"><use href="#i-flag-cz"/></svg></a></li>
+              <li><a class="picker-item" href="../en/van.html" hreflang="en" lang="en" aria-label="English"><span class="picker-code">EN</span><svg class="flag" aria-hidden="true"><use href="#i-flag-gb"/></svg></a></li>
+              <li><a class="picker-item" href="../de/van.html" hreflang="de" lang="de" aria-current="true" aria-label="Deutsch"><span class="picker-code">DE</span><svg class="flag" aria-hidden="true"><use href="#i-flag-de"/></svg></a></li>
+            </ul>
+          </nav>
+          <div class="picker theme-picker">
+            <button class="picker-button" type="button" aria-expanded="false" aria-controls="theme-list"><span class="visually-hidden">Farbschema</span></button>
+            <ul class="picker-list" id="theme-list" hidden></ul>
+          </div>
+        </div>
+      </div>
+      <div class="container header-nav-row">
+        <span class="social-slot left">
+          <a class="icon-link" href="https://youtube.com/@electricvanfam?si=Grp4nOMV1Lf5DhQu" target="_blank" rel="noopener"
+             aria-label="Electric Van Fam auf YouTube"
+             title="YouTube"><svg aria-hidden="true"><use href="#i-youtube"/></svg></a>
+        </span>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Menü öffnen">
+          <svg class="i-open" aria-hidden="true"><use href="#i-menu"/></svg>
+          <svg class="i-close" aria-hidden="true"><use href="#i-x"/></svg>
+        </button>
+        <nav class="site-nav" id="site-menu" aria-label="Hauptmenü">
+          <ul>
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="about.html">Über uns</a></li>
+            <li class="has-sub"><a href="van.html" aria-current="page">Unser Van</a>
+              <ul class="sub">
+                <li><a href="van.html#build">Der Ausbau</a></li>
+                <li><a href="van.html#gear">Ausrüstung &amp; Partner</a></li>
+                <li><a href="van.html#faq">Fragen</a></li>
+              </ul>
+            </li>
+            <li class="has-sub"><a href="videos.html">Videos</a>
+              <ul class="sub">
+                <li><a href="videos.html#episodes">Folgen</a></li>
+                <li><a href="videos.html#shorts">Shorts</a></li>
+                <li><a href="videos.html#playlists">Playlists</a></li>
+              </ul>
+            </li>
+            <li><a href="gallery.html">Galerie</a></li>
+            <li><a href="fest.html">Electric Van Fest</a></li>
+            <li><a href="contact.html">Kontakt</a></li>
+          </ul>
+        </nav>
+        <span class="social-slot right">
+          <a class="icon-link" href="https://instagram.com/electric.van.fam?xtok=amt4czhjMHRxbmlt" target="_blank" rel="noopener"
+             aria-label="Electric Van Fam auf Instagram"
+             title="Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
+        </span>
+      </div>
+    </header>
+    <!-- ===== /chrome:header ===== -->
+
+    <main id="main">
+      <!-- ================= PAGE HERO BAND ================= -->
+      <section class="page-hero" aria-labelledby="page-title">
+        <div class="container page-hero-inner">
+          <div class="page-hero-photo up">
+            <img src="../assets/img/ig/DdQt1WuoeAk-1600.webp"
+                 srcset="../assets/img/ig/DdQt1WuoeAk-800.webp 451w, ../assets/img/ig/DdQt1WuoeAk-1600.webp 640w"
+                 sizes="(max-width: 767px) 80vw, 25vw" width="640" height="1136" fetchpriority="high"
+                 alt="Unser Kia PV5 Camper mit Aufstelldach beim E&#8288;-&#8288;Auto-Treffen Elektro Sraz" />
+          </div>
+          <div class="page-hero-text center">
+            <h1 id="page-title">Unser Kia PV5 Camper</h1>
+            <p class="page-hero-sub">Kia PV5 Passenger Elite · Skyline-Aufstelldach · Campal Camp Box</p>
+            <p>Unser neues Familienauto, das wir zu einem vollwertigen Familiencamper ausbauen. Hier findest du den Ausbau Schritt für Schritt, die Ausrüstung, die wir nutzen, und Antworten auf häufige Fragen.</p>
+          </div>
+          <div class="page-hero-photo down">
+            <img src="../assets/img/ig/DbA-YftIXgI-1600.webp"
+                 srcset="../assets/img/ig/DbA-YftIXgI-800.webp 451w, ../assets/img/ig/DbA-YftIXgI-1600.webp 640w"
+                 sizes="(max-width: 767px) 80vw, 25vw" width="640" height="1136"
+                 alt="In der Werkstatt von Skyline Roofs in Bristol: ein großes Loch im Dach unseres Vans, bereit für das Aufstelldach" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= THE BUILD (detail boxes) ================= -->
+      <section class="section" id="build" aria-labelledby="build-title">
+        <div class="container">
+          <div class="section-head center">
+            <h2 id="build-title">Der Ausbau</h2>
+            <p>Vom Serien-Van zum Familiencamper, in der Reihenfolge, in der alles passiert ist. Zu jedem Schritt gibt es eine Folge: Drück auf den Button und schau sie dir direkt hier an.</p>
+          </div>
+          <ol class="build-list" data-lb-group="build">
+            <li class="detail-box has-media" id="day-one">
+              <div class="detail-text">
+                <p class="detail-step"><span class="step-no">1</span>Tag eins</p>
+                <h3>Direkt in die Werkstatt</h3>
+                <p>Nach Wochen des Wartens auf den Übergabetag kam unser nagelneuer Kia PV5 Passenger Elite nach Hause und blieb nicht lange im Serienzustand. Ende Juni 2026, direkt nach der Abholung, ging es ab in die Werkstatt: Lackschutzfolie (PPF), Scheibentönung, Schutzfolie für den Innenraum und tschüss, Kia-Logos. Ein riesiges Dankeschön an <a href="https://www.instagram.com/kasparfolie/" target="_blank" rel="noopener">@kasparfolie</a>.</p>
+                <div class="detail-actions">
+                  <a class="btn btn-ghost btn-sm" href="https://www.youtube.com/watch?v=sxP3aA7r7qk" data-lb="video" data-video-id="sxP3aA7r7qk"
+                     data-caption="4K | SORRY KIA… We Changed It Already! EVF#02"><svg aria-hidden="true"><use href="#i-play"/></svg>EVF#02 ansehen</a>
+                </div>
+              </div>
+              <div class="detail-media">
+                <img src="../assets/img/ig/DaFQ-XdI2Lt-800.webp"
+                     srcset="../assets/img/ig/DaFQ-XdI2Lt-800.webp 800w, ../assets/img/ig/DaFQ-XdI2Lt-1600.webp 1600w"
+                     sizes="(max-width: 767px) 92vw, 26rem" width="800" height="600" loading="lazy"
+                     alt="Unser nagelneuer Kia PV5 nach den ersten Änderungen, geparkt vor einem Glasgebäude" />
+              </div>
+            </li>
+
+            <li class="detail-box has-media" id="fridge">
+              <div class="detail-text">
+                <p class="detail-step"><span class="step-no">2</span>Ausrüstung</p>
+                <h3>Eine Kühlbox und ein Kratzer</h3>
+                <p>Unsere Kühlbox ist die Outwell Arctic Chill 41 Dual Zone. Gefunden haben wir sie auf die harte Tour: Beim Ausprobieren einer anderen haben wir unseren nagelneuen Van zerkratzt.</p>
+                <div class="detail-actions">
+                  <a class="btn btn-ghost btn-sm" href="https://www.youtube.com/watch?v=e82c-PqQiic" data-lb="video" data-video-id="e82c-PqQiic"
+                     data-caption="4K | We SCRATCHED our van buying FRIDGE for it 😓 EVF#03"><svg aria-hidden="true"><use href="#i-play"/></svg>EVF#03 ansehen</a>
+                </div>
+              </div>
+              <div class="detail-media">
+                <img class="pos-high" src="../assets/img/ig/DaQmrmQo1KY-800.webp"
+                     srcset="../assets/img/ig/DaQmrmQo1KY-800.webp 450w, ../assets/img/ig/DaQmrmQo1KY-1600.webp 720w"
+                     sizes="(max-width: 767px) 92vw, 26rem" width="720" height="1280" loading="lazy"
+                     alt="Eine tragbare Kühlbox wird in den Van gehoben" />
+              </div>
+            </li>
+
+            <li class="detail-box has-media" id="pop-top">
+              <div class="detail-text">
+                <p class="detail-step"><span class="step-no">3</span>Dach</p>
+                <h3>Das Skyline-Aufstelldach, eingebaut in England</h3>
+                <p>Im Juli 2026 sind wir über 1&#8239;000&nbsp;Meilen von Tschechien nach England gefahren, durch den Eurotunnel bis zu Skyline Roofs in Bristol. Dort haben sie ein riesiges Loch in das Dach unseres nagelneuen Vans geschnitten und ein Skyline-Aufstelldach eingebaut. Damit wurde unser PV5 der erste Kia PV5 in Kontinentaleuropa mit Skyline-Aufstelldach.</p>
+                <div class="detail-actions">
+                  <a class="btn btn-ghost btn-sm" href="https://www.youtube.com/watch?v=b1_xxBoZ96U" data-lb="video" data-video-id="b1_xxBoZ96U"
+                     data-caption="4K | 🚐 Road Trip to England… for the Biggest Upgrade Yet! 🇬🇧 EVF#08"><svg aria-hidden="true"><use href="#i-play"/></svg>EVF#08 ansehen</a>
+                  <a class="btn btn-ghost btn-sm" href="https://www.youtube.com/watch?v=WaZcorlat7g" data-lb="video" data-video-id="WaZcorlat7g"
+                     data-caption="4K | First Kia PV5 Skyline Pop Top in Continental Europe! We Drove 1,000 Miles! EVF#09"><svg aria-hidden="true"><use href="#i-play"/></svg>EVF#09 ansehen</a>
+                </div>
+              </div>
+              <div class="detail-media">
+                <img src="../assets/img/ig/Da2BRIKNQSg-800.webp"
+                     srcset="../assets/img/ig/Da2BRIKNQSg-800.webp 800w, ../assets/img/ig/Da2BRIKNQSg-1600.webp 1600w"
+                     sizes="(max-width: 767px) 92vw, 26rem" width="800" height="498" loading="lazy"
+                     alt="Unser Van an einer Ionity-Ladestation vor dem Roadtrip nach England" />
+              </div>
+            </li>
+
+            <li class="detail-box" id="camp-box">
+              <div class="detail-text">
+                <p class="detail-step"><span class="step-no">4</span>Innenraum</p>
+                <h3>Die Campal Camp Box</h3>
+                <p>Nach Skyline ging es weiter zu Campal, wo der Innenausbau zum Camper begann. Wir bauen die Campal Camp Box ein, dazu Vorhänge und Sichtschutz für die Fenster, und die Camp Box verwandelt sich in ein Bett.</p>
+                <div class="detail-actions">
+                  <a class="btn btn-ghost btn-sm" href="https://www.youtube.com/watch?v=9U6VB-C1XgQ" data-lb="video" data-video-id="9U6VB-C1XgQ"
+                     data-caption="4K | The Best Camp Box for Kia PV5? EVF#10"><svg aria-hidden="true"><use href="#i-play"/></svg>EVF#10 ansehen</a>
+                </div>
+              </div>
+            </li>
+
+            <li class="detail-box" id="tour">
+              <div class="detail-text">
+                <p class="detail-step"><span class="step-no">5</span>Ergebnis</p>
+                <h3>Die Roomtour</h3>
+                <p>Der fertige Camper von allen Seiten: wie das Aufstelldach auf- und zugeht, wie aus der Camp Box ein Bett wird, die Schlafplätze oben und unten, der Stauraum und ob das Ganze für eine vierköpfige Familie praktisch ist.</p>
+                <div class="detail-actions">
+                  <a class="btn btn-ghost btn-sm" href="https://www.youtube.com/watch?v=qDfeF9h9tqk" data-lb="video" data-video-id="qDfeF9h9tqk"
+                     data-caption="4K | Kia PV5 Camper Van Tour! Skyline Pop Top &amp; Campal Camp Box. EVF#11"><svg aria-hidden="true"><use href="#i-play"/></svg>EVF#11 ansehen</a>
+                </div>
+              </div>
+            </li>
+
+            <li class="detail-box has-media" id="storage">
+              <div class="detail-text">
+                <p class="detail-step"><span class="step-no">6</span>Stauraum</p>
+                <h3>Alles hat seinen Platz</h3>
+                <p>Von All In Van haben wir Organizer für die hinteren Fenster, die perfekt passen, sich leicht montieren lassen und kein Vermögen kosten, dazu Organizer für die Sitzlehnen und Aufbewahrungstaschen. In der Stauraum-Folge siehst du auch den neuen Look des Vans mit unseren brandneuen Electric Van Fam Stickern.</p>
+                <div class="detail-actions">
+                  <a class="btn btn-ghost btn-sm" href="https://www.youtube.com/watch?v=gHAE3rfF_hU" data-lb="video" data-video-id="gHAE3rfF_hU"
+                     data-caption="4K | Don’t Buy These for the Kia PV5! EVF#06"><svg aria-hidden="true"><use href="#i-play"/></svg>EVF#06 ansehen</a>
+                  <a class="btn btn-ghost btn-sm" href="https://www.youtube.com/watch?v=lJxYzfox5jg" data-lb="video" data-video-id="lJxYzfox5jg"
+                     data-caption="4K | Kia PV5 Camper Storage – Game-Changing! EVF#17"><svg aria-hidden="true"><use href="#i-play"/></svg>EVF#17 ansehen</a>
+                </div>
+              </div>
+              <div class="detail-media">
+                <img class="pos-upper" src="../assets/img/ig/DdI79ecoVhF-800.webp"
+                     srcset="../assets/img/ig/DdI79ecoVhF-800.webp 451w, ../assets/img/ig/DdI79ecoVhF-1600.webp 640w"
+                     sizes="(max-width: 767px) 92vw, 26rem" width="640" height="1136" loading="lazy"
+                     alt="Organizer von All In Van an den Rückenlehnen der Vordersitze unseres Vans" />
+              </div>
+            </li>
+
+            <li class="detail-box has-media" id="cost">
+              <div class="detail-text">
+                <p class="detail-step"><span class="step-no">7</span>Kosten</p>
+                <h3>Was es gekostet hat</h3>
+                <p>Wir sind alle großen Ausgaben durchgegangen, vom Kia PV5 selbst über das Aufstelldach, die Campal Camp Box, die Kühlbox und PPF bis zur Fahrt nach England und all den kleineren Upgrades. Keine Schätzungen, nur echte Zahlen: Die Endsumme verraten wir am Ende des Videos.</p>
+                <p class="detail-total">
+                  <!-- TODO(owner): the total cost of the camper build from EVF#16, only if the family wants the figure on the site -->
+                  <span class="todo">Gesamtkosten, falls ihr sie hier zeigen wollt</span>
+                </p>
+                <div class="detail-actions">
+                  <a class="btn btn-ghost btn-sm" href="https://www.youtube.com/watch?v=mjxyHxWrOe8" data-lb="video" data-video-id="mjxyHxWrOe8"
+                     data-caption="4K | Kia PV5 Camper: HOW MUCH? EVF#16"><svg aria-hidden="true"><use href="#i-play"/></svg>EVF#16 ansehen</a>
+                </div>
+              </div>
+              <div class="detail-media">
+                <img class="pos-top" src="../assets/img/ig/Dc3Jwx6IkRu-800.webp"
+                     srcset="../assets/img/ig/Dc3Jwx6IkRu-800.webp 450w, ../assets/img/ig/Dc3Jwx6IkRu-1600.webp 720w"
+                     sizes="(max-width: 767px) 92vw, 26rem" width="720" height="1280" loading="lazy"
+                     alt="Titelbild unseres Kostenvideos: Was kostet es wirklich, einen elektrischen Kia PV5 zum Camper auszubauen?" />
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ================= GEAR & PARTNERS ================= -->
+      <section class="section" id="gear" aria-labelledby="gear-title">
+        <div class="container">
+          <div class="section-head center">
+            <h2 id="gear-title">Ausrüstung &amp; Partner</h2>
+            <p>Die Marken und Shops hinter unserem Ausbau.</p>
+          </div>
+          <ul class="gear-grid">
+            <li class="gear-card">
+              <h3>Skyline Roofs</h3>
+              <p>Unser Aufstelldach, eingebaut in ihrer Werkstatt in Bristol, England.</p>
+              <a class="gear-link" href="https://www.instagram.com/skyline_roofs/" target="_blank" rel="noopener">@skyline_roofs</a>
+            </li>
+            <li class="gear-card">
+              <h3>Campal</h3>
+              <p>Der Innenausbau zum Camper und die Campal Camp Box, die sich in ein Bett verwandelt.</p>
+              <a class="gear-link" href="https://www.instagram.com/campal_campervan_conversion/" target="_blank" rel="noopener">@campal_campervan_conversion</a>
+            </li>
+            <li class="gear-card">
+              <h3>All In Van</h3>
+              <p>Organizer für die Sitzlehnen und die Fenster sowie Aufbewahrungstaschen.</p>
+              <a class="gear-link" href="https://www.instagram.com/all_in_van_gear/" target="_blank" rel="noopener">@all_in_van_gear</a>
+            </li>
+            <li class="gear-card">
+              <h3>Outwell</h3>
+              <p>Unsere Kühlbox: die Outwell Arctic Chill 41 Dual Zone.</p>
+            </li>
+            <li class="gear-card">
+              <h3><a href="https://www.instagram.com/kasparfolie/" target="_blank" rel="noopener">@kasparfolie</a></h3>
+              <p>Lackschutzfolie, Scheibentönung und Schutzfolie für den Innenraum, gleich am ersten Tag.</p>
+            </li>
+            <li class="gear-card">
+              <h3>Decathlon &amp; 4camping.cz</h3>
+              <p>Die erste Campingausrüstung, die wir für unser Camper-Projekt gekauft haben.</p>
+            </li>
+          </ul>
+
+          <div class="gear-code">
+            <div class="gear-code-badge" aria-hidden="true">EVF5</div>
+            <div class="gear-code-text">
+              <h3>Rabattcode für procampery.cz</h3>
+              <p>Hol dir deine Camper-Ausrüstung bei <a href="https://www.procampery.cz/action/Affiliate/setAccess/?partnerId=2&amp;linkId=2" target="_blank" rel="sponsored noopener">procampery.cz</a> und nutze den Code <strong>EVF5</strong> für 5&nbsp;% Rabatt auf deine Bestellung.</p>
+              <p class="gear-disclosure">
+                <!-- TODO(owner): affiliate disclosure - whether the family earns from the procampery.cz link and code EVF5, and whether any partner on this page gave goods, discounts or payment -->
+                <!-- TODO(owner): discount codes and Amazon links for the gear the family recommends; the FAQ answer about discount codes links here until they come -->
+                <span class="todo">Hinweis zu Affiliate-Links</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= FAQ (independent toggles) ================= -->
+      <section class="section" id="faq" aria-labelledby="faq-title">
+        <div class="container">
+          <div class="section-head center">
+            <h2 id="faq-title">Fragen</h2>
+          </div>
+          <div class="faq-grid">
+            <div class="faq-col">
+              <details class="faq-item">
+                <summary><span class="faq-q">Welchen Van fahrt ihr?</span></summary>
+                <div class="faq-a">
+                  <p>Einen neuen Kia PV5 Passenger Elite – unser Familienauto und gleichzeitig unser kleiner Camper. Schritt für Schritt passen wir ihn genau an das an, was wir zum Reisen und für unseren Komfort brauchen. Und alles, was wir an ihm verändern und ausprobieren, zeigen wir auf unserem YouTube-Kanal.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary><span class="faq-q">Zu wievielt seid ihr unterwegs?</span></summary>
+                <div class="faq-a">
+                  <p>Wir sind zu viert – wir beide und unsere zwei Kinder. Manchmal kommt auch unser vierbeiniger Liebling Elvis mit. Gerade weil wir eine große Familie sind, wollten wir einen Van, der nicht nur ein Camper ist, sondern den wir auch im Alltag nutzen können. Und bisher macht es uns Spaß herauszufinden, was alles hineinpasst.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary><span class="faq-q">Wie habt ihr Schlafen und Stauraum gelöst?</span></summary>
+                <div class="faq-a">
+                  <p>Wir haben ein Skyline-Aufstelldach, in dem zwei von uns bequem schlafen. Die Campal Camp Box wird im Handumdrehen zum Bett für zwei weitere Personen und lässt sich außerdem ausklappen – als Essbereich und kleine Küche. Alle unsere Sachen sind in Taschen und anderer Ausrüstung von All In Van verstaut. Das komplette Setup zeigen wir in unserer Roomtour (<a href="https://www.youtube.com/watch?v=qDfeF9h9tqk" data-lb="video" data-video-id="qDfeF9h9tqk"
+                     data-caption="4K | Kia PV5 Camper Van Tour! Skyline Pop Top &amp; Campal Camp Box. EVF#11">EVF #11</a>).</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary><span class="faq-q">Wann erscheinen neue Videos auf YouTube?</span></summary>
+                <div class="faq-a">
+                  <p>Ein neues Video von Electric Van Fam erscheint jeden Donnerstag um 20:00&nbsp;Uhr tschechischer Zeit, also um 19:00&nbsp;Uhr in Großbritannien. Wir filmen vor allem unsere echten Erfahrungen, Familien-Roadtrips, Camping und die Upgrades an unserem PV5 – ohne Hochglanz und ohne Marketing-Sprech. Ab und zu erscheinen auch die Formate Electric Van Lab und Electric Van News – also folge uns, damit du nichts verpasst.</p>
+                </div>
+              </details>
+            </div>
+            <div class="faq-col">
+              <details class="faq-item">
+                <summary><span class="faq-q">Wo kann ich euch sonst noch folgen?</span></summary>
+                <div class="faq-a">
+                  <p>Auf Instagram findest du uns als <a href="https://instagram.com/electric.van.fam?xtok=amt4czhjMHRxbmlt" target="_blank" rel="noopener">@electric.van.fam</a>, wo wir Blicke hinter die Kulissen, kurze Videos und Neues aus unserem Alltag mit dem PV5 teilen. Auf YouTube findest du die kompletten Videos, Tests, Upgrades und unsere Roadtrips. Wenn du also Elektro-Vans und Familienreisen magst, bist du bei uns genau richtig.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary><span class="faq-q">Plant ihr ein Treffen für PV5-Besitzer?</span></summary>
+                <div class="faq-a">
+                  <p>Wir haben die Idee, ein Treffen für Besitzer von Kia PV5 Campern zu organisieren. Mehr Infos <a href="fest.html">HIER</a>.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary><span class="faq-q">Habt ihr Rabattcodes oder Kooperationen?</span></summary>
+                <div class="faq-a">
+                  <p>Ja! Wenn dir etwas aus unserer Ausrüstung gefällt, schau mal <a href="#gear">HIER</a>.</p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CTA STRIP ================= -->
+      <section class="cta-strip">
+        <div class="container">
+          <p class="cta-line">Du hast Fragen zum PV5 als Camper?</p>
+          <a class="btn btn-ghost" href="contact.html">Schreib uns</a>
+        </div>
+      </section>
+
+      <!-- ================= GIANT TAGLINE ================= -->
+      <div class="tagline-giant" aria-hidden="true"><p>Electric • Family • Adventures</p></div>
+    </main>
+
+    <!-- ===== chrome:footer (identical on every page) ===== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-cols">
+          <ul class="footer-nav">
+            <li><a href="about.html">Über uns</a></li>
+            <li><a href="van.html">Unser Van</a></li>
+            <li><a href="videos.html">Videos</a></li>
+            <li><a href="gallery.html">Galerie</a></li>
+            <li><a href="fest.html">Electric Van Fest</a></li>
+            <li><a href="contact.html">Kontakt</a></li>
+          </ul>
+          <div class="footer-logo"><img src="../assets/img/logo-256.webp" width="104" height="104" loading="lazy" alt="Electric Van Fam" /></div>
+          <div class="footer-contact">
+            <div class="socials">
+              <a class="icon-link" href="https://youtube.com/@electricvanfam?si=Grp4nOMV1Lf5DhQu" target="_blank" rel="noopener" aria-label="YouTube"><svg aria-hidden="true"><use href="#i-youtube"/></svg></a>
+              <a class="icon-link" href="https://instagram.com/electric.van.fam?xtok=amt4czhjMHRxbmlt" target="_blank" rel="noopener" aria-label="Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
+            </div>
+            <a href="mailto:electric.van.fam@gmail.com">electric.van.fam@gmail.com</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 Electric Van Fam</p>
+          <p>Diese Website setzt keine Cookies. Videos werden erst von YouTube geladen, wenn du auf Play klickst.</p>
+        </div>
+      </div>
+    </footer>
+    <!-- ===== /chrome:footer ===== -->
+
+    <script src="../core/theme.js"></script>
+    <script src="../assets/site.js"></script>
+  </body>
+</html>

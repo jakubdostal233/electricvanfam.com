@@ -1,21 +1,42 @@
 <!DOCTYPE html>
-<html lang="cs" data-theme="auto"
-      data-title-en="Electric Van Fam - family adventures in an electric camper van"
-      data-title-cs="Electric Van Fam - rodinná dobrodružství v elektrické obytné dodávce">
+<html lang="cs" data-theme="auto">
   <head>
     <meta charset="utf-8" />
     <link rel="canonical" href="https://electricvanfam.com/" />
+    <link rel="alternate" hreflang="cs" href="https://electricvanfam.com/cs/" />
+    <link rel="alternate" hreflang="de" href="https://electricvanfam.com/de/" />
+    <link rel="alternate" hreflang="en" href="https://electricvanfam.com/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://electricvanfam.com/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Electric Van Fam - rodinná dobrodružství v elektrické obytné dodávce</title>
+    <title>Electric Van Fam</title>
     <meta name="description" content="Electric Van Fam: a family converting a brand-new Kia PV5 into an electric camper van, with road trips and camping across Europe. New video every Thursday." />
-    <meta property="og:title" content="Electric Van Fam" />
-    <meta property="og:description" content="Family adventures, electric vanlife and the camper conversion of a Kia PV5." />
-    <meta property="og:type" content="website" />
     <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="assets/img/icon-192.png" sizes="192x192" type="image/png" />
     <link rel="apple-touch-icon" href="assets/img/apple-touch-icon-180.png" />
 
+    <!-- The language chooser, the site's x-default page. Before first paint it sends the
+         visitor on: the stored choice (evf-lang), else the first browser language the site
+         has, else Czech. LANGS lists the language folders; without script the list below
+         stays on screen. -->
+    <script>
+      (function () {
+        var LANGS = ["cs", "en", "de"];
+        var pick = null;
+        try {
+          var s = localStorage.getItem("evf-lang");
+          if (LANGS.indexOf(s) >= 0) pick = s;
+        } catch (e) {}
+        var nav = navigator.languages || [navigator.language || ""];
+        for (var i = 0; !pick && i < nav.length; i++) {
+          var p = String(nav[i]).toLowerCase().split("-")[0];
+          if (LANGS.indexOf(p) >= 0) pick = p;
+        }
+        location.replace((pick || "cs") + "/" + location.search + location.hash);
+      })();
+    </script>
+
     <!-- Resolve the theme BEFORE first paint; `preload` stops the first paint from animating.
-         ?theme=light|dark|auto, ?lang=en|cs and ?template=<family> deep-link a state. -->
+         ?theme=light|dark|auto and ?template=<family> deep-link a state. -->
     <script>
       (function () {
         var d = document.documentElement;
@@ -23,11 +44,6 @@
         var q = new URLSearchParams(location.search);
         var ls = function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } };
         d.setAttribute("data-theme", q.get("theme") || ls("pers-ui-theme") || "light");
-        // Czech is the default language; ?lang=en or a stored choice gives English.
-        var lang = q.get("lang") || ls("pers-ui-lang") || "cs";
-        lang = lang === "en" ? "en" : "cs";
-        d.setAttribute("data-lang", lang);
-        d.lang = lang;
         var tpl = q.get("template");
         if (tpl && /^(jdsign|aurora|bento|brutalist|devdark|scholarly)$/.test(tpl)) d.setAttribute("data-template", tpl);
       })();
@@ -46,273 +62,20 @@
     <link rel="stylesheet" href="assets/site.css" />
   </head>
   <body>
-    <!-- ===== chrome:icons (identical on every page) ===== -->
     <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-      <symbol id="i-youtube" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M23.1 7.2a3 3 0 0 0-2.1-2.1C19.1 4.6 12 4.6 12 4.6s-7.1 0-9 .5A3 3 0 0 0 .9 7.2 31 31 0 0 0 .4 12c0 1.6.2 3.2.5 4.8A3 3 0 0 0 3 18.9c1.9.5 9 .5 9 .5s7.1 0 9-.5a3 3 0 0 0 2.1-2.1c.3-1.6.5-3.2.5-4.8s-.2-3.2-.5-4.8zM9.7 15.1V8.9l5.9 3.1-5.9 3.1z"/></symbol>
-      <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4"/><circle cx="12" cy="12" r="4.4"/></g><circle cx="17.6" cy="6.4" r="1.25" fill="currentColor"/></symbol>
-      <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4.5v15l13-7.5z"/></symbol>
-      <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 1.5 3.8 13.6h6.6l-1.6 8.9 10-12.6h-6.7z"/></symbol>
-      <symbol id="i-zoom" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6"/></g></symbol>
-      <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
-      <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
-      <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></g></symbol>
       <symbol id="i-flag-cz" viewBox="0 0 30 20"><path fill="#fff" d="M0 0h30v10H0z"/><path fill="#d7141a" d="M0 10h30v10H0z"/><path fill="#11457e" d="M0 0l15 10L0 20z"/></symbol>
       <symbol id="i-flag-gb" viewBox="0 0 60 30"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0 0 30"/><path stroke="#c8102e" stroke-width="2" d="M0 0l60 30M60 0 0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></symbol>
+      <symbol id="i-flag-de" viewBox="0 0 5 3"><path fill="#000" d="M0 0h5v1H0z"/><path fill="#d00" d="M0 1h5v1H0z"/><path fill="#ffce00" d="M0 2h5v1H0z"/></symbol>
     </svg>
-    <!-- ===== /chrome:icons ===== -->
 
-    <!-- ===== chrome:header (identical on every page except aria-current) ===== -->
-    <a class="skip-link" href="#main"><span class="lang-en">Skip to content</span><span class="lang-cs">Přejít na obsah</span></a>
-    <header class="site-header">
-      <div class="container header-top">
-        <a class="brand" href="index.html">
-          <img class="brand-title" src="assets/img/title-1280.webp" srcset="assets/img/title-640.webp 640w, assets/img/title-1280.webp 1280w, assets/img/title-1920.webp 1920w" sizes="(max-width: 767px) 100vw, 285px" width="1920" height="1080" alt="Electric Van Fam" decoding="async" />
-        </a>
-        <div class="header-controls">
-          <div id="lang-mount"></div>
-          <div id="theme-mount"></div>
-        </div>
-      </div>
-      <div class="container header-nav-row">
-        <span class="social-slot left">
-          <a class="icon-link" href="https://youtube.com/@electricvanfam?si=Grp4nOMV1Lf5DhQu" target="_blank" rel="noopener"
-             aria-label="Electric Van Fam on YouTube" data-aria-label-en="Electric Van Fam on YouTube" data-aria-label-cs="Electric Van Fam na YouTube"
-             title="YouTube"><svg aria-hidden="true"><use href="#i-youtube"/></svg></a>
-        </span>
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
-          <svg class="i-open" aria-hidden="true"><use href="#i-menu"/></svg>
-          <svg class="i-close" aria-hidden="true"><use href="#i-x"/></svg>
-        </button>
-        <nav class="site-nav" id="site-menu" aria-label="Main" data-aria-label-en="Main" data-aria-label-cs="Hlavní">
-          <ul>
-            <li><a href="about.html"><span class="lang-en">About us</span><span class="lang-cs">O nás</span></a></li>
-            <li class="has-sub"><a href="van.html"><span class="lang-en">Our van</span><span class="lang-cs">Naše dodávka</span></a>
-              <ul class="sub">
-                <li><a href="van.html#build"><span class="lang-en">The build</span><span class="lang-cs">Přestavba</span></a></li>
-                <li><a href="van.html#gear"><span class="lang-en">Gear &amp; partners</span><span class="lang-cs">Vybavení a partneři</span></a></li>
-                <li><a href="van.html#faq"><span class="lang-en">Questions</span><span class="lang-cs">Otázky</span></a></li>
-              </ul>
-            </li>
-            <li class="has-sub"><a href="videos.html"><span class="lang-en">Videos</span><span class="lang-cs">Videa</span></a>
-              <ul class="sub">
-                <li><a href="videos.html#episodes"><span class="lang-en">Episodes</span><span class="lang-cs">Díly</span></a></li>
-                <li><a href="videos.html#shorts"><span class="lang-en">Shorts</span><span class="lang-cs">Shorts</span></a></li>
-                <li><a href="videos.html#playlists"><span class="lang-en">Playlists</span><span class="lang-cs">Playlisty</span></a></li>
-              </ul>
-            </li>
-            <li><a href="gallery.html"><span class="lang-en">Gallery</span><span class="lang-cs">Galerie</span></a></li>
-            <li><a href="fest.html">Electric Van Fest</a></li>
-            <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-cs">Kontakt</span></a></li>
-          </ul>
-        </nav>
-        <span class="social-slot right">
-          <a class="icon-link" href="https://instagram.com/electric.van.fam?xtok=amt4czhjMHRxbmlt" target="_blank" rel="noopener"
-             aria-label="Electric Van Fam on Instagram" data-aria-label-en="Electric Van Fam on Instagram" data-aria-label-cs="Electric Van Fam na Instagramu"
-             title="Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
-        </span>
-      </div>
-    </header>
-    <!-- ===== /chrome:header ===== -->
-
-    <main id="main">
-      <!-- ================= HERO ================= -->
-      <section class="hero-photo" aria-labelledby="hero-title">
-        <img src="assets/img/ig/Da2BRIKNQSg-1600.webp"
-             srcset="assets/img/ig/Da2BRIKNQSg-800.webp 800w, assets/img/ig/Da2BRIKNQSg-1600.webp 1600w, assets/img/ig/Da2BRIKNQSg-2400.webp 2400w"
-             sizes="100vw" alt="" fetchpriority="high" />
-        <div class="container">
-          <h1 class="title" id="hero-title"><span class="lang-en">Family adventures in an electric camper van</span><span class="lang-cs">Rodinná dobrodružství v elektrické obytné dodávce</span></h1>
-          <p class="lang-en">A brand-new Kia PV5, its camper conversion, and life on the road with young children.</p>
-          <p class="lang-cs">Zbrusu nová Kia PV5, její přestavba na obytnou dodávku a život na cestách s malými dětmi.</p>
-          <!-- Schedule note as on the channel banner: capitals by CSS, the times with flags. -->
-          <p class="schedule">
-            <span class="schedule-line"><span class="lang-en">New video every Thursday</span><span class="lang-cs">Nové video každý čtvrtek</span></span>
-            <span class="schedule-line schedule-times">
-              <span class="schedule-time"><span class="lang-en">8 PM</span><span class="lang-cs">20:00</span><svg class="flag flag-cz" aria-hidden="true"><use href="#i-flag-cz"/></svg><span class="visually-hidden"><span class="lang-en">Czech time</span><span class="lang-cs">český čas</span></span></span>
-              <span class="schedule-time"><span class="lang-en">7 PM</span><span class="lang-cs">19:00</span><svg class="flag flag-gb" aria-hidden="true"><use href="#i-flag-gb"/></svg><span class="visually-hidden"><span class="lang-en">UK time</span><span class="lang-cs">britský čas</span></span></span>
-            </span>
-          </p>
-        </div>
-      </section>
-
-      <!-- ================= OFFER CARDS ================= -->
-      <section class="section" aria-labelledby="topics-title">
-        <div class="container">
-          <div class="section-head center">
-            <h2 id="topics-title"><span class="lang-en">What are our videos about?</span><span class="lang-cs">O čem jsou naše videa?</span></h2>
-          </div>
-          <div class="offer-grid">
-            <article class="offer reveal">
-              <img src="assets/img/ig/DbA2BIWIH_c-800.webp" width="800" height="600" loading="lazy"
-                   alt="The van in a workshop with its new pop-top roof being fitted"
-                   data-alt-en="The van in a workshop with its new pop-top roof being fitted"
-                   data-alt-cs="Dodávka v dílně při montáži výklopné střechy" />
-              <div class="offer-body">
-                <h3><span class="lang-en">The build</span><span class="lang-cs">Přestavba</span></h3>
-                <p class="lang-en">How we turned a stock Kia PV5 into a family campervan for four. Everything about the pop-top roof, the interior build and the gear we have in the van.</p>
-                <p class="lang-cs">Jak jsme ze sériové Kia PV5 udělali rodinný campervan pro 4. Vše o výklopné střeše, vestavbě a vybavení, které v autě máme.</p>
-                <a class="more" href="van.html#build"><span class="lang-en">See the build</span><span class="lang-cs">Prohlédnout přestavbu</span></a>
-              </div>
-            </article>
-            <article class="offer reveal">
-              <img src="assets/img/ig/DeJIttWCNnB-800.webp" width="800" height="600" loading="lazy"
-                   alt="The van parked at a campsite in the evening, with an awning, chairs and a pram"
-                   data-alt-en="The van parked at a campsite in the evening, with an awning, chairs and a pram"
-                   data-alt-cs="Dodávka večer v kempu s markýzou, židlemi a kočárkem" />
-              <div class="offer-body">
-                <h3><span class="lang-en">Camping and road trips</span><span class="lang-cs">Kempování a výlety</span></h3>
-                <p class="lang-en">Family road trips across Europe and camping weekends in Czechia and nearby.</p>
-                <p class="lang-cs">Rodinné roadtripy po Evropě a kempovací víkendy po Čechách a blízkém okolí.</p>
-                <a class="more" href="videos.html#playlists"><span class="lang-en">Watch the trips</span><span class="lang-cs">Pustit si výlety</span></a>
-              </div>
-            </article>
-            <article class="offer reveal">
-              <img class="pos-low" src="assets/img/ig/DcMJhTcoElv-800.webp" width="451" height="800" loading="lazy"
-                   alt="Close-up of the dashboard display showing an empty battery, text “0%”."
-                   data-alt-en="Close-up of the dashboard display showing an empty battery, text “0%”."
-                   data-alt-cs="Detail displeje na palubní desce s prázdnou baterií, text „0%“." />
-              <div class="offer-body">
-                <h3><span class="lang-en">EV tests, tips and tricks</span><span class="lang-cs">EV testy, tipy a triky</span></h3>
-                <p class="lang-en">Answers to common questions from our online community, and more: news from the EV world and further tests.</p>
-                <p class="lang-cs">Odpovědi na časté otázky z naší online komunity a nejen to, také novinky ze světa EV a další testy.</p>
-                <a class="more" href="videos.html#episodes"><span class="lang-en">Watch the episodes</span><span class="lang-cs">Pustit si díly</span></a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- ================= PARALLAX BAND ================= -->
-      <div class="band" aria-hidden="true">
-        <img src="assets/img/ig/DaFQ-XdI2Lt-1600.webp"
-             srcset="assets/img/ig/DaFQ-XdI2Lt-800.webp 800w, assets/img/ig/DaFQ-XdI2Lt-1600.webp 1600w, assets/img/ig/DaFQ-XdI2Lt-2400.webp 2400w"
-             sizes="100vw" alt="" loading="lazy" />
-      </div>
-
-      <!-- ================= ABOUT TEASER (offset box) ================= -->
-      <section class="offset-wrap" aria-labelledby="about-title">
-        <div class="offset-box">
-          <div class="offset-inner">
-            <div class="offset-media reveal">
-              <img class="badge-art" src="assets/img/logo-512.webp" width="512" height="512" loading="lazy"
-                   alt="The Electric Van Fam badge: a family of four sitting by a lake next to their van with a pop-top roof"
-                   data-alt-en="The Electric Van Fam badge: a family of four sitting by a lake next to their van with a pop-top roof"
-                   data-alt-cs="Logo Electric Van Fam: čtyřčlenná rodina sedí u jezera vedle své dodávky s výklopnou střechou" />
-            </div>
-            <div class="offset-text reveal">
-              <h2 id="about-title"><span class="lang-en">Hi, we're the Electric Van Fam!</span><span class="lang-cs">Ahoj, jsme Electric Van Fam!</span></h2>
-              <p class="lang-en">Yes, it's another EV channel... But this one is all about family adventures, electric vanlife, and the conversion of a brand-new Kia PV5 Passenger into a fully capable family camper van.</p>
-              <p class="lang-cs">Ano, další kanál o elektromobilech... Tenhle je ale hlavně o rodinných dobrodružstvích, elektrickém vanlife a přestavbě zbrusu nové Kia PV5 Passenger na plnohodnotnou rodinnou obytnou dodávku.</p>
-              <p class="lang-en">We are the first family in continental Europe taking on a project like this.</p>
-              <p class="lang-cs">Jsme první rodina v kontinentální Evropě, která se do takového projektu pustila.</p>
-              <a class="btn btn-ghost" href="about.html"><span class="lang-en">More about us</span><span class="lang-cs">Více o nás</span></a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ================= LATEST EPISODES ================= -->
-      <section class="section" aria-labelledby="latest-title">
-        <div class="container">
-          <div class="section-head center">
-            <h2 id="latest-title"><span class="lang-en">Latest episodes</span><span class="lang-cs">Nejnovější díly</span></h2>
-            <p class="lang-en">Press play to watch here. The player loads from YouTube only when you press it.</p>
-            <p class="lang-cs">Video se přehraje přímo tady. Přehrávač z YouTube se načte až po kliknutí.</p>
-          </div>
-          <div class="video-grid" data-lb-group="latest">
-            <!-- content:latest-episodes:begin -->
-            <a class="vcard reveal" href="https://www.youtube.com/watch?v=lcL_UL2H5SY" data-lb="video" data-video-id="lcL_UL2H5SY"
-               data-caption-en="How Much &amp; How Long? 🇮🇹🇨🇿 | EV Camper Family Road Trip | EVF#24">
-              <span class="vthumb">
-                <img src="assets/img/yt/lcL_UL2H5SY-640.webp" width="640" height="360" loading="lazy" alt="" />
-                <span class="play" aria-hidden="true"><svg><use href="#i-play"/></svg></span>
-              </span>
-              <span class="vtitle">How Much &amp; How Long? 🇮🇹🇨🇿 | EV Camper Family Road Trip | EVF#24</span>
-              <span class="vmeta"><time datetime="2026-10-22"><span class="lang-en">22 Oct 2026</span><span class="lang-cs">22. 10. 2026</span></time></span>
-            </a>
-            <a class="vcard reveal" href="https://www.youtube.com/watch?v=alHL-3__Ch0" data-lb="video" data-video-id="alHL-3__Ch0"
-               data-caption-en="Thank You! 1 000 Subscribers | Electric Van Fam 🚐⚡">
-              <span class="vthumb">
-                <img src="assets/img/yt/alHL-3__Ch0-640.webp" width="640" height="360" loading="lazy" alt="" />
-                <span class="play" aria-hidden="true"><svg><use href="#i-play"/></svg></span>
-              </span>
-              <span class="vtitle">Thank You! 1 000 Subscribers | Electric Van Fam 🚐⚡</span>
-              <span class="vmeta"><time datetime="2026-10-18"><span class="lang-en">18 Oct 2026</span><span class="lang-cs">18. 10. 2026</span></time></span>
-            </a>
-            <a class="vcard reveal" href="https://www.youtube.com/watch?v=eL42gGRa0_g" data-lb="video" data-video-id="eL42gGRa0_g"
-               data-caption-en="How Long Can Kia PV5 Keep You Warm? 🥶🔋 | Electric Van Lab. EVF#23">
-              <span class="vthumb">
-                <img src="assets/img/yt/eL42gGRa0_g-640.webp" width="640" height="360" loading="lazy" alt="" />
-                <span class="play" aria-hidden="true"><svg><use href="#i-play"/></svg></span>
-              </span>
-              <span class="vtitle">How Long Can Kia PV5 Keep You Warm? 🥶🔋 | Electric Van Lab. EVF#23</span>
-              <span class="vmeta"><time datetime="2026-10-17"><span class="lang-en">17 Oct 2026</span><span class="lang-cs">17. 10. 2026</span></time></span>
-            </a>
-            <!-- content:latest-episodes:end -->
-          </div>
-          <div class="section-actions">
-            <a class="btn btn-primary" href="videos.html"><span class="lang-en">All videos</span><span class="lang-cs">Všechna videa</span></a>
-          </div>
-        </div>
-      </section>
-
-      <!-- ================= FOLLOW (in place of the newsletter) ================= -->
-      <section class="section" aria-labelledby="follow-title">
-        <div class="container follow">
-          <div class="reveal">
-            <h2 id="follow-title"><span class="lang-en">Never miss an episode</span><span class="lang-cs">Nezmeškejte žádný díl</span></h2>
-            <p class="lang-en">A new video comes out every Thursday at 8 pm Czech time (7 pm in the UK). Behind-the-scenes moments and short clips go to Instagram first.</p>
-            <p class="lang-cs">Nové video vychází každý čtvrtek ve 20:00 našeho času (v Británii v 19:00). Zákulisí a krátká videa dáváme nejdřív na Instagram.</p>
-          </div>
-          <div class="follow-links reveal">
-            <a class="follow-link" href="https://youtube.com/@electricvanfam?si=Grp4nOMV1Lf5DhQu" target="_blank" rel="noopener">
-              <svg aria-hidden="true"><use href="#i-youtube"/></svg>
-              <span><strong><span class="lang-en">Subscribe on YouTube</span><span class="lang-cs">Odebírat na YouTube</span></strong><span class="handle">@ElectricVanFam</span></span>
-            </a>
-            <a class="follow-link" href="https://instagram.com/electric.van.fam?xtok=amt4czhjMHRxbmlt" target="_blank" rel="noopener">
-              <svg aria-hidden="true"><use href="#i-instagram"/></svg>
-              <span><strong><span class="lang-en">Follow on Instagram</span><span class="lang-cs">Sledovat na Instagramu</span></strong><span class="handle">@electric.van.fam</span></span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- ================= GIANT TAGLINE ================= -->
-      <div class="tagline-giant" aria-hidden="true"><p>Electric • Family • Adventures</p></div>
+    <a class="skip-link" href="#languages">Přejít na výběr jazyka</a>
+    <main class="chooser" id="main">
+      <h1>Electric Van Fam</h1>
+      <ul class="chooser-list" id="languages">
+        <li><a href="cs/" hreflang="cs" lang="cs"><svg class="chooser-flag" viewBox="0 0 30 20" aria-hidden="true"><use href="#i-flag-cz"/></svg><span class="chooser-code">CZ</span> <span>Čeština</span></a></li>
+        <li><a href="en/" hreflang="en" lang="en"><svg class="chooser-flag" viewBox="0 0 60 30" aria-hidden="true"><use href="#i-flag-gb"/></svg><span class="chooser-code">EN</span> <span>English</span></a></li>
+        <li><a href="de/" hreflang="de" lang="de"><svg class="chooser-flag" viewBox="0 0 5 3" aria-hidden="true"><use href="#i-flag-de"/></svg><span class="chooser-code">DE</span> <span>Deutsch</span></a></li>
+      </ul>
     </main>
-
-    <!-- ===== chrome:footer (identical on every page) ===== -->
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-cols">
-          <ul class="footer-nav">
-            <li><a href="about.html"><span class="lang-en">About us</span><span class="lang-cs">O nás</span></a></li>
-            <li><a href="van.html"><span class="lang-en">Our van</span><span class="lang-cs">Naše dodávka</span></a></li>
-            <li><a href="videos.html"><span class="lang-en">Videos</span><span class="lang-cs">Videa</span></a></li>
-            <li><a href="gallery.html"><span class="lang-en">Gallery</span><span class="lang-cs">Galerie</span></a></li>
-            <li><a href="fest.html">Electric Van Fest</a></li>
-            <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-cs">Kontakt</span></a></li>
-          </ul>
-          <div class="footer-logo"><img src="assets/img/logo-256.webp" width="104" height="104" loading="lazy" alt="Electric Van Fam" /></div>
-          <div class="footer-contact">
-            <div class="socials">
-              <a class="icon-link" href="https://youtube.com/@electricvanfam?si=Grp4nOMV1Lf5DhQu" target="_blank" rel="noopener" aria-label="YouTube"><svg aria-hidden="true"><use href="#i-youtube"/></svg></a>
-              <a class="icon-link" href="https://instagram.com/electric.van.fam?xtok=amt4czhjMHRxbmlt" target="_blank" rel="noopener" aria-label="Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
-            </div>
-            <a href="mailto:electric.van.fam@gmail.com">electric.van.fam@gmail.com</a>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <p>© 2026 Electric Van Fam</p>
-          <p class="lang-en">This site sets no cookies. Videos load from YouTube only when you press play.</p>
-          <p class="lang-cs">Tento web nepoužívá cookies. Videa se z YouTube načtou až po kliknutí na přehrát.</p>
-        </div>
-      </div>
-    </footer>
-    <!-- ===== /chrome:footer ===== -->
-
-    <script src="core/theme.js"></script>
-    <script src="core/lang.js"></script>
-    <script src="assets/site.js"></script>
   </body>
 </html>

@@ -165,7 +165,8 @@ html.preload *, html.preload *::before, html.preload *::after { transition: none
 
 /* ---- reset ---------------------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; }
-* { margin: 0; }
+/* Margin 0 on every element but one a component spaces itself once slotted ([slot], wa-icon): any page rule outranks a ::slotted() margin. */
+:where(:not([slot], wa-icon)) { margin: 0; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 body {
   font-family: var(--font-body);
@@ -259,8 +260,8 @@ p { text-wrap: pretty; }
 /* ---- the signature mark in a page header -----------------------------------------
    THE ONE CONTRACT for placing Jakub's mark in the header of an HTML deliverable. Put
    the mark:layout SVG inline as the first child of whatever the page calls its header -
-   `a.brand` here, pandoc's `#title-block-header` in a document, `.tg-header` in a tool -
-   and give the <svg> class="brand-mark". The consumer owns the markup; this owns the size,
+   `a.brand` here, pandoc's `#title-block-header` in a document - and give the <svg>
+   class="brand-mark". The consumer owns the markup; this owns the size,
    the clear space and the ink, so six consumers cannot each decide differently.
 
    INLINE, NEVER <img>. brand/mark.svg carries fill="currentColor", which is the whole
@@ -269,7 +270,7 @@ p { text-wrap: pretty; }
    dark ones. Inlined, it takes the header's own colour and follows every skin and mode
    for free.
 
-   SIZE AND CLEAR SPACE ARE BOTH MEASURED, in mark/two-three-reciprocal/USAGE.md, and both
+   SIZE AND CLEAR SPACE ARE BOTH MEASURED, in design-languages/jdsign/mark/two-three-reciprocal/USAGE.md, and both
    derive from one value here so they cannot drift apart. The mark follows the type it sits
    beside (1em) but never goes under its measured floor of 20px - the machine floor is 10px
    and the eye floor 12px, and 20px is where the two strokes stay unambiguous. The clear
@@ -281,9 +282,9 @@ p { text-wrap: pretty; }
 
    WHERE THIS DOES NOT REACH, and both are deliberate rather than forgotten. kits/cv.css
    is its own reset and never loads this file, so a CV sheet carries no mark - Jakub's
-   instruction, 2026-09-22. kits/deck.css likewise, and a deck needs nothing from here: it
-   has carried the mark since 0.61.1 through its own --deck-logo slot, which
-   scaffold-present.sh fills with mark:deck-brand by default. So the exclusions are a
+   instruction, 2026-09-22. kits/presentation.css likewise, and a presentation needs nothing from here: it
+   has carried the mark since 0.61.1 through its own --presentation-logo slot, which
+   scaffold-present.sh fills with mark:presentation-brand by default. So the exclusions are a
    property of the architecture, not a list anyone has to remember. */
 .brand-mark {
   --brand-mark-size: max(20px, 1em);

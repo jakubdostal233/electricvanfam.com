@@ -1,12 +1,13 @@
 /* Electric Van Fam - site behaviour. Plain JS, no dependencies, no build.
 
-   Loaded at the end of <body>, after core/theme.js and core/lang.js. Every
-   feature degrades to plain HTML without JS: menu items are links, a video card
-   links to YouTube, a photo links to its full-size file.
+   Loaded at the end of <body>, after core/theme.js. Every feature degrades to
+   plain HTML without JS: menu items are links, a video card links to YouTube, a
+   photo links to its full-size file.
 
    Features (inspiration-site behaviour in brackets):
-   - language: Czech by default, EN/CZ toggle, ?lang= deep link
-   - theme: light by default; light / auto / dark control, labels follow the language
+   - language: one page per language; the labels this script writes follow <html lang>
+   - pickers: the language and the theme picker, each a button that opens its
+     list of choices (WAI-ARIA disclosure); the theme is light by default
    - phone menu: dropdown panel under the header row (slide down / up)
    - sticky menu row: the title strip scrolls away, the menu row stays at the top
      (the inspiration site's header scrolls away whole)
@@ -28,8 +29,7 @@
       watch: "Watch on YouTube", view: "View on Instagram",
       menuOpen: "Open menu", menuClose: "Close menu",
       pager: "Gallery pages", page: "Page",
-      theme: "Colour theme", light: "Light", auto: "Follow system", dark: "Dark",
-      lang: "Language", en: "English", cs: "Czech",
+      theme: "Colour theme", light: "Light", auto: "System", dark: "Dark",
       video: "Video player", photo: "Photo viewer",
       formNotSet: "The form is not connected yet. Please write to us on Instagram.",
       sending: "Sending...",
@@ -42,75 +42,138 @@
       menuOpen: "Otevřít menu", menuClose: "Zavřít menu",
       pager: "Stránky galerie", page: "Stránka",
       theme: "Barevný motiv", light: "Světlý", auto: "Podle systému", dark: "Tmavý",
-      lang: "Jazyk", en: "Angličtina", cs: "Čeština",
       video: "Přehrávač videa", photo: "Prohlížeč fotek",
       formNotSet: "Formulář zatím není připojený. Napište nám prosím na Instagram.",
       sending: "Odesílám...",
       sent: "Děkujeme! Vaše zpráva je na cestě k nám.",
       failed: "Zprávu se nepodařilo odeslat. Zkuste to prosím znovu, nebo nám napište na Instagram."
+    },
+    de: {
+      close: "Schließen", prev: "Zurück", next: "Weiter",
+      watch: "Auf YouTube ansehen", view: "Auf Instagram ansehen",
+      menuOpen: "Menü öffnen", menuClose: "Menü schließen",
+      pager: "Galerieseiten", page: "Seite",
+      theme: "Farbschema", light: "Hell", auto: "System", dark: "Dunkel",
+      video: "Videoplayer", photo: "Fotoansicht",
+      formNotSet: "Das Formular ist noch nicht eingerichtet. Schreib uns bitte auf Instagram.",
+      sending: "Wird gesendet...",
+      sent: "Danke! Deine Nachricht ist auf dem Weg zu uns.",
+      failed: "Die Nachricht konnte nicht gesendet werden. Versuch es bitte noch einmal oder schreib uns auf Instagram."
     }
   };
-  function lang() { return window.persLang ? persLang.get() : "en"; }
-  function t(key) { return (STR[lang()] || STR.en)[key]; }
-
-  /* ---- language ------------------------------------------------------------
-     lang.js swaps the visible .lang-en / .lang-cs text. Attributes it cannot
-     reach (aria-label, title, alt, placeholder, the document title) carry a
-     pair of data-*-en / data-*-cs values, applied here on every change. */
-  var ATTRS = ["aria-label", "title", "alt", "placeholder", "content"];
-  function applyLangAttributes(l) {
-    html.lang = l === "cs" ? "cs" : "en";
-    html.setAttribute("data-lang", html.lang); // the pre-paint language rules in site.css
-    var title = html.getAttribute("data-title-" + l);
-    if (title) document.title = title;
-    ATTRS.forEach(function (attr) {
-      document.querySelectorAll("[data-" + attr + "-" + l + "]").forEach(function (el) {
-        el.setAttribute(attr, el.getAttribute("data-" + attr + "-" + l));
-      });
-    });
-    // The kit's controls render English labels; give them the page language.
-    var tm = document.getElementById("theme-mount");
-    if (tm) {
-      tm.setAttribute("aria-label", t("theme"));
-      [["light", 0], ["auto", 1], ["dark", 2]].forEach(function (p) {
-        var b = tm.querySelectorAll("button")[p[1]];
-        if (b) { b.title = t(p[0]); b.setAttribute("aria-label", t(p[0])); }
-      });
-    }
-    var lt = document.querySelector(".pers-lang-toggle");
-    if (lt) {
-      lt.setAttribute("aria-label", t("lang"));
-      lt.querySelectorAll("[data-pers-lang]").forEach(function (b) {
-        b.setAttribute("aria-label", t(b.getAttribute("data-pers-lang")));
-        b.setAttribute("aria-pressed", String(b.classList.contains("active")));
-      });
-    }
-    updateMenuLabel();
-    document.dispatchEvent(new CustomEvent("evf:lang", { detail: l }));
-  }
-
+  // The page's language is its <html lang>: each language has its own page, so
+  // the strings are chosen once, at start.
+  var S = STR[html.lang] || STR.en;
+  function t(key) { return S[key] || STR.en[key]; }
 
   // The site opens light; a visitor switches to dark (or to the system's
   // setting) with the theme control, and that choice is remembered. theme.js
-  // itself falls back to "auto", so the default is applied here.
+  // itself falls back to "auto", so the default is applied here. theme.js
+  // renders its own toggle into its mount element; the site shows the theme
+  // picker below instead, so init gets an id that no element carries.
   var DEFAULT_THEME = "light";
   if (window.persTheme) {
     var storedTheme = null;
     try { storedTheme = localStorage.getItem("pers-ui-theme"); } catch (e) {}
-    persTheme.init();
+    persTheme.init({ mountId: "no-theme-mount" });
     if (!storedTheme && !new URLSearchParams(location.search).get("theme")) persTheme.set(DEFAULT_THEME);
   }
-  if (window.persLang) {
-    persLang.init({
-      container: document.getElementById("lang-mount"),
-      defaultLang: "cs", // Czech first; English is one click away and remembered
-      onLangChange: applyLangAttributes
-    });
-    // ?lang=cs|en deep-links a language. Applied after init because lang.js
-    // prefers a stored choice over its default.
-    var q = new URLSearchParams(location.search).get("lang");
-    if (q === "cs" || q === "en") persLang.set(q);
+
+  /* ---- pickers: language and theme ------------------------------------------
+     Markup: an element of class "picker" holds a button.picker-button with
+     aria-expanded and aria-controls, and the list it controls (ul.picker-list,
+     hidden) - the WAI-ARIA disclosure pattern. One picker is open at a time;
+     Escape (focus back to its button), a click outside and focus moving out of
+     the picker close it. */
+  var pickers = [];
+  function isOpen(p) { return p.button.getAttribute("aria-expanded") === "true"; }
+  function setPicker(p, open) {
+    p.button.setAttribute("aria-expanded", String(open));
+    p.list.hidden = !open;
   }
+  document.querySelectorAll(".picker").forEach(function (root) {
+    var button = root.querySelector(".picker-button");
+    var list = button && document.getElementById(button.getAttribute("aria-controls"));
+    if (!list) return;
+    var p = { root: root, button: button, list: list };
+    pickers.push(p);
+    setPicker(p, false);
+    button.addEventListener("click", function () {
+      var open = !isOpen(p);
+      pickers.forEach(function (other) { if (other !== p) setPicker(other, false); });
+      setPicker(p, open);
+    });
+    // Focus moving to an element outside the picker closes it. A click on
+    // something that takes no focus (no relatedTarget) is left to the click
+    // handler below, so a click on a choice still lands in every browser.
+    root.addEventListener("focusout", function (e) {
+      if (e.relatedTarget && !root.contains(e.relatedTarget)) setPicker(p, false);
+    });
+  });
+  document.addEventListener("click", function (e) {
+    pickers.forEach(function (p) { if (!p.root.contains(e.target)) setPicker(p, false); });
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    var open = pickers.filter(isOpen);
+    if (!open.length) return;
+    open.forEach(function (p) { setPicker(p, false); });
+    open[0].button.focus();
+    e.stopImmediatePropagation(); // the open picker takes this Escape, not the phone menu
+  });
+
+  // Language: the chosen language is remembered under the key the site root
+  // reads, so the root sends the visitor back to it.
+  (function () {
+    var list = document.getElementById("lang-list");
+    if (!list) return;
+    list.addEventListener("click", function (e) {
+      var a = e.target.closest("a[hreflang]");
+      if (!a) return;
+      try { localStorage.setItem("evf-lang", a.getAttribute("hreflang")); } catch (err) {}
+    });
+  })();
+
+  // Theme: the button shows only the icon of the current mode (the sun, the
+  // moon, or the half-filled circle for the system's setting), and its hidden
+  // text names the mode with the word the list uses; the list holds the other
+  // two. It drives theme.js through its API.
+  (function () {
+    var root = document.querySelector(".theme-picker");
+    var p = pickers.filter(function (x) { return x.root === root; })[0];
+    if (!p || !window.persTheme) return;
+    var MODES = ["light", "auto", "dark"];
+    var ICONS = { light: "i-sun", auto: "i-auto", dark: "i-moon" };
+    function icon(mode) {
+      return '<svg class="picker-icon" aria-hidden="true"><use href="#' + ICONS[mode] + '"/></svg>';
+    }
+    function hiddenText(text) { return '<span class="visually-hidden">' + text + "</span>"; }
+    function current() {
+      var mode = html.getAttribute("data-theme");
+      return MODES.indexOf(mode) < 0 ? "auto" : mode;
+    }
+    p.list.innerHTML = MODES.map(function (mode) {
+      return '<li><button class="picker-item" type="button" data-mode="' + mode + '">' +
+        icon(mode) + "<span>" + t(mode) + "</span></button></li>";
+    }).join("");
+    function render() {
+      var mode = current();
+      p.button.innerHTML = hiddenText(t("theme") + ": " + t(mode)) + icon(mode) +
+        '<svg class="picker-chevron" aria-hidden="true"><use href="#i-chevron"/></svg>';
+      p.list.querySelectorAll("button[data-mode]").forEach(function (b) {
+        b.parentNode.hidden = b.getAttribute("data-mode") === mode;
+      });
+    }
+    p.list.addEventListener("click", function (e) {
+      var b = e.target.closest("button[data-mode]");
+      if (!b) return;
+      persTheme.set(b.getAttribute("data-mode"));
+      render();
+      setPicker(p, false);
+      p.button.focus();
+    });
+    render();
+  })();
 
   window.addEventListener("load", function () {
     requestAnimationFrame(function () { html.classList.remove("preload"); });
@@ -204,8 +267,8 @@
   /* ---- lightbox -------------------------------------------------------------
      Markup: a container with data-lb-group holds links with data-lb="photo"
      (href = full-size image) or data-lb="video" (href = YouTube watch URL,
-     data-video-id, data-short for a vertical Short). Optional data-caption-en /
-     data-caption-cs and data-source (a link shown under the item). The whole
+     data-video-id, data-short for a vertical Short). Optional data-caption and
+     data-source (a link shown under the item). The whole
      group is one set, including items a pager has hidden. */
   var ICON = {
     close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>',
@@ -243,7 +306,6 @@
       var dx = e.clientX - x0; x0 = null;
       if (Math.abs(dx) > 50 && lbItems.length > 1) show(lbIndex + (dx < 0 ? 1 : -1));
     });
-    document.addEventListener("evf:lang", labelLightbox);
   }
 
   function labelLightbox() {
@@ -253,11 +315,10 @@
     lb.querySelector(".lb-next").setAttribute("aria-label", t("next"));
     var item = lbItems[lbIndex];
     lb.setAttribute("aria-label", t(item && item.getAttribute("data-lb") === "video" ? "video" : "photo"));
-    if (lb.open) renderInfo();
   }
 
   function captionOf(a) {
-    return a.getAttribute("data-caption-" + lang()) || a.getAttribute("data-caption-en") || "";
+    return a.getAttribute("data-caption") || "";
   }
 
   function renderInfo() {
@@ -386,7 +447,6 @@
       var b = e.target.closest("button[data-page]");
       if (b) go(parseInt(b.getAttribute("data-page"), 10), true);
     });
-    document.addEventListener("evf:lang", function () { render(false); });
     go(1, false);
   });
 
@@ -403,12 +463,7 @@
       if (!status) return;
       status.textContent = t(key);
       status.classList.toggle("is-error", !!isError);
-      status.setAttribute("data-key", key);
     }
-    document.addEventListener("evf:lang", function () {
-      var key = status && status.getAttribute("data-key");
-      if (key) status.textContent = t(key);
-    });
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       if (!form.reportValidity()) return;

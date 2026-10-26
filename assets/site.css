@@ -34,7 +34,7 @@
 }
 
 /* ---- header ----------------------------------------------------------------
-   Two rows: the top strip (the title image, the language and theme switches at
+   Two rows: the top strip (the title image, the language and theme pickers at
    the right) and the menu row (the social icons and the menu). With JS the
    header is sticky with `top` = minus the top strip's height, which site.js
    measures into --header-top-h: the top strip scrolls away and the menu row
@@ -66,6 +66,66 @@ html.js :target { scroll-margin-top: 0; }
 }
 .header-top .brand { grid-column: 2; }
 .header-controls { grid-column: 3; justify-self: end; margin-left: 0; display: inline-flex; gap: 0.5rem; align-items: center; }
+/* The language and theme pickers: a pill button shows the current choice, and
+   a click (or Enter / Space) opens the list of choices beneath it, aligned to
+   its right edge and above the title image. site.js runs both (the WAI-ARIA
+   disclosure pattern). Without JS the theme picker is hidden, and the language
+   links stand in a row instead of the button. */
+.picker { position: relative; }
+.picker-button {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  min-height: 2.25rem; padding: 0 0.6rem 0 0.8rem;
+  background: var(--surface); color: var(--text);
+  border: 1px solid var(--border); border-radius: var(--radius-pill, 999px);
+  font: inherit; font-size: 0.85rem; font-weight: 600; line-height: 1;
+  cursor: pointer;
+  transition: border-color var(--duration-base) ease;
+}
+.picker-button:hover, .picker-button[aria-expanded="true"] { border-color: var(--accent); }
+.picker-icon { width: 1.15rem; height: 1.15rem; flex: 0 0 auto; }
+.picker-chevron {
+  width: 0.85rem; height: 0.85rem; flex: 0 0 auto; color: var(--text-muted);
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+.picker-button[aria-expanded="true"] .picker-chevron { transform: rotate(180deg); }
+.picker-code { min-width: 1.45em; }
+/* A flag keeps its own proportions; the language of its element names it. */
+.picker .flag {
+  width: 1.5em; height: 1em; flex: 0 0 auto;
+  border-radius: 2px; box-shadow: 0 0 0 1px var(--border-strong);
+}
+.picker .flag:lang(en) { width: 2em; }
+.picker .flag:lang(de) { width: 1.667em; }
+.picker-list {
+  position: absolute; top: calc(100% + 0.4rem); right: 0; z-index: 5;
+  min-width: 100%;
+  display: flex; flex-direction: column; gap: 0.15rem;
+  list-style: none; margin: 0; padding: 0.35rem;
+  background: var(--surface-3, var(--bg));
+  border: 1px solid var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  animation: picker-in var(--duration-base) var(--ease-standard);
+}
+.picker-list[hidden] { display: none; }
+.picker-list > li { margin: 0; }
+.picker-item {
+  display: flex; align-items: center; gap: 0.55rem; width: 100%;
+  padding: 0.55rem 0.7rem;
+  background: transparent; color: var(--text);
+  border: 0; border-radius: var(--radius-sm);
+  font: inherit; font-size: 0.92rem; font-weight: 500; line-height: 1.2;
+  text-align: left; white-space: nowrap;
+  cursor: pointer;
+}
+.lang-picker .picker-item { font-weight: 600; }
+.picker-item:hover { background: var(--accent-soft); text-decoration: none; }
+.picker-item[aria-current="true"] { background: var(--accent-soft); }
+@keyframes picker-in { from { opacity: 0; transform: translateY(-4px); } }
+html:not(.js) .theme-picker, html:not(.js) .lang-picker .picker-button { display: none; }
+html:not(.js) .lang-picker .picker-list {
+  display: flex; flex-direction: row; gap: 0.25rem; position: static; padding: 0;
+  background: transparent; border: 0; box-shadow: none; animation: none;
+}
 
 .brand { display: block; color: var(--text); }
 .brand:hover { text-decoration: none; }
@@ -153,8 +213,11 @@ html.js :target { scroll-margin-top: 0; }
   .site-nav > ul > li:last-child { border-bottom: 0; }
   .site-nav a { width: 100%; padding: 0.8rem 0.4rem; font-size: 1.02rem; color: var(--text); }
   .has-sub > a::after { display: none; }
-  .sub {
-    position: static; opacity: 1; visibility: visible; transform: none;
+  /* The submenu takes the menu's visibility: hidden from Tab and screen readers while
+     the menu is closed, shown while it is open. The hover and focus-within selectors
+     are listed so the desktop rule above cannot show or shift it here. */
+  .sub, .has-sub:hover > .sub, .has-sub:focus-within > .sub {
+    position: static; opacity: 1; visibility: inherit; transform: none; transition: none;
     box-shadow: none; border: 0; background: transparent; min-width: 0; padding: 0 0 0.5rem 1rem;
   }
   .sub a { padding: 0.5rem 0.4rem; color: var(--text-muted); font-size: 0.95rem; }
@@ -163,7 +226,7 @@ html.js :target { scroll-margin-top: 0; }
   .header-nav-row { position: static; }
 }
 @media (max-width: 767px) {
-  /* A thin row of switches at the right, then the title image at the full
+  /* A thin row of pickers at the right, then the title image at the full
      viewport width: it leaves the container's side padding through margins of
      50% - 50vw, which needs no copy of the kit's padding value. */
   .header-top { grid-template-columns: 1fr; height: auto; gap: 0.35rem; padding-top: 0.35rem; }
@@ -173,18 +236,27 @@ html.js :target { scroll-margin-top: 0; }
 }
 
 /* ---- hero: full-bleed photo with a centred claim ----------------------------- */
+/* The box height is a function of the viewport width only, never of the text:
+   the min-height stays above the content of the longest language with at least
+   one title line to spare, so every language gets the same box and the same
+   photo crop. 32rem holds phones and small tablets, 16rem + 30vw takes over up
+   to 985 px, and 56vw (capped at 50rem) above. A new language or a longer title
+   needs the hero measured again at 320-1440 px before it ships. */
 .hero-photo {
   position: relative; isolation: isolate;
   display: grid; place-items: center;
-  min-height: clamp(22rem, 56vw, 50rem);
+  min-height: clamp(32rem, max(56vw, 16rem + 30vw), 50rem);
   padding: 4rem 0;
   color: #fff;
   overflow: hidden;
 }
+/* The van is right of centre in the photo: on a tall phone box the crop keeps
+   the charger and the front of the van. */
 .hero-photo > img {
   position: absolute; inset: 0; z-index: -2;
-  width: 100%; height: 100%; object-fit: cover;
+  width: 100%; height: 100%; object-fit: cover; object-position: 62% 50%;
 }
+@media (max-width: 767px) { .hero-photo { padding-block: 2.5rem; } }
 .hero-photo::before {
   content: ""; position: absolute; inset: 0; z-index: -1;
   background: linear-gradient(180deg, rgba(4, 12, 24, 0.35) 0%, rgba(4, 12, 24, 0.45) 55%, rgba(4, 12, 24, 0.7) 100%);
@@ -202,18 +274,26 @@ html.js :target { scroll-margin-top: 0; }
 }
 /* The schedule note, as on the channel banner: two lines in capitals, the
    second with the Czech and the UK time, each followed by its flag (a hidden
-   label names the time zone for screen readers). */
-.hero-photo .schedule {
+   label names the time zone for screen readers). It sits on the home hero
+   photo and on the Videos title band. The shape rule names both places, so it
+   outranks each place's own `p` rule; it carries the skin's colours for the
+   band, and the hero rule swaps them for white on the photo's dark scrim. */
+:is(.hero-photo, .title-band) .schedule {
   display: inline-grid; justify-items: center; gap: 0.35rem;
   margin-top: 1.6rem; padding: 0.65rem 1.4rem 0.7rem;
-  border: 1px solid rgba(255, 255, 255, 0.45); border-radius: var(--radius-lg);
-  background: rgba(4, 12, 24, 0.4);
+  border: 1px solid var(--border-strong); border-radius: var(--radius-lg);
+  background: var(--surface-3); color: var(--text);
   font-size: clamp(0.95rem, 1.5vw, 1.1rem); font-weight: 700; line-height: 1.25;
   letter-spacing: 0.06em; text-transform: uppercase;
 }
+.hero-photo .schedule {
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(4, 12, 24, 0.4); color: rgba(255, 255, 255, 0.92);
+}
 .schedule-times { display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 0.2rem 1.4em; }
 .schedule-time { display: inline-flex; align-items: center; gap: 0.5em; white-space: nowrap; }
-.schedule .flag { height: 1em; width: 1.5em; border-radius: 2px; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35); }
+.schedule .flag { height: 1em; width: 1.5em; border-radius: 2px; box-shadow: 0 0 0 1px var(--border-strong); }
+.hero-photo .schedule .flag { box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35); }
 .schedule .flag-gb { width: 2em; }
 
 /* ---- section heads -------------------------------------------------------- */
@@ -276,8 +356,6 @@ html.js :target { scroll-margin-top: 0; }
 .offset-text h2 { margin-bottom: 1.1rem; padding-bottom: 0.6rem; }
 .offset-text p { color: var(--text-muted); }
 .offset-text p + p { margin-top: 1rem; }
-/* The Czech twin of a first paragraph follows its hidden English twin: no gap. */
-.offset-text :not(p) + p.lang-en + p.lang-cs { margin-top: 0; }
 .offset-text .btn { margin-top: 1.6rem; }
 @media (max-width: 980px) {
   .offset-box { margin-left: 0; border-radius: 0; border-left: 0; }
@@ -485,6 +563,8 @@ html.lb-lock { overflow: hidden; }
   .band > img { top: 0; height: 100%; transform: none !important; }
   .vthumb img, .photo-grid img { transition: none; }
   .site-nav { transition: none; }
+  .picker-list { animation: none; }
+  .picker-chevron { transition: none; }
 }
 
 /* ---- print ---------------------------------------------------------------- */
@@ -496,8 +576,6 @@ html.lb-lock { overflow: hidden; }
 /* ============================================================================
    Inner pages: videos, van, gallery, about, contact. Page components only, in
    the skin's tokens; one heading per page, the pieces two pages share first.
-   Language pairs: a run of several paragraphs sits in a div.lang-en /
-   div.lang-cs wrapper, so a `p + p` rule never spaces a hidden twin.
    ============================================================================ */
 
 /* ---- inner pages: shared --------------------------------------------------- */
@@ -697,7 +775,7 @@ html.lb-lock { overflow: hidden; }
 
 /* ---- about page --------------------------------------------------------------- */
 /* Intro: the title band with two paragraphs and a button. */
-.title-band :is(.lang-en, .lang-cs) > p + p { margin-top: 1rem; }
+.title-band p + p { margin-top: 1rem; }
 .title-band .btn { margin-top: 1.8rem; }
 
 /* Alternating rows: photo | text, the photo on the left in odd rows and on the
@@ -718,7 +796,7 @@ html.lb-lock { overflow: hidden; }
 .alt-row-media img.pos-upper { object-position: 50% 35%; }
 .alt-row-text h2 { font-size: clamp(1.5rem, 2.8vw, 2rem); padding-bottom: 0.6rem; margin-bottom: 1.1rem; }
 .alt-row-text p { color: var(--text-muted); }
-.alt-row-text :is(.lang-en, .lang-cs) > p + p { margin-top: 1rem; }
+.alt-row-text p + p { margin-top: 1rem; }
 @media (max-width: 767px) {
   .alt-row { grid-template-columns: minmax(0, 1fr); }
   .alt-row:nth-child(even) .alt-row-media { order: 0; }
@@ -792,9 +870,36 @@ html.lb-lock { overflow: hidden; }
 /* One video card, centred, at the width of a two-column card. */
 .video-single { max-width: 36rem; margin-inline: auto; }
 
-/* ---- language before (and without) JS ---------------------------------------
-   The head script sets html[data-lang] before the first paint, Czech by default;
-   site.js keeps it in step with lang.js. Without JS the attribute is missing and
-   Czech shows. lang.js's own rules then agree with these. */
-html:not([data-lang="en"]) .lang-en { display: none !important; }
-html[data-lang="en"] .lang-cs { display: none !important; }
+/* ---- language chooser: the site root (index.html) ---------------------------
+   The x-default page: one heading and one list of language links, centred in
+   the viewport. With script the visitor has moved on before first paint; this is
+   what a visitor without script sees. Flag, code and name sit in three columns,
+   so the names line up whatever the flag's width. */
+.chooser {
+  min-height: 100vh; min-height: 100dvh;
+  display: grid; place-content: center; justify-items: center;
+  gap: clamp(1.5rem, 5vw, 2.25rem);
+  padding: 2rem 1rem;
+  text-align: center;
+}
+.chooser h1 {
+  margin: 0;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(2rem, 9vw, 3.25rem); line-height: 1.1;
+}
+.chooser-list {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 0.75rem;
+  width: min(17rem, calc(100vw - 2rem));
+}
+.chooser-list a {
+  display: grid; grid-template-columns: 2.5rem 1.75rem 1fr; column-gap: 0.75rem; align-items: center;
+  padding: 0.85rem 1rem;
+  background: var(--surface); color: var(--text);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  font-size: 1.1rem; font-weight: 600; text-align: left;
+  transition: border-color var(--duration-base) ease;
+}
+.chooser-list a:hover { border-color: var(--accent); text-decoration: none; }
+.chooser-flag { justify-self: start; height: 1.25rem; width: auto; box-shadow: 0 0 0 1px var(--border); }
+.chooser-code { color: var(--text-muted); font-size: 0.9rem; letter-spacing: 0.04em; }

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="cs" data-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="canonical" href="https://electricvanfam.com/cs/fest.html" />
+    <link rel="alternate" hreflang="cs" href="https://electricvanfam.com/cs/fest.html" />
+    <link rel="alternate" hreflang="de" href="https://electricvanfam.com/de/fest.html" />
+    <link rel="alternate" hreflang="en" href="https://electricvanfam.com/en/fest.html" />
+    <link rel="alternate" hreflang="x-default" href="https://electricvanfam.com/cs/fest.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Electric Van Fest - sraz majitelů obytných Kia PV5</title>
+    <meta name="description" content="Electric Van Fest: nápad rodiny Electric Van Fam uspořádat sraz majitelů obytných Kia PV5." />
+    <meta property="og:title" content="Electric Van Fest" />
+    <meta property="og:description" content="Sraz majitelů obytných Kia PV5, nápad rodiny Electric Van Fam." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="cs_CZ" />
+    <link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="../assets/img/icon-192.png" sizes="192x192" type="image/png" />
+    <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon-180.png" />
+
+    <!-- Resolve the theme BEFORE first paint; `preload` stops the first paint from animating.
+         ?theme=light|dark|auto and ?template=<family> deep-link a state. -->
+    <script>
+      (function () {
+        var d = document.documentElement;
+        d.classList.add("js", "preload");
+        var q = new URLSearchParams(location.search);
+        var ls = function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } };
+        d.setAttribute("data-theme", q.get("theme") || ls("pers-ui-theme") || "light");
+        var tpl = q.get("template");
+        if (tpl && /^(jdsign|aurora|bento|brutalist|devdark|scholarly)$/.test(tpl)) d.setAttribute("data-template", tpl);
+      })();
+    </script>
+    <link rel="stylesheet" href="../fonts/fonts.css" />
+    <link rel="stylesheet" href="../core/base.css" />
+    <link rel="stylesheet" href="../kits/site.css" />
+    <!-- The design family, jdsign (its accent matches the channel's brand blue): one template stylesheet, which imports its skin. -->
+    <link id="template-css" rel="stylesheet" href="../templates/site/jdsign.css" />
+    <script>
+      (function () {
+        var t = document.documentElement.getAttribute("data-template");
+        if (t) document.getElementById("template-css").href = "../templates/site/" + t + ".css";
+      })();
+    </script>
+    <link rel="stylesheet" href="../assets/site.css" />
+  </head>
+  <body>
+    <!-- ===== chrome:icons (identical on every page) ===== -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <symbol id="i-youtube" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M23.1 7.2a3 3 0 0 0-2.1-2.1C19.1 4.6 12 4.6 12 4.6s-7.1 0-9 .5A3 3 0 0 0 .9 7.2 31 31 0 0 0 .4 12c0 1.6.2 3.2.5 4.8A3 3 0 0 0 3 18.9c1.9.5 9 .5 9 .5s7.1 0 9-.5a3 3 0 0 0 2.1-2.1c.3-1.6.5-3.2.5-4.8s-.2-3.2-.5-4.8zM9.7 15.1V8.9l5.9 3.1-5.9 3.1z"/></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4"/><circle cx="12" cy="12" r="4.4"/></g><circle cx="17.6" cy="6.4" r="1.25" fill="currentColor"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4.5v15l13-7.5z"/></symbol>
+      <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 1.5 3.8 13.6h6.6l-1.6 8.9 10-12.6h-6.7z"/></symbol>
+      <symbol id="i-zoom" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6"/></g></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></g></symbol>
+      <symbol id="i-flag-cz" viewBox="0 0 30 20"><path fill="#fff" d="M0 0h30v10H0z"/><path fill="#d7141a" d="M0 10h30v10H0z"/><path fill="#11457e" d="M0 0l15 10L0 20z"/></symbol>
+      <symbol id="i-flag-gb" viewBox="0 0 60 30"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0 0 30"/><path stroke="#c8102e" stroke-width="2" d="M0 0l60 30M60 0 0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></symbol>
+      <symbol id="i-flag-de" viewBox="0 0 5 3"><path fill="#000" d="M0 0h5v1H0z"/><path fill="#d00" d="M0 1h5v1H0z"/><path fill="#ffce00" d="M0 2h5v1H0z"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m6.5 9.5 5.5 5.5 5.5-5.5"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.2v2.3M12 19.5v2.3M2.2 12h2.3M19.5 12h2.3M5.1 5.1l1.6 1.6M17.3 17.3l1.6 1.6M5.1 18.9l1.6-1.6M17.3 6.7l1.6-1.6"/></g></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M20.6 14.3A8.8 8.8 0 1 1 9.7 3.4a6.9 6.9 0 0 0 10.9 10.9z"/></symbol>
+      <symbol id="i-auto" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6" fill="none" stroke="currentColor" stroke-width="2"/><path fill="currentColor" d="M12 3.4a8.6 8.6 0 0 0 0 17.2z"/></symbol>
+    </svg>
+    <!-- ===== /chrome:icons ===== -->
+
+    <!-- ===== chrome:header (identical on every page except aria-current) ===== -->
+    <a class="skip-link" href="#main">Přejít na obsah</a>
+    <header class="site-header">
+      <div class="container header-top">
+        <a class="brand" href="index.html">
+          <img class="brand-title" src="../assets/img/title-1280.webp" srcset="../assets/img/title-640.webp 640w, ../assets/img/title-1280.webp 1280w, ../assets/img/title-1920.webp 1920w" sizes="(max-width: 767px) 100vw, 285px" width="1920" height="1080" alt="Electric Van Fam" decoding="async" />
+        </a>
+        <div class="header-controls">
+          <nav class="picker lang-picker" aria-label="Jazyk">
+            <button class="picker-button" type="button" aria-expanded="false" aria-controls="lang-list">
+              <span class="visually-hidden">Jazyk: </span><span class="picker-code">CZ</span><svg class="flag" aria-hidden="true"><use href="#i-flag-cz"/></svg><svg class="picker-chevron" aria-hidden="true"><use href="#i-chevron"/></svg>
+            </button>
+            <ul class="picker-list" id="lang-list" hidden>
+              <li><a class="picker-item" href="../cs/fest.html" hreflang="cs" lang="cs" aria-current="true" aria-label="Čeština"><span class="picker-code">CZ</span><svg class="flag" aria-hidden="true"><use href="#i-flag-cz"/></svg></a></li>
+              <li><a class="picker-item" href="../en/fest.html" hreflang="en" lang="en" aria-label="English"><span class="picker-code">EN</span><svg class="flag" aria-hidden="true"><use href="#i-flag-gb"/></svg></a></li>
+              <li><a class="picker-item" href="../de/fest.html" hreflang="de" lang="de" aria-label="Deutsch"><span class="picker-code">DE</span><svg class="flag" aria-hidden="true"><use href="#i-flag-de"/></svg></a></li>
+            </ul>
+          </nav>
+          <div class="picker theme-picker">
+            <button class="picker-button" type="button" aria-expanded="false" aria-controls="theme-list"><span class="visually-hidden">Barevný motiv</span></button>
+            <ul class="picker-list" id="theme-list" hidden></ul>
+          </div>
+        </div>
+      </div>
+      <div class="container header-nav-row">
+        <span class="social-slot left">
+          <a class="icon-link" href="https://youtube.com/@electricvanfam?si=Grp4nOMV1Lf5DhQu" target="_blank" rel="noopener"
+             aria-label="Electric Van Fam na YouTube"
+             title="YouTube"><svg aria-hidden="true"><use href="#i-youtube"/></svg></a>
+        </span>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Otevřít menu">
+          <svg class="i-open" aria-hidden="true"><use href="#i-menu"/></svg>
+          <svg class="i-close" aria-hidden="true"><use href="#i-x"/></svg>
+        </button>
+        <nav class="site-nav" id="site-menu" aria-label="Hlavní">
+          <ul>
+            <li><a href="index.html">Domů</a></li>
+            <li><a href="about.html">O nás</a></li>
+            <li class="has-sub"><a href="van.html">Naše dodávka</a>
+              <ul class="sub">
+                <li><a href="van.html#build">Přestavba</a></li>
+                <li><a href="van.html#gear">Vybavení a partneři</a></li>
+                <li><a href="van.html#faq">Otázky</a></li>
+              </ul>
+            </li>
+            <li class="has-sub"><a href="videos.html">Videa</a>
+              <ul class="sub">
+                <li><a href="videos.html#episodes">Díly</a></li>
+                <li><a href="videos.html#shorts">Shorts</a></li>
+                <li><a href="videos.html#playlists">Playlisty</a></li>
+              </ul>
+            </li>
+            <li><a href="gallery.html">Galerie</a></li>
+            <li><a href="fest.html" aria-current="page">Electric Van Fest</a></li>
+            <li><a href="contact.html">Kontakt</a></li>
+          </ul>
+        </nav>
+        <span class="social-slot right">
+          <a class="icon-link" href="https://instagram.com/electric.van.fam?xtok=amt4czhjMHRxbmlt" target="_blank" rel="noopener"
+             aria-label="Electric Van Fam na Instagramu"
+             title="Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
+        </span>
+      </div>
+    </header>
+    <!-- ===== /chrome:header ===== -->
+
+    <main id="main">
+      <!-- ================= TITLE BAND ================= -->
+      <section class="title-band center" aria-labelledby="page-title">
+        <div class="container">
+          <h1 id="page-title">Electric Van Fest</h1>
+          <p>Máme nápad uspořádat sraz majitelů obytných Kia PV5.</p>
+        </div>
+      </section>
+
+      <!-- ================= ALTERNATING ROW: photo | what we are planning ================= -->
+      <div class="section">
+        <div class="container alt-rows">
+          <section class="alt-row" aria-labelledby="plan-title">
+            <div class="alt-row-media reveal">
+              <img src="../assets/img/ig/DdrrLQiCNfX-1600.webp"
+                   srcset="../assets/img/ig/DdrrLQiCNfX-800.webp 800w, ../assets/img/ig/DdrrLQiCNfX-1600.webp 1600w"
+                   sizes="(max-width: 767px) 92vw, 32rem" width="1600" height="1558" loading="lazy"
+                   alt="Obytná auta jedou v řadě po závodní dráze, pohled shora." />
+            </div>
+            <div class="alt-row-text reveal">
+              <h2 id="plan-title">Co chystáme</h2>
+              <ul class="fest-facts">
+                <li>
+                  <!-- TODO(owner): Electric Van Fest - the date -->
+                  <span class="todo">Datum</span>
+                </li>
+                <li>
+                  <!-- TODO(owner): Electric Van Fest - the place -->
+                  <span class="todo">Místo</span>
+                </li>
+                <li>
+                  <!-- TODO(owner): Electric Van Fest - the programme -->
+                  <span class="todo">Program</span>
+                </li>
+                <li>
+                  <!-- TODO(owner): Electric Van Fest - who can come -->
+                  <span class="todo">Pro koho</span>
+                </li>
+                <li>
+                  <!-- TODO(owner): Electric Van Fest - how to sign up -->
+                  <span class="todo">Jak se přihlásit</span>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- ================= THE EVF#15 VIDEO (a static card, outside the generated blocks) ================= -->
+      <div class="section">
+        <div class="container">
+          <div class="section-head center">
+            <p>O nápadu mluvíme v díle EVF#15.</p>
+          </div>
+          <div class="video-single" data-lb-group="fest">
+            <a class="vcard reveal" href="https://www.youtube.com/watch?v=d1v_NTmEGl0" data-lb="video" data-video-id="d1v_NTmEGl0"
+               data-caption="4K | KIA PV5 MEET-UP &amp; OUR NEXT PLANS 🇬🇧 | Interview with Combe Valley Campers. EVF#15">
+              <span class="vthumb">
+                <img src="../assets/img/yt/d1v_NTmEGl0-640.webp" width="640" height="360" loading="lazy" alt="" />
+                <span class="play" aria-hidden="true"><svg><use href="#i-play"/></svg></span>
+              </span>
+              <span class="vtitle">4K | KIA PV5 MEET-UP &amp; OUR NEXT PLANS 🇬🇧 | Interview with Combe Valley Campers. EVF#15</span>
+              <span class="vmeta"><time datetime="2026-08-27">27. 8. 2026</time></span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= CALL TO ACTION ================= -->
+      <section class="section" aria-labelledby="cta-title">
+        <div class="container">
+          <div class="section-head center">
+            <h2 id="cta-title">Chcete přijet?</h2>
+            <p>Napište nám na <a href="mailto:electric.van.fam@gmail.com">electric.van.fam@gmail.com</a> nebo nás sledujte na YouTube a Instagramu.</p>
+          </div>
+          <div class="section-actions">
+            <a class="btn btn-primary" href="mailto:electric.van.fam@gmail.com"><svg aria-hidden="true"><use href="#i-mail"/></svg>Napsat e&#8288;-&#8288;mail</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= GIANT TAGLINE ================= -->
+      <div class="tagline-giant" aria-hidden="true"><p>Electric • Family • Adventures</p></div>
+    </main>
+
+    <!-- ===== chrome:footer (identical on every page) ===== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-cols">
+          <ul class="footer-nav">
+            <li><a href="about.html">O nás</a></li>
+            <li><a href="van.html">Naše dodávka</a></li>
+            <li><a href="videos.html">Videa</a></li>
+            <li><a href="gallery.html">Galerie</a></li>
+            <li><a href="fest.html">Electric Van Fest</a></li>
+            <li><a href="contact.html">Kontakt</a></li>
+          </ul>
+          <div class="footer-logo"><img src="../assets/img/logo-256.webp" width="104" height="104" loading="lazy" alt="Electric Van Fam" /></div>
+          <div class="footer-contact">
+            <div class="socials">
+              <a class="icon-link" href="https://youtube.com/@electricvanfam?si=Grp4nOMV1Lf5DhQu" target="_blank" rel="noopener" aria-label="YouTube"><svg aria-hidden="true"><use href="#i-youtube"/></svg></a>
+              <a class="icon-link" href="https://instagram.com/electric.van.fam?xtok=amt4czhjMHRxbmlt" target="_blank" rel="noopener" aria-label="Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
+            </div>
+            <a href="mailto:electric.van.fam@gmail.com">electric.van.fam@gmail.com</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 Electric Van Fam</p>
+          <p>Tento web nepoužívá cookies. Videa se z YouTube načtou až po kliknutí na přehrát.</p>
+        </div>
+      </div>
+    </footer>
+    <!-- ===== /chrome:footer ===== -->
+
+    <script src="../core/theme.js"></script>
+    <script src="../assets/site.js"></script>
+  </body>
+</html>

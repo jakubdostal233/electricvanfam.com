@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://electricvanfam.com/</loc></url>
-  <url><loc>https://electricvanfam.com/about.html</loc></url>
-  <url><loc>https://electricvanfam.com/contact.html</loc></url>
-  <url><loc>https://electricvanfam.com/fest.html</loc></url>
-  <url><loc>https://electricvanfam.com/gallery.html</loc></url>
-  <url><loc>https://electricvanfam.com/van.html</loc></url>
-  <url><loc>https://electricvanfam.com/videos.html</loc></url>
+  <url><loc>https://electricvanfam.com/cs/</loc></url>
+  <url><loc>https://electricvanfam.com/cs/about.html</loc></url>
+  <url><loc>https://electricvanfam.com/cs/contact.html</loc></url>
+  <url><loc>https://electricvanfam.com/cs/fest.html</loc></url>
+  <url><loc>https://electricvanfam.com/cs/gallery.html</loc></url>
+  <url><loc>https://electricvanfam.com/cs/van.html</loc></url>
+  <url><loc>https://electricvanfam.com/cs/videos.html</loc></url>
+  <url><loc>https://electricvanfam.com/de/</loc></url>
+  <url><loc>https://electricvanfam.com/de/about.html</loc></url>
+  <url><loc>https://electricvanfam.com/de/contact.html</loc></url>
+  <url><loc>https://electricvanfam.com/de/fest.html</loc></url>
+  <url><loc>https://electricvanfam.com/de/gallery.html</loc></url>
+  <url><loc>https://electricvanfam.com/de/van.html</loc></url>
+  <url><loc>https://electricvanfam.com/de/videos.html</loc></url>
+  <url><loc>https://electricvanfam.com/en/</loc></url>
+  <url><loc>https://electricvanfam.com/en/about.html</loc></url>
+  <url><loc>https://electricvanfam.com/en/contact.html</loc></url>
+  <url><loc>https://electricvanfam.com/en/fest.html</loc></url>
+  <url><loc>https://electricvanfam.com/en/gallery.html</loc></url>
+  <url><loc>https://electricvanfam.com/en/van.html</loc></url>
+  <url><loc>https://electricvanfam.com/en/videos.html</loc></url>
 </urlset>

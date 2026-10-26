@@ -31,7 +31,7 @@
   --accent-2: #60a5fa;
   --accent-contrast: #ffffff;
   --accent-soft: rgba(37, 99, 235, 0.08);
-  --ring: rgba(37, 99, 235, 0.45);
+  --ring: var(--accent);
   /* the scholarly heading cascade: blue h1 (via --accent), then greys */
   --heading-2: #34495e;
   --heading-3: #4a6274;
@@ -66,7 +66,7 @@
   --accent-2: #3b82f6;
   --accent-contrast: #0b1220;
   --accent-soft: rgba(96, 165, 250, 0.12);
-  --ring: rgba(96, 165, 250, 0.5);
+  --ring: var(--accent);
   --heading-2: #93c5fd;
   --heading-3: #7db8f0;
   --heading-4: #6baae0;
@@ -90,7 +90,7 @@
     --accent-2: #3b82f6;
     --accent-contrast: #0b1220;
     --accent-soft: rgba(96, 165, 250, 0.12);
-    --ring: rgba(96, 165, 250, 0.5);
+    --ring: var(--accent);
     --heading-2: #93c5fd;
     --heading-3: #7db8f0;
     --heading-4: #6baae0;

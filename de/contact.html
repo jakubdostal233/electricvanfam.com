@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="canonical" href="https://electricvanfam.com/de/contact.html" />
+    <link rel="alternate" hreflang="cs" href="https://electricvanfam.com/cs/contact.html" />
+    <link rel="alternate" hreflang="de" href="https://electricvanfam.com/de/contact.html" />
+    <link rel="alternate" hreflang="en" href="https://electricvanfam.com/en/contact.html" />
+    <link rel="alternate" hreflang="x-default" href="https://electricvanfam.com/cs/contact.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kontakt - Electric Van Fam</title>
+    <meta name="description" content="So erreichst du die Electric Van Fam: YouTube, Instagram und ein Kontaktformular für Fragen zu unserem Camper, dem Kia PV5, zum Ausbau und zu unseren Videos." />
+    <meta property="og:title" content="Kontakt - Electric Van Fam" />
+    <meta property="og:description" content="Fragen zu unserem Camper, dem Kia PV5, zum Ausbau oder zu unseren Videos? Schreib uns." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="../assets/img/icon-192.png" sizes="192x192" type="image/png" />
+    <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon-180.png" />
+
+    <!-- Resolve the theme BEFORE first paint; `preload` stops the first paint from animating.
+         ?theme=light|dark|auto and ?template=<family> deep-link a state. -->
+    <script>
+      (function () {
+        var d = document.documentElement;
+        d.classList.add("js", "preload");
+        var q = new URLSearchParams(location.search);
+        var ls = function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } };
+        d.setAttribute("data-theme", q.get("theme") || ls("pers-ui-theme") || "light");
+        var tpl = q.get("template");
+        if (tpl && /^(jdsign|aurora|bento|brutalist|devdark|scholarly)$/.test(tpl)) d.setAttribute("data-template", tpl);
+      })();
+    </script>
+    <link rel="stylesheet" href="../fonts/fonts.css" />
+    <link rel="stylesheet" href="../core/base.css" />
+    <link rel="stylesheet" href="../kits/site.css" />
+    <!-- The design family, jdsign (its accent matches the channel's brand blue): one template stylesheet, which imports its skin. -->
+    <link id="template-css" rel="stylesheet" href="../templates/site/jdsign.css" />
+    <script>
+      (function () {
+        var t = document.documentElement.getAttribute("data-template");
+        if (t) document.getElementById("template-css").href = "../templates/site/" + t + ".css";
+      })();
+    </script>
+    <link rel="stylesheet" href="../assets/site.css" />
+  </head>
+  <body>
+    <!-- ===== chrome:icons (identical on every page) ===== -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <symbol id="i-youtube" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M23.1 7.2a3 3 0 0 0-2.1-2.1C19.1 4.6 12 4.6 12 4.6s-7.1 0-9 .5A3 3 0 0 0 .9 7.2 31 31 0 0 0 .4 12c0 1.6.2 3.2.5 4.8A3 3 0 0 0 3 18.9c1.9.5 9 .5 9 .5s7.1 0 9-.5a3 3 0 0 0 2.1-2.1c.3-1.6.5-3.2.5-4.8s-.2-3.2-.5-4.8zM9.7 15.1V8.9l5.9 3.1-5.9 3.1z"/></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4"/><circle cx="12" cy="12" r="4.4"/></g><circle cx="17.6" cy="6.4" r="1.25" fill="currentColor"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4.5v15l13-7.5z"/></symbol>
+      <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 1.5 3.8 13.6h6.6l-1.6 8.9 10-12.6h-6.7z"/></symbol>
+      <symbol id="i-zoom" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6"/></g></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></g></symbol>
+      <symbol id="i-flag-cz" viewBox="0 0 30 20"><path fill="#fff" d="M0 0h30v10H0z"/><path fill="#d7141a" d="M0 10h30v10H0z"/><path fill="#11457e" d="M0 0l15 10L0 20z"/></symbol>
+      <symbol id="i-flag-gb" viewBox="0 0 60 30"><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0 0 30"/><path stroke="#c8102e" stroke-width="2" d="M0 0l60 30M60 0 0 30"/><path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60"/></symbol>
+      <symbol id="i-flag-de" viewBox="0 0 5 3"><path fill="#000" d="M0 0h5v1H0z"/><path fill="#d00" d="M0 1h5v1H0z"/><path fill="#ffce00" d="M0 2h5v1H0z"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m6.5 9.5 5.5 5.5 5.5-5.5"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.2v2.3M12 19.5v2.3M2.2 12h2.3M19.5 12h2.3M5.1 5.1l1.6 1.6M17.3 17.3l1.6 1.6M5.1 18.9l1.6-1.6M17.3 6.7l1.6-1.6"/></g></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M20.6 14.3A8.8 8.8 0 1 1 9.7 3.4a6.9 6.9 0 0 0 10.9 10.9z"/></symbol>
+      <symbol id="i-auto" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6" fill="none" stroke="currentColor" stroke-width="2"/><path fill="currentColor" d="M12 3.4a8.6 8.6 0 0 0 0 17.2z"/></symbol>
+    </svg>
+    <!-- ===== /chrome:icons ===== -->
+
+    <!-- ===== chrome:header (identical on every page except aria-current) ===== -->
+    <a class="skip-link" href="#main">Zum Inhalt springen</a>
+    <header class="site-header">
+      <div class="container header-top">
+        <a class="brand" href="index.html">
+          <img class="brand-title" src="../assets/img/title-1280.webp" srcset="../assets/img/title-640.webp 640w, ../assets/img/title-1280.webp 1280w, ../assets/img/title-1920.webp 1920w" sizes="(max-width: 767px) 100vw, 285px" width="1920" height="1080" alt="Electric Van Fam" decoding="async" />
+        </a>
+        <div class="header-controls">
+          <nav class="picker lang-picker" aria-label="Sprache">
+            <button class="picker-button" type="button" aria-expanded="false" aria-controls="lang-list">
+              <span class="visually-hidden">Sprache: </span><span class="picker-code">DE</span><svg class="flag" aria-hidden="true"><use href="#i-flag-de"/></svg><svg class="picker-chevron" aria-hidden="true"><use href="#i-chevron"/></svg>
+            </button>
+            <ul class="picker-list" id="lang-list" hidden>
+              <li><a class="picker-item" href="../cs/contact.html" hreflang="cs" lang="cs" aria-label="Čeština"><span class="picker-code">CZ</span><svg class="flag" aria-hidden="true"><use href="#i-flag-cz"/></svg></a></li>
+              <li><a class="picker-item" href="../en/contact.html" hreflang="en" lang="en" aria-label="English"><span class="picker-code">EN</span><svg class="flag" aria-hidden="true"><use href="#i-flag-gb"/></svg></a></li>
+              <li><a class="picker-item" href="../de/contact.html" hreflang="de" lang="de" aria-current="true" aria-label="Deutsch"><span class="picker-code">DE</span><svg class="flag" aria-hidden="true"><use href="#i-flag-de"/></svg></a></li>
+            </ul>
+          </nav>
+          <div class="picker theme-picker">
+            <button class="picker-button" type="button" aria-expanded="false" aria-controls="theme-list"><span class="visually-hidden">Farbschema</span></button>
+            <ul class="picker-list" id="theme-list" hidden></ul>
+          </div>
+        </div>
+      </div>
+      <div class="container header-nav-row">
+        <span class="social-slot left">
+          <a class="icon-link" href="https://youtube.com/@electricvanfam?si=Grp4nOMV1Lf5DhQu" target="_blank" rel="noopener"
+             aria-label="Electric Van Fam auf YouTube"
+             title="YouTube"><svg aria-hidden="true"><use href="#i-youtube"/></svg></a>
+        </span>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Menü öffnen">
+          <svg class="i-open" aria-hidden="true"><use href="#i-menu"/></svg>
+          <svg class="i-close" aria-hidden="true"><use href="#i-x"/></svg>
+        </button>
+        <nav class="site-nav" id="site-menu" aria-label="Hauptmenü">
+          <ul>
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="about.html">Über uns</a></li>
+            <li class="has-sub"><a href="van.html">Unser Van</a>
+              <ul class="sub">
+                <li><a href="van.html#build">Der Ausbau</a></li>
+                <li><a href="van.html#gear">Ausrüstung &amp; Partner</a></li>
+                <li><a href="van.html#faq">Fragen</a></li>
+              </ul>
+            </li>
+            <li class="has-sub"><a href="videos.html">Videos</a>
+              <ul class="sub">
+                <li><a href="videos.html#episodes">Folgen</a></li>
+                <li><a href="videos.html#shorts">Shorts</a></li>
+                <li><a href="videos.html#playlists">Playlists</a></li>
+              </ul>
+            </li>
+            <li><a href="gallery.html">Galerie</a></li>
+            <li><a href="fest.html">Electric Van Fest</a></li>
+            <li><a href="contact.html" aria-current="page">Kontakt</a></li>
+          </ul>
+        </nav>
+        <span class="social-slot right">
+          <a class="icon-link" href="https://instagram.com/electric.van.fam?xtok=amt4czhjMHRxbmlt" target="_blank" rel="noopener"
+             aria-label="Electric Van Fam auf Instagram"
+             title="Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
+        </span>
+      </div>
+    </header>
+    <!-- ===== /chrome:header ===== -->
+
+    <main id="main">
+      <!-- ================= TITLE BAND ================= -->
+      <section class="title-band center" aria-labelledby="page-title">
+        <div class="container">
+          <h1 id="page-title">Kontakt</h1>
+          <p>Du hast Fragen zum Van, zum Ausbau oder zu unseren Videos? Schreib uns.</p>
+        </div>
+      </section>
+
+      <!-- ================= PHOTO | HOW TO REACH US ================= -->
+      <section class="section" aria-labelledby="reach-title">
+        <div class="container contact-row">
+          <div class="contact-photo reveal">
+            <img src="../assets/img/ig/DaFQ-XdI2Lt-800.webp"
+                 srcset="../assets/img/ig/DaFQ-XdI2Lt-800.webp 800w, ../assets/img/ig/DaFQ-XdI2Lt-1600.webp 1600w"
+                 sizes="(max-width: 767px) 92vw, 30rem" width="800" height="600" loading="lazy"
+                 alt="Der graue Van mit schwarzer Motorhaube, geparkt auf einem leeren Parkplatz vor einem Gebäude mit Glasfassade." />
+          </div>
+          <div class="contact-info reveal">
+            <h2 id="reach-title">Electric Van Fam</h2>
+            <p class="contact-role">Familienabenteuer, elektrisches Vanlife und der Ausbau eines Kia PV5 zum Camper.</p>
+            <ul class="contact-lines">
+              <li>
+                <svg aria-hidden="true"><use href="#i-mail"/></svg>
+                <span class="cl-body">
+                  <span class="cl-label">E&#8288;-&#8288;Mail</span>
+                  <a href="mailto:electric.van.fam@gmail.com">electric.van.fam@gmail.com</a>
+                </span>
+              </li>
+              <li>
+                <svg aria-hidden="true"><use href="#i-youtube"/></svg>
+                <span class="cl-body">
+                  <span class="cl-label">YouTube</span>
+                  <a href="https://youtube.com/@electricvanfam?si=Grp4nOMV1Lf5DhQu" target="_blank" rel="noopener">@ElectricVanFam</a>
+                </span>
+              </li>
+              <li>
+                <svg aria-hidden="true"><use href="#i-instagram"/></svg>
+                <span class="cl-body">
+                  <span class="cl-label">Instagram</span>
+                  <a href="https://instagram.com/electric.van.fam?xtok=amt4czhjMHRxbmlt" target="_blank" rel="noopener">@electric.van.fam</a>
+                </span>
+              </li>
+            </ul>
+            <h3>Kooperationen</h3>
+            <p class="contact-collab">Für Kooperationen schreib uns an <a href="mailto:electric.van.fam@gmail.com">electric.van.fam@gmail.com</a>.</p>
+            <p class="contact-imprint">Identifikationsnummer (IČO): 62740822</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CONTACT FORM ================= -->
+      <section class="section" aria-labelledby="form-title">
+        <div class="container">
+          <div class="form-box">
+            <div class="section-head center">
+              <h2 id="form-title">Schreib uns</h2>
+              <p>Deine Nachricht landet direkt in unserem E&#8288;-&#8288;Mail-Postfach. Deinen Namen und deine E&#8288;-&#8288;Mail-Adresse verwenden wir nur, um dir zu antworten.</p>
+            </div>
+            <!-- The form posts to Web3Forms (https://web3forms.com), which forwards each message to the
+                 family's e-mail. The access key is not a secret: it only names the receiving address. -->
+            <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" data-web3forms>
+              <!-- TODO(owner): the Web3Forms access key for the family's e-mail - enter the address at https://web3forms.com, the key arrives by e-mail; put it in value="" below -->
+              <input type="hidden" name="access_key" value="" />
+              <input type="hidden" name="subject" value="New message from the Electric Van Fam website" />
+              <input type="hidden" name="from_name" value="Electric Van Fam website" />
+              <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" />
+              <p class="todo form-to">Das Formular ist noch nicht eingerichtet (Zugangsschlüssel fehlt)</p>
+              <div class="form-row">
+                <div class="field">
+                  <label for="cf-name">Name</label>
+                  <input id="cf-name" name="name" type="text" autocomplete="name" required
+                         placeholder="Dein Name" />
+                </div>
+                <div class="field">
+                  <label for="cf-email">E&#8288;-&#8288;Mail</label>
+                  <input id="cf-email" name="email" type="email" autocomplete="email" required
+                         placeholder="Deine E&#8288;-&#8288;Mail-Adresse" />
+                </div>
+              </div>
+              <div class="field">
+                <label for="cf-message">Nachricht</label>
+                <textarea id="cf-message" name="message" rows="6" required
+                          placeholder="Was möchtest du uns fragen?"></textarea>
+              </div>
+              <div class="form-actions">
+                <p class="form-status" role="status"></p>
+                <button class="btn btn-primary" type="submit"><svg aria-hidden="true"><use href="#i-mail"/></svg>Nachricht senden</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= GIANT TAGLINE ================= -->
+      <div class="tagline-giant" aria-hidden="true"><p>Electric • Family • Adventures</p></div>
+    </main>
+
+    <!-- ===== chrome:footer (identical on every page) ===== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-cols">
+          <ul class="footer-nav">
+            <li><a href="about.html">Über uns</a></li>
+            <li><a href="van.html">Unser Van</a></li>
+            <li><a href="videos.html">Videos</a></li>
+            <li><a href="gallery.html">Galerie</a></li>
+            <li><a href="fest.html">Electric Van Fest</a></li>
+            <li><a href="contact.html">Kontakt</a></li>
+          </ul>
+          <div class="footer-logo"><img src="../assets/img/logo-256.webp" width="104" height="104" loading="lazy" alt="Electric Van Fam" /></div>
+          <div class="footer-contact">
+            <div class="socials">
+              <a class="icon-link" href="https://youtube.com/@electricvanfam?si=Grp4nOMV1Lf5DhQu" target="_blank" rel="noopener" aria-label="YouTube"><svg aria-hidden="true"><use href="#i-youtube"/></svg></a>
+              <a class="icon-link" href="https://instagram.com/electric.van.fam?xtok=amt4czhjMHRxbmlt" target="_blank" rel="noopener" aria-label="Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
+            </div>
+            <a href="mailto:electric.van.fam@gmail.com">electric.van.fam@gmail.com</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 Electric Van Fam</p>
+          <p>Diese Website setzt keine Cookies. Videos werden erst von YouTube geladen, wenn du auf Play klickst.</p>
+        </div>
+      </div>
+    </footer>
+    <!-- ===== /chrome:footer ===== -->
+
+    <script src="../core/theme.js"></script>
+    <script src="../assets/site.js"></script>
+  </body>
+</html>

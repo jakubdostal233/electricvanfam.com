@@ -4,11 +4,11 @@
    GENERATED FILE - DO NOT HAND-EDIT. Your changes will be overwritten.
 
    Source repo:   jakubdostal233/design-system
-   Source path:   jdsign/tokens/jdsign.json
-   Source commit: c0ff06263c77a24b326d179d95e51ed77385d94f
-   Generator:     jdsign/tools/generate.py
-   Spec:          jdsign/SPEC.md
-   Version:       0.1.0   Generated: 2026-09-20
+   Source path:   design-languages/jdsign/tokens/jdsign.json
+   Source commit: cb8bb2cf26e473ceb8be76e84b0b4a0875d9fad6
+   Generator:     design-languages/jdsign/tools/generate.py
+   Spec:          design-languages/jdsign/SPEC.md
+   Version:       0.1.0   Generated: 2026-10-26
 
    To change a value: edit the token source in the repo above, then re-run the
    generator. Editing this file directly puts it out of sync with every other
