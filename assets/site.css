@@ -388,6 +388,13 @@ html:not(.js) .lang-picker .picker-list {
   transition: transform 0.3s var(--ease-standard), background-color 0.3s ease;
 }
 .play svg { width: 1.2rem; height: 1.2rem; margin-left: 0.15rem; }
+/* The video's length, on the thumbnail's corner: the page colours over the photo. */
+.duration {
+  position: absolute; right: 0.5rem; bottom: 0.5rem; z-index: 1;
+  padding: 0.1rem 0.45rem; border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--bg) 88%, transparent); color: var(--text);
+  font-size: 0.78rem; font-weight: 600; line-height: 1.4; font-variant-numeric: tabular-nums;
+}
 .vcard:hover .vthumb img, .vcard:focus-visible .vthumb img { transform: scale(1.04); }
 .vcard:hover .vthumb::after { background: rgba(4, 12, 24, 0.18); }
 .vcard:hover .play, .vcard:focus-visible .play { transform: translate(-50%, -50%) scale(1); background: var(--accent); }
