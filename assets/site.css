@@ -33,6 +33,11 @@
   font-size: 0.95rem;
 }
 
+/* ---- photos are never selected --------------------------------------------
+   A double or triple click on or next to a photo selects it, and the browser
+   paints a selected image in its selection blue. */
+img { -webkit-user-select: none; user-select: none; }
+
 /* ---- header ----------------------------------------------------------------
    Two rows: the top strip (the title image, the language and theme pickers at
    the right) and the menu row (the social icons and the menu). With JS the
