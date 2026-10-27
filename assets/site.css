@@ -64,7 +64,10 @@ html.js { scroll-padding-top: calc(var(--nav-row-h) + 0.75rem); }
 html.js :target { scroll-margin-top: 0; }
 .header-top {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  /* The middle track is the banner at its full height and no wider: where the
+     side tracks (the pickers at the right) leave less room, the track and the
+     banner shrink together at their own aspect ratio, so they never collide. */
+  grid-template-columns: 1fr minmax(0, calc(var(--title-strip-h) * 1920 / 432)) 1fr;
   align-items: center;
   gap: 1rem;
   height: var(--title-strip-h);
@@ -134,7 +137,7 @@ html:not(.js) .lang-picker .picker-list {
 
 .brand { display: block; color: var(--text); }
 .brand:hover { text-decoration: none; }
-.brand-title { height: var(--title-strip-h); width: auto; }
+.brand-title { width: 100%; height: auto; max-height: var(--title-strip-h); }
 
 .header-nav-row {
   display: grid;
