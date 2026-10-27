@@ -874,6 +874,7 @@ html.lb-lock { overflow: hidden; }
    fact, its row is a placeholder (todo) that names it. */
 .fest-facts { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.7rem; }
 .fest-facts .todo { display: block; padding: 0.65rem 1rem; font-size: 1rem; }
+.fest-facts .fest-fact { display: block; padding: 0.65rem 1rem; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface); }
 /* One video card, centred, at the width of a two-column card. */
 .video-single { max-width: 36rem; margin-inline: auto; }
 
