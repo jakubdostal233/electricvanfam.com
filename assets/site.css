@@ -857,6 +857,8 @@ html.lb-lock { overflow: hidden; }
   border-radius: var(--radius-lg); box-shadow: var(--shadow);
 }
 .form-box .section-head { margin-bottom: 1.6rem; }
+/* The e-mail button above the form, set apart from the "or use the form" line under it. */
+.form-box .mail-cta { margin-bottom: 1.1rem; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }
 .contact-form .field input, .contact-form .field textarea { width: 100%; color: var(--text); }
 .contact-form textarea { min-height: 9rem; resize: vertical; }
