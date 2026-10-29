@@ -259,7 +259,10 @@ html:not(.js) .lang-picker .picker-list {
   overflow: hidden;
 }
 /* The van is right of centre in the photo: on a tall phone box the crop keeps
-   the charger and the front of the van. */
+   the charger and the front of the van. A double or triple click on an empty
+   part of the hero selects the photo, and the browser paints a selected image
+   in its selection colour - the whole photo turns blue - so the photo is not
+   selectable; the text stays selectable. */
 .hero-photo > img {
   position: absolute; inset: 0; z-index: -2;
   width: 100%; height: 100%; object-fit: cover; object-position: 62% 50%;
@@ -304,6 +307,92 @@ html:not(.js) .lang-picker .picker-list {
 .hero-photo .schedule .flag { box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35); }
 .schedule .flag-gb { width: 2em; }
 
+/* ---- creative layer: the canvas fx.js draws into a [data-fx] element -------- */
+/* fx.js appends the canvas as the element's last child. In the hero it has the
+   scrim's z-index and comes later in the tree, so it paints above the scrim and
+   below the text; screen blending only adds light to the photo. Like the
+   photo, it is not selectable, so a selection never paints it over. */
+.fx-canvas {
+  position: absolute; inset: 0; z-index: -1;
+  display: block; width: 100%; height: 100%;
+  pointer-events: none; mix-blend-mode: screen;
+  -webkit-user-select: none; user-select: none;
+}
+/* fx.js reads two kinds of colour here, in any CSS colour syntax:
+   - --fx-ink: the symbols of the field. The vapour trail behind the pointer and
+     the bloom of a click light the field's own cells, so they are drawn in it
+     too.
+   - --fx-c1..3: the colour layer, three soft blobs that flow behind the
+     symbols. The header has one, and the title band shows the header's.
+   The hero is a dark photo in both themes, as its scrim is, so its ink is a
+   fixed value, not a skin token, and the photo keeps its own colours. */
+.hero-photo {
+  --fx-ink: #7cc8ff;
+}
+/* The header of every page wears the theme, so its colours are the skin's
+   tokens: the symbols in the accent, and the blobs in the blue, the teal and
+   the pink-violet. In the header's stacking context the canvas paints above
+   its background and below its content and the picker lists; normal blending,
+   because the header is light or dark with the theme. The band under it
+   (data-fx="band": the title band of the inner pages, the top of the van
+   page) is one zone with it: the same colours, and no line between the two
+   while the title strip is in view; once the strip has scrolled away (fx.js
+   sets data-fx-stuck) the line is back under the menu row. Without JS the
+   line stays. */
+.site-header, [data-fx="band"] {
+  --fx-ink: var(--accent);
+  --fx-c1: var(--accent); --fx-c2: var(--accent-2); --fx-c3: var(--cat-3);
+}
+.site-header > .fx-canvas, [data-fx="band"] > .fx-canvas { mix-blend-mode: normal; }
+.site-header[data-fx-stuck="false"]:has(~ main [data-fx="band"][data-fx-state]) { border-bottom-color: transparent; }
+/* The big tagline at the bottom of every page glows in shades of gold, CSS
+   only, and its letters stay sharp: nothing blurs them, no filter and no
+   shadow. Two background layers, clipped to the text, fill the letters.
+   - Below, five tones from a pale gold to a deep amber with a touch of
+     orange - the skin's amber (--cat-1) and orange (--cat-4) mixed into the
+     background, weaker on a light page and stronger on a dark one, by
+     light-dark() and the skin's color-scheme - drift back and forth once in
+     14 s.
+   - Above, a narrow band of light, warm yellow crosses the letters from left
+     to right every 7 s, like light gliding over metal. Its layer is three
+     times as wide as the line and repeats, and it moves one layer width in
+     7 s, so the band waits off the line between crossings.
+   One animation moves both layers, because two animations of
+   background-position would override each other. The paragraph shrinks to
+   its text, so the layers map to the letters and not to the whole row. The
+   fill is the text's own (-webkit-text-fill-color), so the line's plain
+   colour stays wherever a browser lacks text clipping or light-dark(). Under
+   reduced motion the letters keep the still gradient, with the band off the
+   line. */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) and (color: light-dark(#000, #fff)) {
+  .tagline-giant p {
+    --glow-1: light-dark(color-mix(in srgb, var(--cat-1) 35%, var(--bg)), color-mix(in srgb, var(--cat-1) 45%, var(--bg)));
+    --glow-2: light-dark(color-mix(in srgb, var(--cat-1) 52%, var(--bg)), color-mix(in srgb, var(--cat-1) 65%, var(--bg)));
+    --glow-3: light-dark(color-mix(in srgb, var(--cat-1) 70%, var(--bg)), color-mix(in srgb, var(--cat-1) 90%, var(--bg)));
+    --glow-4: light-dark(color-mix(in srgb, color-mix(in srgb, var(--cat-1), var(--cat-4) 35%) 70%, var(--bg)),
+      color-mix(in srgb, color-mix(in srgb, var(--cat-1), var(--cat-4) 35%) 90%, var(--bg)));
+    --glow-5: light-dark(color-mix(in srgb, color-mix(in srgb, var(--cat-1), var(--cat-4) 60%) 68%, var(--bg)),
+      color-mix(in srgb, color-mix(in srgb, var(--cat-1), var(--cat-4) 60%) 85%, var(--bg)));
+    --glow-light: light-dark(color-mix(in srgb, var(--cat-1-fill) 80%, var(--surface-3)), color-mix(in srgb, var(--cat-1-fill) 60%, var(--text)));
+    width: fit-content; margin-inline: auto;
+    background:
+      linear-gradient(105deg, transparent 45%, var(--glow-light) 50%, transparent 55%) 0% 50% / 300% 100%,
+      linear-gradient(90deg, var(--glow-1), var(--glow-3) 17%, var(--glow-2) 33%, var(--glow-4) 50%,
+        var(--glow-1) 67%, var(--glow-5) 83%, var(--glow-2)) 0% 50% / 300% 100%;
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: tagline-glow 14s linear infinite;
+  }
+}
+/* Per layer: the band, then the tones. The band's layer moves two of its own
+   widths in 14 s (300% to 0%), so the end matches the start. */
+@keyframes tagline-glow {
+  0% { background-position: 300% 50%, 0% 50%; }
+  50% { background-position: 150% 50%, 100% 50%; }
+  100% { background-position: 0% 50%, 0% 50%; }
+}
+@media (prefers-reduced-motion: reduce) { .tagline-giant p { animation: none; } }
+
 /* ---- section heads -------------------------------------------------------- */
 .center { text-align: center; }
 .center :is(h1, h2):not(.title)::after { left: 50%; transform: translateX(-50%); }
@@ -330,6 +419,7 @@ html:not(.js) .lang-picker .picker-list {
 @media (max-width: 980px) { .offer-grid { grid-template-columns: 1fr; max-width: 34rem; margin-inline: auto; } }
 
 /* ---- parallax band: a photo with no content --------------------------------- */
+/* Not selectable, as the hero's photo: a double click would paint it blue. */
 .band {
   position: relative; overflow: hidden;
   height: clamp(16rem, 42vw, 38rem);
@@ -341,19 +431,28 @@ html:not(.js) .lang-picker .picker-list {
   will-change: transform;
 }
 
-/* ---- offset box: tinted panel from 5% of the left edge to the right edge ------ */
+/* ---- offset box: from 5% of the left edge to the right edge ------------------ */
+/* On the page's own colour: a tinted panel read as unfinished. Two lines in the
+   heading ticks' style (2 px, the accent) set the zone apart instead, one with
+   its top at the box's top edge and one at its bottom edge. They end the same
+   distance from both sides of the page: 5vw, the box's left edge; below 981 px,
+   where the box runs edge to edge, the page's gutter. The extra 1 px of padding
+   stands in for a 1 px edge, so the content keeps its place. */
 .offset-wrap { padding-block: var(--section-pad); }
 .offset-box {
-  margin-left: 5vw;
-  background: var(--surface-2);
-  border-top-left-radius: var(--radius-lg); border-bottom-left-radius: var(--radius-lg);
-  border: 1px solid var(--border); border-right: 0;
-  padding-block: clamp(2rem, 5vw, 4rem);
+  --gutter: clamp(1.1rem, 4vw, 2rem); /* the page container's side padding */
+  position: relative; margin-left: 5vw;
+  padding-block: calc(clamp(2rem, 5vw, 4rem) + 1px);
 }
+.offset-box::before, .offset-box::after {
+  content: ""; position: absolute; left: 0; right: 5vw;
+  height: 2px; background: var(--accent);
+}
+.offset-box::before { top: 0; }
+.offset-box::after { top: 100%; }
 /* The box starts 5vw from the left edge, but its content lines up with the page
    container: the side padding absorbs the difference. */
 .offset-inner {
-  --gutter: clamp(1.1rem, 4vw, 2rem);
   --side: max(0px, calc((100vw - var(--maxw)) / 2));
   padding-left: max(var(--gutter), calc(var(--side) - 5vw + var(--gutter)));
   padding-right: calc(var(--side) + var(--gutter));
@@ -366,7 +465,8 @@ html:not(.js) .lang-picker .picker-list {
 .offset-text p + p { margin-top: 1rem; }
 .offset-text .btn { margin-top: 1.6rem; }
 @media (max-width: 980px) {
-  .offset-box { margin-left: 0; border-radius: 0; border-left: 0; }
+  .offset-box { margin-left: 0; }
+  .offset-box::before, .offset-box::after { left: var(--gutter); right: var(--gutter); }
   .offset-inner { grid-template-columns: 1fr; max-width: 40rem; margin-inline: auto; padding-inline: var(--gutter); }
 }
 
@@ -471,12 +571,19 @@ html:not(.js) .lang-picker .picker-list {
 }
 
 /* ---- title band (inner pages) ---------------------------------------------- */
+/* On the page's own colour, with no edge: with JS the header's creative layer
+   runs on into it (section "creative layer"). Its own stacking context keeps
+   that canvas above the band's background and below its text. */
 .title-band {
-  background: var(--surface-2);
-  border-bottom: 1px solid var(--border);
-  padding-block: clamp(2.6rem, 6vw, 5rem);
+  position: relative; isolation: isolate;
+  background: var(--bg);
+  padding-block: clamp(2.6rem, 6vw, 5rem) clamp(1.3rem, 3vw, 2.5rem);
   text-align: center;
 }
+/* With no edge of its own, the band's bottom padding and the next section's
+   top padding read as one empty strip, so each is half its usual size; the
+   same holds for the van page's hero (section "van page"). */
+:is(.title-band, .page-hero) + .section { padding-top: calc(var(--section-pad) / 2); }
 .title-band h1 { font-size: clamp(2rem, 4.6vw, 3.4rem); padding-bottom: 0.6rem; margin-bottom: 1rem; }
 .title-band p { color: var(--text-muted); max-width: 58ch; margin-inline: auto; font-size: 1.08rem; }
 
@@ -588,6 +695,7 @@ html.lb-lock { overflow: hidden; }
 @media print {
   .site-header .header-controls, .menu-toggle, .band, .lb, .tagline-giant { display: none !important; }
   .js .site-header { position: static; }
+  .fx-canvas { display: none; }
 }
 
 /* ============================================================================
@@ -640,13 +748,17 @@ html.lb-lock { overflow: hidden; }
 @media (max-width: 767px) { .playlist-grid { --pl-cols: 1; } }
 
 /* ---- van page ----------------------------------------------------------------- */
-/* Page hero band (R13): tinted; photo | title + intro | photo, the photos at
-   staggered heights. Below 981 px the text goes first and the two photos sit
-   side by side under it. */
+/* Page hero band (R13): photo | title + intro | photo, the photos at staggered
+   heights. Below 981 px the text goes first and the two photos sit side by
+   side under it. As the title band, it is on the page's own colour with no
+   edge, the header's creative layer runs on into it with JS (section
+   "creative layer"), and its bottom padding is half the top. Its own
+   stacking context keeps that canvas above its background and below the
+   photos and the text. */
 .page-hero {
-  background: var(--surface-2);
-  border-bottom: 1px solid var(--border);
-  padding-block: clamp(2.6rem, 6vw, 5rem);
+  position: relative; isolation: isolate;
+  background: var(--bg);
+  padding-block: clamp(2.6rem, 6vw, 5rem) clamp(1.3rem, 3vw, 2.5rem);
 }
 .page-hero-inner {
   display: grid; grid-template-columns: 1fr 1.3fr 1fr;
@@ -659,8 +771,20 @@ html.lb-lock { overflow: hidden; }
 .page-hero-photo.up { margin-bottom: clamp(2rem, 6vw, 5rem); }
 .page-hero-photo.down { margin-top: clamp(2rem, 6vw, 5rem); }
 .page-hero-text h1 { font-size: clamp(2rem, 4.2vw, 3.2rem); padding-bottom: 0.6rem; margin-bottom: 1.1rem; }
-.page-hero-sub { color: var(--accent); font-weight: 600; font-size: 0.98rem; margin-bottom: 1rem; }
+/* The sub line is the accent mixed with a fifth of the text colour - darker on a
+   light page, lighter on a dark one - so it keeps 4.5:1 where the header's
+   clouds reach in behind it. */
+.page-hero-sub {
+  color: color-mix(in srgb, var(--accent), var(--text) 20%);
+  font-weight: 600; font-size: 0.98rem; margin-bottom: 1rem;
+}
 .page-hero-text p:not(.page-hero-sub) { color: var(--text-muted); font-size: 1.05rem; }
+/* Over the creative layer's drifting colour clouds the muted grey dips below
+   4.5:1 when a cloud passes behind it, so the zone's paragraphs take a quarter
+   of the full text colour (darker in the light theme, lighter in the dark). */
+:is(.title-band, .page-hero)[data-fx] p:not(.page-hero-sub):not(.schedule) {
+  color: color-mix(in srgb, var(--text-muted), var(--text) 25%);
+}
 @media (max-width: 980px) {
   .page-hero-inner { grid-template-columns: 1fr 1fr; max-width: 40rem; margin-inline: auto; }
   .page-hero-text { grid-column: 1 / -1; order: -1; }

@@ -67,7 +67,7 @@
 
     <!-- ===== chrome:header (identical on every page except aria-current) ===== -->
     <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header">
+    <header class="site-header" data-fx="header">
       <div class="container header-top">
         <a class="brand" href="index.html">
           <img class="brand-title" src="../assets/img/title-1280.webp" srcset="../assets/img/title-640.webp 640w, ../assets/img/title-1280.webp 1280w, ../assets/img/title-1920.webp 1920w" sizes="(max-width: 767px) 100vw, 711px" width="1920" height="432" alt="Electric Van Fam" decoding="async" />
@@ -133,7 +133,7 @@
 
     <main id="main">
       <!-- ================= PAGE HERO BAND ================= -->
-      <section class="page-hero" aria-labelledby="page-title">
+      <section class="page-hero" aria-labelledby="page-title" data-fx="band">
         <div class="container page-hero-inner">
           <div class="page-hero-photo up">
             <img src="../assets/img/ig/DdQt1WuoeAk-1600.webp"
@@ -441,5 +441,6 @@
 
     <script src="../core/theme.js"></script>
     <script src="../assets/site.js"></script>
+    <script src="../assets/fx.js"></script>
   </body>
 </html>
