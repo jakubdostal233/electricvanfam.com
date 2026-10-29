@@ -432,15 +432,17 @@ html:not(.js) .lang-picker .picker-list {
 
 /* ---- giant faint tagline, the last section before the footer --------------- */
 .tagline-giant {
-  padding-block: clamp(2rem, 6vw, 4.5rem) clamp(2.5rem, 7vw, 5rem);
+  padding-block: clamp(1.333rem, 4vw, 3rem) clamp(1.667rem, 4.667vw, 3.333rem);
   text-align: center; overflow: hidden;
 }
-/* One row at every width: the line is about 13.6 em wide, so 6vw fills about
-   82% of the viewport, and the cap keeps it from growing on wide screens. */
+/* One row at every width: the line is about 13.6 em wide, so 4vw fills about
+   54% of the viewport, and the cap keeps it from growing on wide screens. */
 .tagline-giant p {
   font-weight: 800; letter-spacing: -0.03em; line-height: 1.05;
-  font-size: clamp(1rem, 6vw, 5rem); white-space: nowrap;
-  color: color-mix(in srgb, var(--text) 9%, var(--bg));
+  font-size: clamp(1rem, 4vw, 3.333rem); white-space: nowrap;
+  /* Faint, but strong enough that the letter edges read sharp: at 9% the
+     contrast was about 1.2:1 and the edges looked blurred. */
+  color: color-mix(in srgb, var(--text) 18%, var(--bg));
   user-select: none;
 }
 
