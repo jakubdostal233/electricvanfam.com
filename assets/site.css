@@ -149,15 +149,19 @@ html:not(.js) .lang-picker .picker-list {
 .social-slot.left { justify-self: start; }
 .social-slot.right { justify-self: end; }
 
+/* The YouTube and Instagram icons carry their brands' own colours from the
+   sprite, so a hover tints the round field behind them, never the glyph. The
+   menu row's two are larger than the footer's; the 48 px field, and with it the
+   row's height, stays. */
 .icon-link {
   display: inline-grid; place-items: center;
   width: 48px; height: 48px;
   border-radius: 50%;
-  color: var(--text);
-  transition: color var(--duration-base) ease, background-color var(--duration-base) ease;
+  transition: background-color var(--duration-base) ease;
 }
-.icon-link:hover { color: var(--accent); background: var(--accent-soft); text-decoration: none; }
+.icon-link:hover { background: var(--accent-soft); text-decoration: none; }
 .icon-link svg { width: 28px; height: 28px; }
+.social-slot .icon-link svg { width: 36px; height: 36px; }
 
 /* Primary menu - inline and centred on desktop, a dropdown panel below 981 px. */
 .site-nav { margin: 0; display: block; }
@@ -258,20 +262,31 @@ html:not(.js) .lang-picker .picker-list {
   color: #fff;
   overflow: hidden;
 }
-/* The van is right of centre in the photo: on a tall phone box the crop keeps
-   the charger and the front of the van. A double or triple click on an empty
-   part of the hero selects the photo, and the browser paints a selected image
-   in its selection colour - the whole photo turns blue - so the photo is not
-   selectable; the text stays selectable. */
+/* The van fills the lower half of the photo, its front left of centre: a wide
+   box crops the photo top and bottom, and the vertical position keeps the
+   wheels; a tall phone box crops the sides, and the horizontal position keeps
+   the front of the van. A double or triple click on an empty part of the hero
+   selects the photo, and the browser paints a selected image in its selection
+   colour - the whole photo turns blue - so the photo is not selectable; the
+   text stays selectable. */
 .hero-photo > img {
   position: absolute; inset: 0; z-index: -2;
-  width: 100%; height: 100%; object-fit: cover; object-position: 62% 50%;
+  width: 100%; height: 100%; object-fit: cover; object-position: 30% 70%;
 }
 @media (max-width: 767px) { .hero-photo { padding-block: 2.5rem; } }
+/* The scrim: a vertical shade over the whole photo, darker towards the
+   bottom, and an ellipse of shade behind the text block, so the bright sky
+   and leaves keep the white text at WCAG AA (subtitle and schedule 4.5:1, the
+   title 3:1) while the photo's edges keep their colour. On a phone the text
+   runs almost edge to edge, so the ellipse is wider there. */
 .hero-photo::before {
   content: ""; position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(180deg, rgba(4, 12, 24, 0.35) 0%, rgba(4, 12, 24, 0.45) 55%, rgba(4, 12, 24, 0.7) 100%);
+  --scrim-ellipse: 62% 48%;
+  background:
+    radial-gradient(ellipse var(--scrim-ellipse) at 50% 50%, rgba(4, 12, 24, 0.36) 0%, rgba(4, 12, 24, 0.3) 60%, rgba(4, 12, 24, 0) 100%),
+    linear-gradient(180deg, rgba(4, 12, 24, 0.35) 0%, rgba(4, 12, 24, 0.45) 55%, rgba(4, 12, 24, 0.7) 100%);
 }
+@media (max-width: 767px) { .hero-photo::before { --scrim-ellipse: 90% 50%; } }
 .hero-photo .container { text-align: center; }
 .hero-photo h1 {
   max-width: 18ch; margin-inline: auto;
@@ -331,7 +346,7 @@ html:not(.js) .lang-picker .picker-list {
 }
 /* The header of every page wears the theme, so its colours are the skin's
    tokens: the symbols in the accent, and the blobs in the blue, the teal and
-   the pink-violet. In the header's stacking context the canvas paints above
+   the bluish green. In the header's stacking context the canvas paints above
    its background and below its content and the picker lists; normal blending,
    because the header is light or dark with the theme. The band under it
    (data-fx="band": the title band of the inner pages, the top of the van
@@ -341,7 +356,7 @@ html:not(.js) .lang-picker .picker-list {
    line stays. */
 .site-header, [data-fx="band"] {
   --fx-ink: var(--accent);
-  --fx-c1: var(--accent); --fx-c2: var(--accent-2); --fx-c3: var(--cat-3);
+  --fx-c1: var(--accent); --fx-c2: var(--accent-2); --fx-c3: var(--cat-2);
 }
 .site-header > .fx-canvas, [data-fx="band"] > .fx-canvas { mix-blend-mode: normal; }
 .site-header[data-fx-stuck="false"]:has(~ main [data-fx="band"][data-fx-state]) { border-bottom-color: transparent; }
@@ -411,7 +426,6 @@ html:not(.js) .lang-picker .picker-list {
   box-shadow: var(--shadow);
 }
 .offer > img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
-.offer > img.pos-low { object-position: 50% 62%; } /* a portrait photo whose subject sits below its centre */
 .offer-body { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; text-align: center; padding: 1.5rem 1.4rem 1.7rem; flex: 1; }
 .offer-body h3 { font-size: 1.35rem; }
 .offer-body p { color: var(--text-muted); }
@@ -430,6 +444,10 @@ html:not(.js) .lang-picker .picker-list {
   width: 100%; height: 130%; object-fit: cover;
   will-change: transform;
 }
+/* A portrait photo in the wide band shows about a third of its height: this
+   keeps the part below its centre (on the About page the van's front and the
+   charger beside it). */
+.band > img.pos-low { object-position: 50% 75%; }
 
 /* ---- offset box: from 5% of the left edge to the right edge ------------------ */
 /* On the page's own colour: a tinted panel read as unfinished. Two lines in the
@@ -525,7 +543,7 @@ html:not(.js) .lang-picker .picker-list {
   transition: border-color var(--duration-base) ease, transform var(--duration-base) ease;
 }
 .follow-link:hover { text-decoration: none; border-color: var(--accent); transform: translateY(-1px); }
-.follow-link svg { width: 30px; height: 30px; flex: 0 0 auto; color: var(--accent); }
+.follow-link svg { width: 30px; height: 30px; flex: 0 0 auto; }
 .follow-link strong { display: block; font-size: 1.05rem; }
 .follow-link span.handle { display: block; color: var(--text-faint); font-size: 0.9rem; }
 @media (max-width: 980px) { .follow { grid-template-columns: 1fr; } }
@@ -833,6 +851,11 @@ html.lb-lock { overflow: hidden; }
   .detail-box.has-media { grid-template-columns: minmax(0, 1fr); }
   .detail-box.has-media .detail-media { order: -1; }
 }
+/* Under the build: the gear card's procampery.cz offer, as one centred line. */
+.build-note {
+  max-width: 60ch; margin: clamp(1.6rem, 4vw, 2.4rem) auto 0;
+  text-align: center; color: var(--text-muted);
+}
 
 /* Gear and partners: brand cards, then the discount code. */
 .gear-grid {
@@ -934,13 +957,31 @@ html.lb-lock { overflow: hidden; }
   border-radius: var(--radius-lg);
 }
 .alt-row-media img { object-fit: cover; box-shadow: var(--shadow-lg); }
-.alt-row-media img.pos-upper { object-position: 50% 35%; }
 .alt-row-text h2 { font-size: clamp(1.5rem, 2.8vw, 2rem); padding-bottom: 0.6rem; margin-bottom: 1.1rem; }
 .alt-row-text p { color: var(--text-muted); }
 .alt-row-text p + p { margin-top: 1rem; }
 @media (max-width: 767px) {
   .alt-row { grid-template-columns: minmax(0, 1fr); }
   .alt-row:nth-child(even) .alt-row-media { order: 0; }
+}
+/* Martin and Bára: one photo of the two of them across the whole row, and
+   their two texts under it side by side, each under the half of the photo
+   where that person sits (Martin on the left). The texts wear the rows' text
+   style (alt-row-text). On a phone the photo shows whole and the texts stack
+   under it. */
+.couple {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.6rem, 4vw, 2.6rem) clamp(1.6rem, 5vw, 4rem);
+}
+.couple > section { padding-block: 0; } /* the template's section padding is set aside, as in the rows */
+.couple-media { grid-column: 1 / -1; }
+.couple-media img {
+  width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: 50% 60%;
+  border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
+}
+@media (max-width: 767px) {
+  .couple { grid-template-columns: minmax(0, 1fr); }
+  .couple-media img { aspect-ratio: 4 / 3; }
 }
 .tick-list { list-style: none; padding: 0; margin: 0 0 1.2rem; }
 .tick-list li { position: relative; padding-left: 1.7rem; }
@@ -1010,6 +1051,8 @@ html.lb-lock { overflow: hidden; }
 .fest-facts { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.7rem; }
 .fest-facts .todo { display: block; padding: 0.65rem 1rem; font-size: 1rem; }
 .fest-facts .fest-fact { display: block; padding: 0.65rem 1rem; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface); }
+.fest-fact .flag { display: inline-block; vertical-align: -0.125em; height: 1em; width: 1.5em; border-radius: 2px; box-shadow: 0 0 0 1px var(--border-strong); }
+.fest-fact .flag-gb { width: 2em; }
 /* One video card, centred, at the width of a two-column card. */
 .video-single { max-width: 36rem; margin-inline: auto; }
 

@@ -5,7 +5,7 @@
    cascade). Tokens
    (colour/surface/text/accent), fonts, radii, shadows, and the dark/light/auto
    theme. Consumer-agnostic - the single source of truth reused by every kit
-   (site, docs, hub). See README.md.
+   (site, docs, cv, presentation). See README.md.
 
    Fonts are deliberately SYSTEM stacks (Libertinus Serif -> Georgia; no bundled
    woff2), so a build in this family stays font-free.

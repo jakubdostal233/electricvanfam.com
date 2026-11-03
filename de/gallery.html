@@ -9,9 +9,9 @@
     <link rel="alternate" hreflang="x-default" href="https://electricvanfam.com/cs/gallery.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Galerie - Electric Van Fam</title>
-    <meta name="description" content="Fotos von unterwegs und vom Ausbau des Kia PV5 zum Camper: Campingplätze, Campervan-Treffen und Roadtrips mit dem E&#8288;-&#8288;Auto quer durch Europa, aus dem Instagram-Feed von Electric Van Fam." />
+    <meta name="description" content="Fotos von unterwegs und vom Ausbau des Kia PV5 zum Camper: Campingplätze, Campervan-Treffen und Roadtrips mit dem E&#8288;-&#8288;Auto quer durch Europa, aus den eigenen Fotos und dem Instagram-Feed von Electric Van Fam." />
     <meta property="og:title" content="Galerie - Electric Van Fam" />
-    <meta property="og:description" content="Momente von unterwegs und vom Ausbau des Kia PV5 zum Camper, aus unserem Instagram-Feed." />
+    <meta property="og:description" content="Momente von unterwegs und vom Ausbau des Kia PV5 zum Camper, aus unseren eigenen Fotos und unserem Instagram-Feed." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="de_DE" />
     <link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32" type="image/png" />
@@ -47,8 +47,9 @@
   <body>
     <!-- ===== chrome:icons (identical on every page) ===== -->
     <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-      <symbol id="i-youtube" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M23.1 7.2a3 3 0 0 0-2.1-2.1C19.1 4.6 12 4.6 12 4.6s-7.1 0-9 .5A3 3 0 0 0 .9 7.2 31 31 0 0 0 .4 12c0 1.6.2 3.2.5 4.8A3 3 0 0 0 3 18.9c1.9.5 9 .5 9 .5s7.1 0 9-.5a3 3 0 0 0 2.1-2.1c.3-1.6.5-3.2.5-4.8s-.2-3.2-.5-4.8zM9.7 15.1V8.9l5.9 3.1-5.9 3.1z"/></symbol>
-      <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4"/><circle cx="12" cy="12" r="4.4"/></g><circle cx="17.6" cy="6.4" r="1.25" fill="currentColor"/></symbol>
+      <defs><radialGradient id="ig-gradient" gradientUnits="userSpaceOnUse" cx="4" cy="24" r="27"><stop offset="0" stop-color="#FFD600"/><stop offset=".25" stop-color="#FF7A00"/><stop offset=".5" stop-color="#FF0069"/><stop offset=".75" stop-color="#D300C5"/><stop offset="1" stop-color="#7638FA"/></radialGradient></defs>
+      <symbol id="i-youtube" viewBox="0 0 24 24"><path fill="#FF0000" d="M23.1 7.2a3 3 0 0 0-2.1-2.1C19.1 4.6 12 4.6 12 4.6s-7.1 0-9 .5A3 3 0 0 0 .9 7.2 31 31 0 0 0 .4 12c0 1.6.2 3.2.5 4.8A3 3 0 0 0 3 18.9c1.9.5 9 .5 9 .5s7.1 0 9-.5a3 3 0 0 0 2.1-2.1c.3-1.6.5-3.2.5-4.8s-.2-3.2-.5-4.8z"/><path fill="#FFFFFF" d="M9.7 15.1V8.9l5.9 3.1-5.9 3.1z"/></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="url(#ig-gradient)" stroke-width="2"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4"/><circle cx="12" cy="12" r="4.4"/></g><circle cx="17.6" cy="6.4" r="1.25" fill="url(#ig-gradient)"/></symbol>
       <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4.5v15l13-7.5z"/></symbol>
       <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 1.5 3.8 13.6h6.6l-1.6 8.9 10-12.6h-6.7z"/></symbol>
       <symbol id="i-zoom" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6"/></g></symbol>
@@ -136,7 +137,7 @@
       <section class="title-band center" aria-labelledby="page-title" data-fx="band">
         <div class="container">
           <h1 id="page-title">Galerie</h1>
-          <p>Momente von unterwegs, aus unserem Instagram-Feed.</p>
+          <p>Momente von unterwegs, aus unseren eigenen Fotos und unserem Instagram-Feed.</p>
         </div>
       </section>
 
@@ -146,6 +147,34 @@
           <p class="gallery-hint">Klick auf ein Foto, um es größer zu sehen. Mit den Pfeiltasten oder per Wischen wechselst du zwischen den Fotos.</p>
           <div class="photo-grid" data-lb-group="gallery" data-paginate="8">
             <!-- content:gallery:begin -->
+            <a href="../assets/img/photo/hero-autumn-1600.webp" data-lb="photo">
+              <img src="../assets/img/photo/hero-autumn-800.webp" width="800" height="600" loading="lazy" alt="Der graue Van auf einem Teppich aus gelbem Laub unter herbstlichen Bäumen, an der Seite ein Aufkleber „Follow us on YouTube“." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="../assets/img/photo/ev-tests-charger-1600.webp" data-lb="photo">
+              <img src="../assets/img/photo/ev-tests-charger-800.webp" width="800" height="600" loading="lazy" alt="Eine kleine Gimbal-Kamera filmt das Display einer Schnellladesäule, das 27&nbsp;% und 98&nbsp;kW zeigt." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="../assets/img/photo/why-kia-awning-1600.webp" data-lb="photo">
+              <img src="../assets/img/photo/why-kia-awning-800.webp" width="800" height="600" loading="lazy" alt="Der graue Campervan mit hochgeklapptem Aufstelldach und ausgespannter Markise über einer Outdoor-Matte, auf einer Wiese zwischen herbstlichen Bäumen." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="../assets/img/photo/about-ionity-night-1600.webp" data-lb="photo">
+              <img src="../assets/img/photo/about-ionity-night-800.webp" width="600" height="800" loading="lazy" alt="Der Van nachts an einer Reihe von IONITY-Schnellladesäulen, rosa und weiß beleuchtet." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="../assets/img/photo/build-skyline-1600.webp" data-lb="photo">
+              <img src="../assets/img/photo/build-skyline-800.webp" width="800" height="600" loading="lazy" alt="Der Van mit hochgeklapptem Aufstelldach vor der Werkstatt von Skyline." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="../assets/img/photo/build-campal-1600.webp" data-lb="photo">
+              <img src="../assets/img/photo/build-campal-800.webp" width="800" height="600" loading="lazy" alt="Der Van mit hochgeklapptem Aufstelldach und offener Heckklappe, hinten die Campal Camp Box, vor dem Gebäude von Campal." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
+            <a href="../assets/img/photo/build-van-tour-1600.webp" data-lb="photo">
+              <img src="../assets/img/photo/build-van-tour-800.webp" width="800" height="559" loading="lazy" alt="Der fertige Camper mit hochgeklapptem Aufstelldach, offener Heckklappe und offener Schiebetür, auf einer Straße neben einem Feld." />
+              <span class="zoom" aria-hidden="true"><svg><use href="#i-zoom"/></svg></span>
+            </a>
             <a href="../assets/img/ig/DeR2GZbIcfv-1600.webp" data-lb="photo" data-source="https://www.instagram.com/p/DeR2GZbIcfv/"
                data-caption="POV: You let your husband pack the campervan… BIG MISTAKE! 😂🚐">
               <img src="../assets/img/ig/DeR2GZbIcfv-800.webp" width="451" height="800" loading="lazy" alt="Titelbild des Videos: eine Frau mit einem Baby auf dem Arm und ein Mann an der offenen Heckklappe des Vans, Text „WARNING! Don’t let your husband pack for camping“." />

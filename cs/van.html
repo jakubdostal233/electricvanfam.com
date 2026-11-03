@@ -47,8 +47,9 @@
   <body>
     <!-- ===== chrome:icons (identical on every page) ===== -->
     <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-      <symbol id="i-youtube" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M23.1 7.2a3 3 0 0 0-2.1-2.1C19.1 4.6 12 4.6 12 4.6s-7.1 0-9 .5A3 3 0 0 0 .9 7.2 31 31 0 0 0 .4 12c0 1.6.2 3.2.5 4.8A3 3 0 0 0 3 18.9c1.9.5 9 .5 9 .5s7.1 0 9-.5a3 3 0 0 0 2.1-2.1c.3-1.6.5-3.2.5-4.8s-.2-3.2-.5-4.8zM9.7 15.1V8.9l5.9 3.1-5.9 3.1z"/></symbol>
-      <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4"/><circle cx="12" cy="12" r="4.4"/></g><circle cx="17.6" cy="6.4" r="1.25" fill="currentColor"/></symbol>
+      <defs><radialGradient id="ig-gradient" gradientUnits="userSpaceOnUse" cx="4" cy="24" r="27"><stop offset="0" stop-color="#FFD600"/><stop offset=".25" stop-color="#FF7A00"/><stop offset=".5" stop-color="#FF0069"/><stop offset=".75" stop-color="#D300C5"/><stop offset="1" stop-color="#7638FA"/></radialGradient></defs>
+      <symbol id="i-youtube" viewBox="0 0 24 24"><path fill="#FF0000" d="M23.1 7.2a3 3 0 0 0-2.1-2.1C19.1 4.6 12 4.6 12 4.6s-7.1 0-9 .5A3 3 0 0 0 .9 7.2 31 31 0 0 0 .4 12c0 1.6.2 3.2.5 4.8A3 3 0 0 0 3 18.9c1.9.5 9 .5 9 .5s7.1 0 9-.5a3 3 0 0 0 2.1-2.1c.3-1.6.5-3.2.5-4.8s-.2-3.2-.5-4.8z"/><path fill="#FFFFFF" d="M9.7 15.1V8.9l5.9 3.1-5.9 3.1z"/></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="url(#ig-gradient)" stroke-width="2"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4"/><circle cx="12" cy="12" r="4.4"/></g><circle cx="17.6" cy="6.4" r="1.25" fill="url(#ig-gradient)"/></symbol>
       <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4.5v15l13-7.5z"/></symbol>
       <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 1.5 3.8 13.6h6.6l-1.6 8.9 10-12.6h-6.7z"/></symbol>
       <symbol id="i-zoom" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6"/></g></symbol>
@@ -212,14 +213,14 @@
                 </div>
               </div>
               <div class="detail-media">
-                <img src="../assets/img/ig/Da2BRIKNQSg-800.webp"
-                     srcset="../assets/img/ig/Da2BRIKNQSg-800.webp 800w, ../assets/img/ig/Da2BRIKNQSg-1600.webp 1600w"
-                     sizes="(max-width: 767px) 92vw, 26rem" width="800" height="498" loading="lazy"
-                     alt="Naše dodávka na nabíjecí stanici Ionity před cestou do Anglie" />
+                <img src="../assets/img/photo/build-skyline-800.webp"
+                     srcset="../assets/img/photo/build-skyline-800.webp 800w, ../assets/img/photo/build-skyline-1600.webp 1600w"
+                     sizes="(max-width: 767px) 92vw, 26rem" width="800" height="600" loading="lazy"
+                     alt="Naše dodávka se zvednutou výklopnou střechou před dílnou Skyline" />
               </div>
             </li>
 
-            <li class="detail-box" id="camp-box">
+            <li class="detail-box has-media" id="camp-box">
               <div class="detail-text">
                 <p class="detail-step"><span class="step-no">4</span>Interiér</p>
                 <h3>Campal Camp Box</h3>
@@ -229,9 +230,15 @@
                      data-caption="4K | The Best Camp Box for Kia PV5? EVF#10"><svg aria-hidden="true"><use href="#i-play"/></svg>Přehrát EVF#10</a>
                 </div>
               </div>
+              <div class="detail-media">
+                <img src="../assets/img/photo/build-campal-800.webp"
+                     srcset="../assets/img/photo/build-campal-800.webp 800w, ../assets/img/photo/build-campal-1600.webp 1600w"
+                     sizes="(max-width: 767px) 92vw, 26rem" width="800" height="600" loading="lazy"
+                     alt="Naše dodávka se zvednutou výklopnou střechou a otevřenými zadními dveřmi, vzadu Campal Camp Box, před budovou firmy Campal" />
+              </div>
             </li>
 
-            <li class="detail-box" id="tour">
+            <li class="detail-box has-media" id="tour">
               <div class="detail-text">
                 <p class="detail-step"><span class="step-no">5</span>Výsledek</p>
                 <h3>Prohlídka dodávky</h3>
@@ -240,6 +247,12 @@
                   <a class="btn btn-ghost btn-sm" href="https://www.youtube.com/watch?v=qDfeF9h9tqk" data-lb="video" data-video-id="qDfeF9h9tqk"
                      data-caption="4K | Kia PV5 Camper Van Tour! Skyline Pop Top &amp; Campal Camp Box. EVF#11"><svg aria-hidden="true"><use href="#i-play"/></svg>Přehrát EVF#11</a>
                 </div>
+              </div>
+              <div class="detail-media">
+                <img src="../assets/img/photo/build-van-tour-800.webp"
+                     srcset="../assets/img/photo/build-van-tour-800.webp 800w, ../assets/img/photo/build-van-tour-1600.webp 1600w"
+                     sizes="(max-width: 767px) 92vw, 26rem" width="800" height="559" loading="lazy"
+                     alt="Hotový obytňák se zvednutou výklopnou střechou, otevřenými zadními a posuvnými dveřmi, na silnici u pole" />
               </div>
             </li>
 
@@ -285,6 +298,8 @@
               </div>
             </li>
           </ol>
+          <!-- The affiliate offer of the Gear & partners card, repeated under the build. -->
+          <p class="build-note">Vybavení do obytňáku najdete na <a href="https://www.procampery.cz/action/Affiliate/setAccess/?partnerId=2&amp;linkId=2" target="_blank" rel="sponsored noopener">procampery.cz</a>. S kódem <strong>EVF5</strong> máte na objednávku slevu 5&nbsp;%.</p>
         </div>
       </section>
 

@@ -47,8 +47,9 @@
   <body>
     <!-- ===== chrome:icons (identical on every page) ===== -->
     <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-      <symbol id="i-youtube" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M23.1 7.2a3 3 0 0 0-2.1-2.1C19.1 4.6 12 4.6 12 4.6s-7.1 0-9 .5A3 3 0 0 0 .9 7.2 31 31 0 0 0 .4 12c0 1.6.2 3.2.5 4.8A3 3 0 0 0 3 18.9c1.9.5 9 .5 9 .5s7.1 0 9-.5a3 3 0 0 0 2.1-2.1c.3-1.6.5-3.2.5-4.8s-.2-3.2-.5-4.8zM9.7 15.1V8.9l5.9 3.1-5.9 3.1z"/></symbol>
-      <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4"/><circle cx="12" cy="12" r="4.4"/></g><circle cx="17.6" cy="6.4" r="1.25" fill="currentColor"/></symbol>
+      <defs><radialGradient id="ig-gradient" gradientUnits="userSpaceOnUse" cx="4" cy="24" r="27"><stop offset="0" stop-color="#FFD600"/><stop offset=".25" stop-color="#FF7A00"/><stop offset=".5" stop-color="#FF0069"/><stop offset=".75" stop-color="#D300C5"/><stop offset="1" stop-color="#7638FA"/></radialGradient></defs>
+      <symbol id="i-youtube" viewBox="0 0 24 24"><path fill="#FF0000" d="M23.1 7.2a3 3 0 0 0-2.1-2.1C19.1 4.6 12 4.6 12 4.6s-7.1 0-9 .5A3 3 0 0 0 .9 7.2 31 31 0 0 0 .4 12c0 1.6.2 3.2.5 4.8A3 3 0 0 0 3 18.9c1.9.5 9 .5 9 .5s7.1 0 9-.5a3 3 0 0 0 2.1-2.1c.3-1.6.5-3.2.5-4.8s-.2-3.2-.5-4.8z"/><path fill="#FFFFFF" d="M9.7 15.1V8.9l5.9 3.1-5.9 3.1z"/></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="url(#ig-gradient)" stroke-width="2"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4"/><circle cx="12" cy="12" r="4.4"/></g><circle cx="17.6" cy="6.4" r="1.25" fill="url(#ig-gradient)"/></symbol>
       <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4.5v15l13-7.5z"/></symbol>
       <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 1.5 3.8 13.6h6.6l-1.6 8.9 10-12.6h-6.7z"/></symbol>
       <symbol id="i-zoom" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6"/></g></symbol>
@@ -147,10 +148,10 @@
         <div class="container alt-rows">
           <section class="alt-row" aria-labelledby="why-title">
             <div class="alt-row-media reveal">
-              <img class="pos-upper" src="../assets/img/ig/DdQt1WuoeAk-1600.webp"
-                   srcset="../assets/img/ig/DdQt1WuoeAk-800.webp 451w, ../assets/img/ig/DdQt1WuoeAk-1600.webp 640w"
-                   sizes="(max-width: 767px) 92vw, 32rem" width="640" height="1136" loading="lazy"
-                   alt="Šedá obytná dodávka se zvednutou výklopnou střechou a otevřenými bočními dveřmi, zaparkovaná mezi borovicemi na srazu." />
+              <img src="../assets/img/photo/why-kia-awning-1600.webp"
+                   srcset="../assets/img/photo/why-kia-awning-800.webp 800w, ../assets/img/photo/why-kia-awning-1600.webp 1600w"
+                   sizes="(max-width: 767px) 92vw, 32rem" width="1600" height="1200" loading="lazy"
+                   alt="Šedá obytná dodávka se zvednutou výklopnou střechou a roztaženou markýzou nad venkovní rohoží, na trávníku mezi podzimními stromy." />
             </div>
             <div class="alt-row-text reveal">
               <h2 id="why-title">Proč právě Kia PV5</h2>
@@ -180,35 +181,32 @@
             </div>
           </section>
 
-          <section class="alt-row" aria-labelledby="martin-title">
-            <div class="alt-row-media reveal">
-              <!-- TODO(owner): a photo of Martin, landscape 5:4, at least 1200 px wide -->
-              <div class="todo-block">Fotka Martina na šířku, 5:4</div>
+          <!-- Martin and Bára: one photo of the two of them above both texts;
+               Martin is on the left of the photo, and so is his text. -->
+          <div class="couple">
+            <div class="couple-media reveal">
+              <img src="../assets/img/photo/martin-and-bara-1600.webp"
+                   srcset="../assets/img/photo/martin-and-bara-800.webp 800w, ../assets/img/photo/martin-and-bara-1600.webp 1600w"
+                   sizes="(max-width: 767px) 92vw, 68rem" width="1600" height="1200" loading="lazy"
+                   alt="Martin a Bára uvnitř dodávky se usmívají do objektivu a ukazují palec nahoru; za nimi otevřenou zádí dodávky stolek a pole v nízkém slunci." />
             </div>
-            <div class="alt-row-text reveal">
+            <section class="alt-row-text reveal" aria-labelledby="martin-title">
               <h2 id="martin-title">Martin</h2>
               <p>Většinou sedí za volantem – pokud zrovna nedrží v ruce kameru. Řídí, natáčí naše dobrodružství, létá s dronem a nějak se mu pokaždé podaří nést polovinu výbavy, ať jedeme kamkoli. Stojí i za střihem, YouTube a Instagramem a ze všech záběrů dělá videa a příspěvky, které na Electric Van Fam vidíte. Taky rád proměňuje PV5 v cokoli, co další dobrodružství zrovna potřebuje – v obytňák, ve filmové studio, v testovací laboratoř, nebo někdy ve všechno najednou. A mezi řízením, natáčením, stříháním a vším ostatním je hrdý táta dvou dětí, manžel a chlap, který o elektromobilech nejspíš přemýšlí až moc.</p>
-            </div>
-          </section>
-
-          <section class="alt-row" aria-labelledby="bara-title">
-            <div class="alt-row-media reveal">
-              <!-- TODO(owner): a photo of Bára, landscape 5:4, at least 1200 px wide -->
-              <div class="todo-block">Fotka Báry na šířku, 5:4</div>
-            </div>
-            <div class="alt-row-text reveal">
+            </section>
+            <section class="alt-row-text reveal" aria-labelledby="bara-title">
               <h2 id="bara-title">Bára</h2>
               <p>Díky ní se naše výlety vůbec uskuteční. Plánuje, kam pojedeme, hledá zajímavá místa, vymýšlí trasy a vždycky má další nápad, co bychom mohli cestou podniknout. Je taky expertka na balení – nějak dokáže do dodávky naskládat všechno, co by čtyřčlenná rodina mohla potřebovat. A je i ta kreativní: vymýšlí naši grafiku, samolepky a spoustu nápadů, které stojí za Electric Van Fam – včetně samotného názvu. A někde mezi plánováním, balením a tvořením je skvělá máma našich dvou malých, pozorná manželka a skvělá psí máma.</p>
-            </div>
-          </section>
+            </section>
+          </div>
         </div>
       </div>
 
       <!-- ================= PARALLAX BAND ================= -->
       <div class="band" aria-hidden="true">
-        <img src="../assets/img/ig/DdPMs1oCEB_-1600.webp"
-             srcset="../assets/img/ig/DdPMs1oCEB_-800.webp 800w, ../assets/img/ig/DdPMs1oCEB_-1600.webp 1600w, ../assets/img/ig/DdPMs1oCEB_-2400.webp 2400w"
-             sizes="100vw" alt="" loading="lazy" />
+        <img class="pos-low" src="../assets/img/photo/about-ionity-night-1600.webp"
+             srcset="../assets/img/photo/about-ionity-night-800.webp 600w, ../assets/img/photo/about-ionity-night-1600.webp 1200w"
+             sizes="100vw" width="1200" height="1600" alt="" loading="lazy" />
       </div>
 
       <!-- ================= GIANT TAGLINE ================= -->

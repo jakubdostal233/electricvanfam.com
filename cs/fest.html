@@ -47,8 +47,9 @@
   <body>
     <!-- ===== chrome:icons (identical on every page) ===== -->
     <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-      <symbol id="i-youtube" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M23.1 7.2a3 3 0 0 0-2.1-2.1C19.1 4.6 12 4.6 12 4.6s-7.1 0-9 .5A3 3 0 0 0 .9 7.2 31 31 0 0 0 .4 12c0 1.6.2 3.2.5 4.8A3 3 0 0 0 3 18.9c1.9.5 9 .5 9 .5s7.1 0 9-.5a3 3 0 0 0 2.1-2.1c.3-1.6.5-3.2.5-4.8s-.2-3.2-.5-4.8zM9.7 15.1V8.9l5.9 3.1-5.9 3.1z"/></symbol>
-      <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4"/><circle cx="12" cy="12" r="4.4"/></g><circle cx="17.6" cy="6.4" r="1.25" fill="currentColor"/></symbol>
+      <defs><radialGradient id="ig-gradient" gradientUnits="userSpaceOnUse" cx="4" cy="24" r="27"><stop offset="0" stop-color="#FFD600"/><stop offset=".25" stop-color="#FF7A00"/><stop offset=".5" stop-color="#FF0069"/><stop offset=".75" stop-color="#D300C5"/><stop offset="1" stop-color="#7638FA"/></radialGradient></defs>
+      <symbol id="i-youtube" viewBox="0 0 24 24"><path fill="#FF0000" d="M23.1 7.2a3 3 0 0 0-2.1-2.1C19.1 4.6 12 4.6 12 4.6s-7.1 0-9 .5A3 3 0 0 0 .9 7.2 31 31 0 0 0 .4 12c0 1.6.2 3.2.5 4.8A3 3 0 0 0 3 18.9c1.9.5 9 .5 9 .5s7.1 0 9-.5a3 3 0 0 0 2.1-2.1c.3-1.6.5-3.2.5-4.8s-.2-3.2-.5-4.8z"/><path fill="#FFFFFF" d="M9.7 15.1V8.9l5.9 3.1-5.9 3.1z"/></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="url(#ig-gradient)" stroke-width="2"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4"/><circle cx="12" cy="12" r="4.4"/></g><circle cx="17.6" cy="6.4" r="1.25" fill="url(#ig-gradient)"/></symbol>
       <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4.5v15l13-7.5z"/></symbol>
       <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 1.5 3.8 13.6h6.6l-1.6 8.9 10-12.6h-6.7z"/></symbol>
       <symbol id="i-zoom" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6"/></g></symbol>
@@ -151,26 +152,22 @@
                    alt="Obytná auta jedou v řadě po závodní dráze, pohled shora." />
             </div>
             <div class="alt-row-text reveal">
-              <h2 id="plan-title">Co chystáme</h2>
+              <h2 id="plan-title">Jedna komunita. Jeden víkend. A pořádná dávka elektrického vanlife.</h2>
+              <p>Přidejte se k nám na víkend, který oslavuje elektrické dodávky, kempování a svobodu objevovat.</p>
+              <p>Toto setkání pořádá Electric Van Fam a svádí dohromady lidi naladěné na stejnou vlnu, které spojuje vášeň pro elektromobilitu, dobrodružství a život na cestách.</p>
+              <p>Prohlédněte si různé přestavby dodávek, vyměňte si tipy a triky, podělte se o zkušenosti z praxe a načerpejte inspiraci na další cestu&nbsp;– ať už cestujete s rodinou, ve dvou, nebo sami.</p>
+              <p>Díky inspirativním cestovatelským přednáškám, aktivitám pro děti a spoustě času na seznamování je to víc než jen sraz dodávek. Je to komunita postavená na společných zážitcích a lásce k elektrickému vanlife.</p>
+              <p class="section-lead"><strong>Čistě elektrické dodávky. Dobrodružství všeho druhu. Jedna přátelská komunita.<br />Přijeďte kvůli dodávkám. Zůstaňte kvůli lidem.</strong></p>
               <ul class="fest-facts">
                 <li>
-                  <!-- TODO(owner): Electric Van Fest - the date -->
-                  <span class="todo">Datum</span>
+                  <span class="fest-fact"><strong>Místo:</strong> střed Velké Británie <svg class="flag flag-gb" aria-hidden="true"><use href="#i-flag-gb"/></svg>, upřesníme</span>
                 </li>
                 <li>
-                  <!-- TODO(owner): Electric Van Fest - the place -->
-                  <span class="todo">Místo</span>
+                  <span class="fest-fact"><strong>Pro koho:</strong> vítáme všechny plně elektrické dodávky 🚐</span>
                 </li>
                 <li>
-                  <!-- TODO(owner): Electric Van Fest - the programme -->
-                  <span class="todo">Program</span>
-                </li>
-                <li>
-                  <span class="fest-fact"><strong>Pro koho:</strong> všechny elektrické dodávky bez ohledu na značku, nejen obytné</span>
-                </li>
-                <li>
-                  <!-- TODO(owner): Electric Van Fest - how to sign up -->
-                  <span class="todo">Jak se přihlásit</span>
+                  <!-- TODO(owner): Electric Van Fest - the registration form (a Tally form; the link replaces this line) -->
+                  <span class="fest-fact"><strong>Jak se přihlásit:</strong> přihlašovací formulář tu brzy zveřejníme</span>
                 </li>
               </ul>
             </div>
