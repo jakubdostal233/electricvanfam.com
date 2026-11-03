@@ -841,7 +841,6 @@ html.lb-lock { overflow: hidden; }
 }
 .detail-text h3 { font-size: clamp(1.25rem, 2.2vw, 1.55rem); margin-bottom: 0.7rem; }
 .detail-text p:not(.detail-step) { color: var(--text-muted); max-width: 68ch; }
-.detail-total { margin-top: 0.9rem; }
 .detail-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.3rem; }
 .detail-media img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); }
 .detail-media img.pos-high { object-position: 50% 12%; }
