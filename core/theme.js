@@ -25,7 +25,7 @@ var persTheme = (function () {
       buttons[k].classList.toggle("active", k === mode);
       buttons[k].setAttribute("aria-pressed", String(k === mode));
     });
-    // Swap paired diagram variants (pers:diagram convention: name-light.svg /
+    // Swap paired diagram variants (jd:diagram convention: name-light.svg /
     // name-dark.svg). The .only-light/.only-dark CSS path (core/diagrams.css)
     // handles embedded data-URI images where this filename swap can't match.
     var eff = effective(mode);
